@@ -38,6 +38,11 @@ android:paddingHorizontal="24dp">
         android:text="@string/btn_playlists"/>
 
     <TextView
+        android:id="@+id/nav_more"
+        style="@style/NavItem"
+        android:text="@string/btn_more"/>
+
+    <TextView
         android:id="@+id/nav_settings"
         style="@style/NavItem"
         android:text="@string/btn_settings"/>

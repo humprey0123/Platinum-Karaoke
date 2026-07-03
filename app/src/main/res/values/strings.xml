@@ -6,6 +6,7 @@
     <string name="btn_search">Search</string>
     <string name="btn_playlists">Playlists</string>
     <string name="btn_settings">Settings Icon</string>
+    <string name="btn_more">More</string>
 
     <!-- Error messages -->
     <string name="error_fragment_message">An error occurred</string>
