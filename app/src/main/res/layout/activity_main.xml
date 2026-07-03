@@ -1,29 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main_layout"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:background="#000000">
 
+    <!-- 🔝 TOP NAVBAR -->
+    <LinearLayout
+        android:id="@+id/navbar"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingHorizontal="24dp">
+
+        <!-- LEFT SIDE -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_marginEnd="24dp"
+                android:src="@drawable/asset4" />
+
+            <TextView
+                android:id="@+id/nav_home"
+                style="@style/NavItem"
+                android:text="Home"/>
+
+            <TextView
+                android:id="@+id/nav_movies"
+                style="@style/NavItem"
+                android:text="@string/btn_search"/>
+
+            <TextView
+                android:id="@+id/nav_tv"
+                style="@style/NavItem"
+                android:text="@string/btn_playlists"/>
+
+            <TextView
+                android:id="@+id/nav_settings"
+                style="@style/NavItem"
+                android:text="@string/btn_settings"/>
+
+        </LinearLayout>
+
+        <!-- PUSH RIGHT -->
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+
+        <!-- RIGHT LOGO -->
+        <ImageView
+            android:layout_width="130dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:scaleType="fitCenter"
+            android:src="@drawable/the_platinum"
+            />
+
+    </LinearLayout>
+
+    <!-- 🎬 MAIN CONTENT AREA -->
     <FrameLayout
         android:id="@+id/main_browse_fragment"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" >
+        android:layout_height="match_parent"
+        android:background="#000000" />
 
-        <Button
-            android:id="@+id/button2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="436dp"
-
-            android:layout_marginLeft="436dp"
-            android:layout_marginTop="216dp"
-            android:text="@string/btn_play"
-            app:layout_constraintStart_toStartOf="parent" />
-    </FrameLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>

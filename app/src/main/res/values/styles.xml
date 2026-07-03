@@ -1,0 +1,15 @@
+<resources>
+
+    <!-- Your existing themes/styles -->
+
+    <style name="NavItem">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:focusable">true</item>
+        <item name="android:focusableInTouchMode">true</item>
+        <item name="android:textColor">@color/nav_text_color</item>
+        <item name="android:textSize">15sp</item>
+    </style>
+
+</resources>

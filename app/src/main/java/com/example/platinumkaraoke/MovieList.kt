@@ -2,12 +2,12 @@ package com.example.platinumkaraoke
 
 object MovieList {
     val MOVIE_CATEGORY = arrayOf(
-        "Category Zero",
-        "Category One",
-        "Category Two",
-        "Category Three",
-        "Category Four",
-        "Category Five"
+        "PK Icon",
+        "Home",
+        "Search",
+        "Playlists",
+        "More",
+        "Settings Icon"
     )
 
     val list: List<Movie> by lazy {
