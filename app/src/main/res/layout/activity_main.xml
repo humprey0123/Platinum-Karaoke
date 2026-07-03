@@ -5,67 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#000000">
-
-    <!-- 🔝 TOP NAVBAR -->
-    <LinearLayout
-        android:id="@+id/navbar"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:orientation="horizontal"
-        android:gravity="center_vertical"
-        android:paddingHorizontal="24dp">
-
-        <!-- LEFT SIDE -->
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:gravity="center_vertical">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_marginEnd="24dp"
-                android:src="@drawable/asset4" />
-
-            <TextView
-                android:id="@+id/nav_home"
-                style="@style/NavItem"
-                android:text="Home"/>
-
-            <TextView
-                android:id="@+id/nav_movies"
-                style="@style/NavItem"
-                android:text="@string/btn_search"/>
-
-            <TextView
-                android:id="@+id/nav_tv"
-                style="@style/NavItem"
-                android:text="@string/btn_playlists"/>
-
-            <TextView
-                android:id="@+id/nav_settings"
-                style="@style/NavItem"
-                android:text="@string/btn_settings"/>
-
-        </LinearLayout>
-
-        <!-- PUSH RIGHT -->
-        <Space
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
-
-        <!-- RIGHT LOGO -->
-        <ImageView
-            android:layout_width="130dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:scaleType="fitCenter"
-            android:src="@drawable/the_platinum"
-            />
-
-    </LinearLayout>
+    <include layout="@layout/component_navbar"/>
 
     <!-- 🎬 MAIN CONTENT AREA -->
     <FrameLayout
@@ -75,3 +15,31 @@
         android:background="#000000" />
 
 </LinearLayout>
+
+
+<!--Layout-->
+<!--    &lt;!&ndash; activity_main.xml &ndash;&gt;-->
+<!--<FrameLayout-->
+<!--android:layout_width="match_parent"-->
+<!--android:layout_height="match_parent">-->
+
+<!--&lt;!&ndash; 🔹 BACKGROUND LAYER (can be video or image) &ndash;&gt;-->
+<!--<FrameLayout-->
+<!--    android:id="@+id/background_container"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent" />-->
+
+<!--&lt;!&ndash; 🔹 CONTENT LAYER (your fragments/pages) &ndash;&gt;-->
+<!--<FrameLayout-->
+<!--    android:id="@+id/main_container"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="match_parent" />-->
+
+<!--&lt;!&ndash; 🔹 NAVBAR (always on top) &ndash;&gt;-->
+<!--<include-->
+<!--    layout="@layout/component_navbar"-->
+<!--    android:layout_width="match_parent"-->
+<!--    android:layout_height="70dp"-->
+<!--    android:layout_gravity="top"/>-->
+
+<!--</FrameLayout>-->
