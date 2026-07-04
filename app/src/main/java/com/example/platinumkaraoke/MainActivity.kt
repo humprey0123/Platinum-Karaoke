@@ -2,7 +2,7 @@ package com.example.platinumkaraoke
 
 import android.os.Bundle
 import androidx.fragment.app.FragmentActivity
-import android.view.View
+import android.widget.ImageView
 
 /**
  * Loads [MainFragment].
@@ -14,7 +14,7 @@ class MainActivity : FragmentActivity() {
 
         setContentView(R.layout.activity_main)
 
-        val bg = findViewById<View>(R.id.dynamic_background)
-        bg.setBackgroundResource(R.drawable.bg_home)
+        val bg = findViewById<ImageView>(R.id.dynamic_background)
+        bg.setImageResource(R.drawable.bg_home)
     }
 }

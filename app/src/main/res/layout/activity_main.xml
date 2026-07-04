@@ -4,16 +4,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <View
+    <ImageView
         android:id="@+id/dynamic_background"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        android:src="@drawable/bg_home" />
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#000000">
+        android:background="@android:color/transparent">
         <include
             layout="@layout/component_navbar"/>
 
@@ -23,7 +24,7 @@
             android:id="@+id/main_browse_fragment"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="#000000" />
+            android:background="@android:color/transparent" />
     </LinearLayout>
 </FrameLayout>
 
