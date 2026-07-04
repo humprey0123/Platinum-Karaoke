@@ -42,10 +42,11 @@ android:paddingHorizontal="24dp">
         style="@style/NavItem"
         android:text="@string/btn_more"/>
 
-    <TextView
-        android:id="@+id/nav_settings"
-        style="@style/NavItem"
-        android:text="@string/btn_settings"/>
+    <ImageView
+        android:layout_width="20dp"
+        android:layout_height="20dp"
+        android:layout_marginEnd="24dp"
+        android:src="@drawable/settings_icon" />
 
 </LinearLayout>
 
@@ -57,7 +58,7 @@ android:paddingHorizontal="24dp">
 
 <!-- RIGHT LOGO -->
 <ImageView
-    android:layout_width="130dp"
+    android:layout_width="100dp"
     android:layout_height="wrap_content"
     android:layout_gravity="center_vertical"
     android:scaleType="fitCenter"
