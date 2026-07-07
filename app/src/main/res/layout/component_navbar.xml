@@ -20,33 +20,44 @@ android:paddingHorizontal="24dp">
         android:layout_width="20dp"
         android:layout_height="20dp"
         android:layout_marginEnd="24dp"
-        android:src="@drawable/asset4" />
+        android:src="@drawable/ellipse_1"
+        android:contentDescription="@string/mini_logo"/>
 
     <TextView
         android:id="@+id/nav_home"
         style="@style/NavItem"
-        android:text="Home"/>
+        android:text="@string/btn_home"
+        android:background="@drawable/selector_button"
+        android:focusable="true"
+        android:focusableInTouchMode="true"/>
 
     <TextView
-        android:id="@+id/nav_movies"
+        android:id="@+id/nav_search"
         style="@style/NavItem"
-        android:text="@string/btn_search"/>
+        android:text="@string/btn_search"
+        android:background="@drawable/selector_button"/>
 
     <TextView
-        android:id="@+id/nav_tv"
+        android:id="@+id/nav_playlists"
         style="@style/NavItem"
-        android:text="@string/btn_playlists"/>
+        android:text="@string/btn_playlists"
+        android:background="@drawable/selector_button"/>
 
     <TextView
         android:id="@+id/nav_more"
         style="@style/NavItem"
-        android:text="@string/btn_more"/>
+        android:text="@string/btn_more"
+        android:background="@drawable/selector_button"/>
 
     <ImageView
         android:layout_width="20dp"
         android:layout_height="20dp"
-        android:layout_marginEnd="24dp"
-        android:src="@drawable/settings_icon" />
+        android:layout_marginStart="10dp"
+        android:src="@drawable/settings_icon"
+        android:background="@drawable/selector_button"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:contentDescription="@string/btn_settings"/>
 
 </LinearLayout>
 
@@ -63,6 +74,7 @@ android:paddingHorizontal="24dp">
     android:layout_gravity="center_vertical"
     android:scaleType="fitCenter"
     android:src="@drawable/the_platinum"
+    android:contentDescription="@string/full_logo"
     />
 
 </LinearLayout>

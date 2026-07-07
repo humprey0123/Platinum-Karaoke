@@ -7,6 +7,8 @@
     <string name="btn_playlists">Playlists</string>
     <string name="btn_settings">Settings Icon</string>
     <string name="btn_more">More</string>
+    <string name="mini_logo">Mini Logo Icon</string>
+    <string name="full_logo">Full Logo Icon</string>
 
     <!-- Error messages -->
     <string name="error_fragment_message">An error occurred</string>
