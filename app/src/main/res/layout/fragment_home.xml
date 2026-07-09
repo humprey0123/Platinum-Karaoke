@@ -19,10 +19,17 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Next:  " />
+                android:text="Next:  "
+                android:textStyle="bold"
+                android:textSize="10sp"/>
+
+            <!-- Repeatable -->
             <TextView
+                android:id="@+id/next_song"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:textSize="10sp"
+                android:textStyle="bold"
                 android:text="1710 Just Once      6651 Wherever You Will Go      4434 Bohemian Rhapsody      29851 Golden" />
         </LinearLayout>
 
@@ -76,6 +83,7 @@
             android:layout_margin="10dp">
 
             <com.example.platinumkaraoke.StrokeTextView
+                android:id="@+id/song_lyrics"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Song lyrics line one here"
@@ -86,6 +94,7 @@
                 android:fontFamily="sans-serif"
                 android:padding="10dp"/>
             <com.example.platinumkaraoke.StrokeTextView
+                android:id="@id/song_lyrics"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Song lyrics line two here"
