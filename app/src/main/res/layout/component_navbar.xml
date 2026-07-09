@@ -18,8 +18,8 @@
         android:gravity="center_vertical">
 
         <ImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginEnd="24dp"
             android:src="@drawable/ellipse_1"
             android:contentDescription="@string/mini_logo"/>
@@ -30,29 +30,33 @@
             android:text="@string/btn_home"
             android:background="@drawable/selector_button"
             android:focusable="true"
-            android:focusableInTouchMode="true"/>
+            android:focusableInTouchMode="true"
+            android:textColor="@drawable/nav_text_selector"/>
 
         <TextView
             android:id="@+id/nav_search"
             style="@style/NavItem"
             android:text="@string/btn_search"
-            android:background="@drawable/selector_button"/>
+            android:background="@drawable/selector_button"
+            android:textColor="@drawable/nav_text_selector"/>
 
         <TextView
             android:id="@+id/nav_playlists"
             style="@style/NavItem"
             android:text="@string/btn_playlists"
-            android:background="@drawable/selector_button"/>
+            android:background="@drawable/selector_button"
+            android:textColor="@drawable/nav_text_selector"/>
 
         <TextView
             android:id="@+id/nav_more"
             style="@style/NavItem"
             android:text="@string/btn_more"
-            android:background="@drawable/selector_button"/>
+            android:background="@drawable/selector_button"
+            android:textColor="@drawable/nav_text_selector"/>
 
         <ImageView
-            android:layout_width="15dp"
-            android:layout_height="15dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginStart="10dp"
             android:src="@drawable/settings_icon"
             android:background="@drawable/selector_button"
@@ -70,7 +74,7 @@
 
     <!-- RIGHT LOGO -->
     <ImageView
-        android:layout_width="80dp"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_vertical"
         android:scaleType="fitCenter"

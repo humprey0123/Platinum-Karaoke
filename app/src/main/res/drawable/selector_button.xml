@@ -3,15 +3,16 @@
     <!-- Focused (TV remote navigation) -->
     <item android:state_focused="true">
         <shape android:shape="rectangle">
-            <solid android:color="#99FFFFFF"/>
+            <solid android:color="#FFFFFF"/>
             <corners android:radius="30dp"/>
         </shape>
     </item>
 
+
     <!-- Selected -->
     <item android:state_selected="true">
         <shape android:shape="rectangle">
-            <solid android:color="#99FFFFFF"/>
+            <solid android:color="#FFFFFF"/>
             <corners android:radius="30dp"/>
         </shape>
     </item>
@@ -19,7 +20,8 @@
     <!-- Default -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="@android:color/transparent"/>
+            <solid android:color="#30FFFFFF"/>
+            <corners android:radius="30dp"/>
         </shape>
     </item>
 
