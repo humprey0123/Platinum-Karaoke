@@ -82,6 +82,16 @@ class GridAdapter(private val items: List<Category>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         holder.image.setImageResource(item.imageRes)
+
+        // ✅ ADD THIS
+        holder.itemView.setOnFocusChangeListener { v, hasFocus ->
+            v.animate()
+                .scaleX(if (hasFocus) 1.1f else 1.0f)
+                .scaleY(if (hasFocus) 1.1f else 1.0f)
+                .translationZ(if (hasFocus) 80f else 0f) // 👈 SHADOW
+                .setDuration(150)
+                .start()
+        }
     }
 
     override fun getItemCount() = items.size
