@@ -27,32 +27,32 @@
         <TextView
             android:id="@+id/nav_home"
             style="@style/NavItem"
-            android:text="@string/btn_home "
+            android:text="@string/btn_home"
             android:background="@drawable/selector_button"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:textColor="@drawable/nav_text_selector"/>
+            android:textColor="@drawable/selector_nav_text"/>
 
         <TextView
             android:id="@+id/nav_search"
             style="@style/NavItem"
             android:text="@string/btn_search"
             android:background="@drawable/selector_button"
-            android:textColor="@drawable/nav_text_selector"/>
+            android:textColor="@drawable/selector_nav_text"/>
 
         <TextView
             android:id="@+id/nav_playlists"
             style="@style/NavItem"
             android:text="@string/btn_playlists"
             android:background="@drawable/selector_button"
-            android:textColor="@drawable/nav_text_selector"/>
+            android:textColor="@drawable/selector_nav_text"/>
 
         <TextView
             android:id="@+id/nav_more"
             style="@style/NavItem"
             android:text="@string/btn_more"
             android:background="@drawable/selector_button"
-            android:textColor="@drawable/nav_text_selector"/>
+            android:textColor="@drawable/selector_nav_text"/>
 
         <ImageView
             android:layout_width="30dp"
