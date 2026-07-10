@@ -1,59 +1,88 @@
 package com.example.platinumkaraoke
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
+import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import android.widget.ImageView
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
-
-/**
- * A simple [Fragment] subclass.
- * Use the [HomeFragment.newInstance] factory method to
- * create an instance of this fragment.
- */
 class HomeFragment : Fragment() {
-    // TODO: Rename and change types of parameters
-    private var param1: String? = null
-    private var param2: String? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            param1 = it.getString(ARG_PARAM1)
-            param2 = it.getString(ARG_PARAM2)
-        }
-    }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
+        inflater: LayoutInflater,
+        container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_karaoke, container, false)
+        return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-    companion object {
-        /**
-         * Use this factory method to create a new instance of
-         * this fragment using the provided parameters.
-         *
-         * @param param1 Parameter 1.
-         * @param param2 Parameter 2.
-         * @return A new instance of fragment HomeFragment.
-         */
-        // TODO: Rename and change types and number of parameters
-        @JvmStatic
-        fun newInstance(param1: String, param2: String) =
-            HomeFragment().apply {
-                arguments = Bundle().apply {
-                    putString(ARG_PARAM1, param1)
-                    putString(ARG_PARAM2, param2)
-                }
-            }
+    // 👉 ADD YOUR GRID LOGIC HERE
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        val recyclerView = view.findViewById<RecyclerView>(R.id.gridRecycler)
+
+
+        // 4 columns
+        val layoutManager = GridLayoutManager(requireContext(), 4)
+        recyclerView.layoutManager = layoutManager
+
+        // sample 16 items (4x4 grid)
+        val items = listOf(
+            GridAdapter.Category(R.drawable.home_cat_1opm),
+            GridAdapter.Category(R.drawable.home_cat_2pop),
+            GridAdapter.Category(R.drawable.home_cat_3slowrock),
+            GridAdapter.Category(R.drawable.home_cat_4english_classics),
+            GridAdapter.Category(R.drawable.home_cat_5k_pop),
+            GridAdapter.Category(R.drawable.home_cat_6alternative),
+            GridAdapter.Category(R.drawable.home_cat_7country),
+            GridAdapter.Category(R.drawable.home_cat_8rock),
+            GridAdapter.Category(R.drawable.home_cat_9edm_techno),
+            GridAdapter.Category(R.drawable.home_cat_10hiphop_rap),
+            GridAdapter.Category(R.drawable.home_cat_11rnd_soul),
+            GridAdapter.Category(R.drawable.home_cat_12love_song),
+            GridAdapter.Category(R.drawable.home_cat_13power_ballad),
+            GridAdapter.Category(R.drawable.home_cat_14raggae_ska),
+            GridAdapter.Category(R.drawable.home_cat_15novelty),
+            GridAdapter.Category(R.drawable.home_cat_16folk)
+        )
+
+        recyclerView.adapter = GridAdapter(items)
+
+        // TV focus settings
+        recyclerView.setHasFixedSize(true)
+        recyclerView.isFocusable = true
+        recyclerView.isFocusableInTouchMode = true
     }
+
+}
+
+// 👉 Adapter class
+class GridAdapter(private val items: List<Category>) :
+    RecyclerView.Adapter<GridAdapter.ViewHolder>() {
+
+    data class Category(
+        val imageRes: Int
+    )
+
+    class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        val image: ImageView = view.findViewById(R.id.itemImage)
+    }
+
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(parent.context)
+            .inflate(R.layout.item_grid, parent, false)
+        return ViewHolder(view)
+    }
+
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val item = items[position]
+        holder.image.setImageResource(item.imageRes)
+    }
+
+    override fun getItemCount() = items.size
 }
