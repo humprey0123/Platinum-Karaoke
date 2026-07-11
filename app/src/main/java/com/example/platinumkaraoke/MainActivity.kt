@@ -34,8 +34,12 @@ class MainActivity : FragmentActivity() {
             .replace(R.id.main_content, HomeFragment())
             .commit()
 
-        findViewById<ImageView>(R.id.bg)
-            .setImageResource(R.drawable.bg_home)
+        findViewById<ImageView>(R.id.bg).apply {
+            setImageResource(R.drawable.bg_home)
+            setColorFilter(0x30000000.toInt())
+        }
+
+//        findViewById<ImageView>(R.id.bgOverlay).visibility = View.VISIBLE
     }
 
     fun showSearch() {

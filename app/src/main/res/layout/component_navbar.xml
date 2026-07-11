@@ -58,8 +58,10 @@
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="10dp"
-            android:src="@drawable/settings_icon"
+            android:padding="5dp"
+            android:src="@drawable/gear1"
             android:background="@drawable/selector_button"
+            android:tint="@color/selector_icon_tint"
             android:focusable="true"
             android:focusableInTouchMode="true"
             android:contentDescription="@string/btn_settings"/>

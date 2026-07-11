@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Focused (Android TV focus) -->
+    <item android:state_focused="true" android:color="#FF000000"/> <!-- dark -->
+
+    <!-- Default -->
+    <item android:color="#FFFFFFFF"/> <!-- normal -->
+
+</selector>

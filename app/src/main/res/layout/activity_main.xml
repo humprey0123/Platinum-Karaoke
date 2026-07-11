@@ -10,6 +10,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:contentDescription="@string/background_img"/>
+<!--    <View-->
+<!--        android:id="@+id/bgOverlay"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:background="#33000000"/>-->
+
 
     <LinearLayout
         android:orientation="vertical"
