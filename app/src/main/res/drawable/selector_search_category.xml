@@ -3,7 +3,7 @@
     <!-- Focused / Selected -->
     <item android:state_focused="true">
         <shape android:shape="rectangle">
-            <solid android:color="#FFFFFF"/>
+            <solid android:color="#E2AE24"/>
             <corners android:radius="30dp"/>
         </shape>
     </item>
@@ -13,7 +13,7 @@
     <!-- Default -->
     <item>
         <shape android:shape="rectangle">
-            <solid android:color="#30FFFFFF"/>
+            <solid android:color="#80E2AE24"/>
             <corners android:radius="30dp"/>
         </shape>
     </item>
