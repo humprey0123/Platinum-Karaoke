@@ -36,7 +36,7 @@ class MainActivity : FragmentActivity() {
 
         findViewById<ImageView>(R.id.bg).apply {
             setImageResource(R.drawable.bg_home)
-            setColorFilter(0x30000000.toInt())
+            setColorFilter(0x80000000.toInt())
         }
 
 //        findViewById<ImageView>(R.id.bgOverlay).visibility = View.VISIBLE
