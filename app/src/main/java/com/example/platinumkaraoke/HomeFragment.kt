@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -33,22 +32,22 @@ class HomeFragment : Fragment() {
 
         // sample 16 items (4x4 grid)
         val items = listOf(
-            GridAdapter.Category(R.drawable.home_cat_1opm),
-            GridAdapter.Category(R.drawable.home_cat_2pop),
-            GridAdapter.Category(R.drawable.home_cat_3slowrock),
-            GridAdapter.Category(R.drawable.home_cat_4english_classics),
-            GridAdapter.Category(R.drawable.home_cat_5k_pop),
-            GridAdapter.Category(R.drawable.home_cat_6alternative),
-            GridAdapter.Category(R.drawable.home_cat_7country),
-            GridAdapter.Category(R.drawable.home_cat_8rock),
-            GridAdapter.Category(R.drawable.home_cat_9edm_techno),
-            GridAdapter.Category(R.drawable.home_cat_10hiphop_rap),
-            GridAdapter.Category(R.drawable.home_cat_11rnd_soul),
-            GridAdapter.Category(R.drawable.home_cat_12love_song),
-            GridAdapter.Category(R.drawable.home_cat_13power_ballad),
-            GridAdapter.Category(R.drawable.home_cat_14raggae_ska),
-            GridAdapter.Category(R.drawable.home_cat_15novelty),
-            GridAdapter.Category(R.drawable.home_cat_16folk)
+            GridAdapter.Category(R.drawable.home_cat_1opm, "OPM Classics"),
+            GridAdapter.Category(R.drawable.home_cat_2pop, "POP Hits"),
+            GridAdapter.Category(R.drawable.home_cat_3slowrock, "Slow Rock"),
+            GridAdapter.Category(R.drawable.home_cat_4english_classics, "English Classics"),
+            GridAdapter.Category(R.drawable.home_cat_5k_pop, "K-POP"),
+            GridAdapter.Category(R.drawable.home_cat_6alternative, "Alternative"),
+            GridAdapter.Category(R.drawable.home_cat_7country, "Country"),
+            GridAdapter.Category(R.drawable.home_cat_8rock, "Rock"),
+            GridAdapter.Category(R.drawable.home_cat_9edm_techno, "EDM/Techno"),
+            GridAdapter.Category(R.drawable.home_cat_10hiphop_rap, "Hip-hop/Rap"),
+            GridAdapter.Category(R.drawable.home_cat_11rnd_soul, "RNB / Soul"),
+            GridAdapter.Category(R.drawable.home_cat_12love_song, "Love Songs"),
+            GridAdapter.Category(R.drawable.home_cat_13power_ballad, "Power Ballad"),
+            GridAdapter.Category(R.drawable.home_cat_14raggae_ska, "Reggae / Ska"),
+            GridAdapter.Category(R.drawable.home_cat_15novelty, "Novelty"),
+            GridAdapter.Category(R.drawable.home_cat_16folk, "Folk")
         )
 
         recyclerView.adapter = GridAdapter(items)
@@ -66,7 +65,8 @@ class GridAdapter(private val items: List<Category>) :
     RecyclerView.Adapter<GridAdapter.ViewHolder>() {
 
     data class Category(
-        val imageRes: Int
+        val imageRes: Int,
+        val title: String
     )
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -82,6 +82,8 @@ class GridAdapter(private val items: List<Category>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
         holder.image.setImageResource(item.imageRes)
+
+        holder.image.contentDescription = item.title
 
         // ✅ ADD THIS
         holder.itemView.setOnFocusChangeListener { v, hasFocus ->
