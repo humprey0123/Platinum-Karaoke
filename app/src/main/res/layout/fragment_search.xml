@@ -1,78 +1,161 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SearchFragment"
     android:layout_marginTop="20dp">
 
-    <!-- TODO: Update blank fragment layout -->
-    <!-- UI ON TOP -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:paddingHorizontal="20dp"
         android:orientation="vertical">
 
+        <!-- UI ON TOP -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="30dp">
+            android:paddingHorizontal="20dp"
+            android:orientation="vertical">
 
-            <TextView
-                android:text="Philippines"
-                style="@style/CategoryTabs"
-                android:background="@drawable/selector_search_category"
-                android:textColor="@drawable/selector_nav_text"/>
-
-            <TextView
-                android:text="Title View"
-                style="@style/CategoryTabs"
-                android:background="@drawable/selector_search_category"
-                android:textColor="@drawable/selector_nav_text"/>
-
-            <TextView
-                android:text="All"
-                style="@style/CategoryTabs"
-                android:background="@drawable/selector_search_category"
-                android:textColor="@drawable/selector_nav_text"/>
-
-            <TextView
-                android:text="New Songs"
-                style="@style/CategoryTabs"
-                android:background="@drawable/selector_search_category"
-                android:textColor="@drawable/selector_nav_text"/>
-
-            <TextView
-                android:text="Pop"
-                style="@style/CategoryTabs"
-                android:background="@drawable/selector_search_category"
-                android:textColor="@drawable/selector_nav_text"/>
-
-            <TextView
-                android:text="Playlists"
-                style="@style/CategoryTabs"
-                android:background="@drawable/selector_search_category"
-                android:textColor="@drawable/selector_nav_text"/>
-
-            <EditText
-                android:id="@+id/search"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@drawable/search_radius"
-                android:focusable="true"
-                android:focusableInTouchMode="true"
-                android:hint="Search..."
-                android:inputType="none"
-                android:paddingHorizontal="10dp"
-                android:paddingVertical="5dp"
-                android:textColor="#FFFFFF"
-                android:textColorHint="#BDFFFFFF"
-                android:textSize="14sp"
-                />
+                android:layout_marginLeft="30dp">
 
+                <TextView
+                    android:text="Philippines"
+                    style="@style/CategoryTabs"
+                    android:background="@drawable/selector_search_category"
+                    android:textColor="@drawable/selector_nav_text"/>
+
+                <TextView
+                    android:text="Title View"
+                    style="@style/CategoryTabs"
+                    android:background="@drawable/selector_search_category"
+                    android:textColor="@drawable/selector_nav_text"/>
+
+                <TextView
+                    android:text="All"
+                    style="@style/CategoryTabs"
+                    android:background="@drawable/selector_search_category"
+                    android:textColor="@drawable/selector_nav_text"/>
+
+                <TextView
+                    android:text="New Songs"
+                    style="@style/CategoryTabs"
+                    android:background="@drawable/selector_search_category"
+                    android:textColor="@drawable/selector_nav_text"/>
+
+                <TextView
+                    android:text="Pop"
+                    style="@style/CategoryTabs"
+                    android:background="@drawable/selector_search_category"
+                    android:textColor="@drawable/selector_nav_text"/>
+
+                <TextView
+                    android:text="Playlists"
+                    style="@style/CategoryTabs"
+                    android:background="@drawable/selector_search_category"
+                    android:textColor="@drawable/selector_nav_text"/>
+
+                <EditText
+                    android:id="@+id/search"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/search_radius"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:hint="Search..."
+                    android:inputType="none"
+                    android:paddingHorizontal="10dp"
+                    android:paddingVertical="5dp"
+                    android:textColor="#FFFFFF"
+                    android:textColorHint="#BDFFFFFF"
+                    android:textSize="14sp"
+                    />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="80dp">
+                <TextView
+                    android:text="Korea"
+                    style="@style/SubCategory"
+                    android:textColor="@drawable/selector_nav_text"/>
+                <TextView
+                    android:text="China"
+                    style="@style/SubCategory"
+                    android:textColor="@drawable/selector_nav_text"/>
+                <TextView
+                    android:text="Russia"
+                    style="@style/SubCategory"
+                    android:textColor="@drawable/selector_nav_text"/>
+                <TextView
+                    android:text="Brazil"
+                    style="@style/SubCategory"
+                    android:textColor="@drawable/selector_nav_text"/>
+                <TextView
+                    android:text="Vietnam"
+                    style="@style/SubCategory"
+                    android:textColor="@drawable/selector_nav_text"/>
+            </LinearLayout>
         </LinearLayout>
+
+        <!-- Mid-Content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp"
+            android:layout_marginTop="10dp">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="12dp"
+                    android:layout_weight="1"
+                    android:layout_marginEnd="1dp"
+                    android:text="Training"
+                    android:textAlignment="center"
+                    android:layout_gravity="center"
+                    android:duplicateParentState="true"
+                    />
+                <TextView
+                    android:text="17518"
+                    android:layout_weight="1"
+                    style="@style/SongInfo"/>
+                <TextView
+                    android:text="A Beautiful Lie 30"
+                    android:layout_weight="4"
+                    style="@style/SongInfo"/>
+                <TextView
+                    android:text="To Mars"
+                    android:layout_weight="2"
+                    style="@style/SongInfo"/>
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="2">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textAlignment="center"
+                    android:text="Keyboard Area"
+                    android:textSize="18sp"
+                    android:padding="16dp"/>
+            </LinearLayout>
+        </LinearLayout>
+
+
     </LinearLayout>
 
 
