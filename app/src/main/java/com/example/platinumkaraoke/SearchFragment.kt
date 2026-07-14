@@ -16,11 +16,11 @@ class SearchFragment : Fragment() {
 
     private val categoryMap = mapOf(
         "Philippines" to listOf("Korea", "China", "Russia", "Brazil", "Vietnam"),
-        "Title View" to listOf("Top Hits", "Trending", "Classic"),
-        "All" to listOf("A-Z", "Recent", "Popular"),
-        "New Songs" to listOf("2024", "2025"),
-        "Pop" to listOf("K-Pop", "P-Pop", "J-Pop"),
-        "Playlists" to listOf("Workout", "Chill", "Love Songs")
+        "Title View" to listOf("Artist View"),
+        "All" to listOf("Regional", "Kids", "Gospel", "Training"),
+        "New Songs" to listOf("<05-2026>"),
+        "Pop" to listOf("English Classics", "K-Pop", "Rock", "Slow Rock", "Alternative", "Country", "Pop", "EDM/Techno", "Hiphop/Rap", "RNB/Soul", "Love Song", "Power Ballad", "Reggae/Ska", "Novelty", "Folk"),
+        "Playlists" to listOf("P1", "P2", "P3")
     )
 
     override fun onCreateView(

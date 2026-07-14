@@ -43,15 +43,14 @@
                 android:textColorHint="#BDFFFFFF"
                 android:textSize="14sp"
                 />
-
         </LinearLayout>
 
         <!-- Sub Category Container -->
         <LinearLayout
             android:id="@+id/subCategoryContainer"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="80dp"/>
+            android:layout_marginStart="50dp"/>
 
         <!-- Mid-Content -->
         <LinearLayout
