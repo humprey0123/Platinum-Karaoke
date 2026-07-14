@@ -13,11 +13,38 @@
 
         <!-- Main Category Container -->
         <LinearLayout
-            android:id="@+id/mainCategoryContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginStart="30dp"/>
+            android:layout_marginStart="30dp"
+            android:layout_marginEnd="30dp"
+            android:gravity="center_vertical">
+
+            <!-- LEFT: Categories -->
+            <LinearLayout
+                android:id="@+id/mainCategoryContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal" />
+
+            <!-- RIGHT: Search Bar -->
+            <EditText
+                android:id="@+id/search"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/search_radius"
+                android:focusable="true"
+                android:focusableInTouchMode="true"
+                android:hint="@string/search_hint"
+                android:inputType="none"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="4dp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#BDFFFFFF"
+                android:textSize="14sp"
+                />
+
+        </LinearLayout>
 
         <!-- Sub Category Container -->
         <LinearLayout
