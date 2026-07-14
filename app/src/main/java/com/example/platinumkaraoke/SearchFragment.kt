@@ -12,7 +12,7 @@ import com.google.android.flexbox.FlexboxLayout
 
 class SearchFragment : Fragment() {
 
-    private lateinit var defaultCategory: LinearLayout
+    private lateinit var activeCategory: LinearLayout
     private lateinit var choiceCategory: LinearLayout
 
     private val categoryMap = mapOf(
@@ -31,68 +31,68 @@ class SearchFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
-        defaultCategory = view.findViewById(R.id.default_category_container)
+        activeCategory = view.findViewById(R.id.active_category_container)
         choiceCategory = view.findViewById(R.id.choice_category_container)
 
-        setupMainCategories()
+        setupActiveCategories()
 
         return view
     }
 
     // 🔹 Create main categories
-    private fun setupMainCategories() {
+    private fun setupActiveCategories() {
         categoryMap.keys.forEach { category ->
 
-            val tv = createCategoryTextView(category, isMain = true)
+            val tv = createCategoryTextView(category, isActive = true)
 
             tv.setOnClickListener {
-                    updateSubCategories(categoryMap[category] ?: emptyList())
+                    updateChoiceCategory(categoryMap[category] ?: emptyList())
 
             }
 
 
-            defaultCategory.addView(tv)
+            activeCategory.addView(tv)
         }
 
         // 🔥 DEFAULT: Philippines
-        val defaultCategoryName = "Philippines"
+        val activeCategoryName = "Philippines"
 
-        val index = categoryMap.keys.indexOf(defaultCategoryName)
+        val index = categoryMap.keys.indexOf(activeCategoryName)
         if (index != -1) {
-            val defaultView = defaultCategory.getChildAt(index)
+            val defaultView = activeCategory.getChildAt(index)
 
             defaultView.requestFocus()
-            updateSubCategories(categoryMap[defaultCategoryName] ?: emptyList())
+            updateChoiceCategory(categoryMap[activeCategoryName] ?: emptyList())
         }
 
 
     }
 
     // 🔹 Update sub categories
-    private fun updateSubCategories(subCategories: List<String>) {
+    private fun updateChoiceCategory(choiceItems: List<String>) {
         choiceCategory.removeAllViews()
 
-        subCategories.forEach { sub ->
-            val tv = createCategoryTextView(sub, isMain = false)
+        choiceItems.forEach { item ->
+            val tv = createCategoryTextView(item, isActive = false)
             choiceCategory.addView(tv)
         }
     }
 
     // 🔥 Reusable TextView creator (FIXED margins + dp)
-    private fun createCategoryTextView(textValue: String, isMain: Boolean): TextView {
+    private fun createCategoryTextView(textValue: String, isActive: Boolean): TextView {
         return TextView(requireContext()).apply {
             text = textValue
 
             setTextAppearance(
-                if (isMain) R.style.CategoryTabs else R.style.SubCategory
+                if (isActive) R.style.CategoryTabs else R.style.SubCategory
             )
 
             setTextColor(resources.getColorStateList(R.drawable.selector_nav_text, null))
 
-            if (isMain) {
+            if (isActive) {
                 setBackgroundResource(R.drawable.selector_search_category)
 
-                // 🔥 Main category padding
+                // 🔥 Active category padding
                 setPadding(20.dp, 4.dp, 20.dp, 4.dp)
             } else {
                 // 🔥 Subcategory padding (INLINE = 10dp)
