@@ -37,4 +37,5 @@ dependencies {
     implementation(libs.androidx.leanback)
     implementation(libs.glide)
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")
+    implementation("com.google.android.flexbox:flexbox:3.0.0")
 }

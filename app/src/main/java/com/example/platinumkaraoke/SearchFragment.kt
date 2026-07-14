@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
+import com.google.android.flexbox.FlexboxLayout
 
 class SearchFragment : Fragment() {
 
@@ -101,7 +102,7 @@ class SearchFragment : Fragment() {
                 setPadding(20.dp, 4.dp, 20.dp, 4.dp)
             } else {
                 // 🔥 Subcategory padding (INLINE = 10dp)
-                setPadding(10.dp, 4.dp, 10.dp, 4.dp)
+                setPadding(3.dp, 4.dp, 3.dp, 4.dp)
             }
 
             isFocusable = true

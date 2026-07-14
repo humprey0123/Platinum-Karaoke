@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SearchFragment"
     android:layout_marginTop="20dp">
 
@@ -46,11 +47,23 @@
         </LinearLayout>
 
         <!-- Sub Category Container -->
-        <LinearLayout
-            android:id="@+id/subCategoryContainer"
+        <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"/>
+            android:layout_marginStart="50dp"
+            android:scrollbars="none"
+            android:fadingEdge="horizontal"
+            android:fadingEdgeLength="40dp"
+            android:requiresFadingEdge="horizontal"
+            android:clipToPadding="false">
+
+            <LinearLayout
+                android:id="@+id/subCategoryContainer"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"/>
+
+        </HorizontalScrollView>
 
         <!-- Mid-Content -->
         <LinearLayout
