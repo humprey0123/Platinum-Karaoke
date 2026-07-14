@@ -11,100 +11,20 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Category Tabs -->
+        <!-- Main Category Container -->
         <LinearLayout
+            android:id="@+id/mainCategoryContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingHorizontal="20dp"
-            android:orientation="vertical">
+            android:orientation="horizontal"
+            android:layout_marginStart="30dp"/>
 
-            <!-- Main Category -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="30dp">
-
-                <TextView
-                    android:id="@+id/tab_ph"
-                    android:text="@string/philippines"
-                    style="@style/CategoryTabs"
-                    android:background="@drawable/selector_search_category"
-                    android:textColor="@drawable/selector_nav_text"/>
-
-                <TextView
-                    android:text="@string/title_view"
-                    style="@style/CategoryTabs"
-                    android:background="@drawable/selector_search_category"
-                    android:textColor="@drawable/selector_nav_text"/>
-
-                <TextView
-                    android:text="@string/all"
-                    style="@style/CategoryTabs"
-                    android:background="@drawable/selector_search_category"
-                    android:textColor="@drawable/selector_nav_text"/>
-
-                <TextView
-                    android:text="@string/new_songs"
-                    style="@style/CategoryTabs"
-                    android:background="@drawable/selector_search_category"
-                    android:textColor="@drawable/selector_nav_text"/>
-
-                <TextView
-                    android:text="@string/pop"
-                    style="@style/CategoryTabs"
-                    android:background="@drawable/selector_search_category"
-                    android:textColor="@drawable/selector_nav_text"/>
-
-                <TextView
-                    android:text="@string/playlists"
-                    style="@style/CategoryTabs"
-                    android:background="@drawable/selector_search_category"
-                    android:textColor="@drawable/selector_nav_text"/>
-
-                <EditText
-                    android:id="@+id/search"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:background="@drawable/search_radius"
-                    android:focusable="true"
-                    android:focusableInTouchMode="true"
-                    android:hint="@string/search_hint"
-                    android:inputType="none"
-                    android:paddingHorizontal="10dp"
-                    android:paddingVertical="4dp"
-                    android:textColor="#FFFFFF"
-                    android:textColorHint="#BDFFFFFF"
-                    android:textSize="14sp"
-                    />
-            </LinearLayout>
-
-            <!-- Sub Category-->
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="80dp">
-                <TextView
-                    android:text="@string/korea"
-                    style="@style/SubCategory"
-                    android:textColor="@drawable/selector_nav_text"/>
-                <TextView
-                    android:text="@string/china"
-                    style="@style/SubCategory"
-                    android:textColor="@drawable/selector_nav_text"/>
-                <TextView
-                    android:text="@string/russia"
-                    style="@style/SubCategory"
-                    android:textColor="@drawable/selector_nav_text"/>
-                <TextView
-                    android:text="@string/brazil"
-                    style="@style/SubCategory"
-                    android:textColor="@drawable/selector_nav_text"/>
-                <TextView
-                    android:text="@string/vietnam"
-                    style="@style/SubCategory"
-                    android:textColor="@drawable/selector_nav_text"/>
-            </LinearLayout>
-        </LinearLayout>
+        <!-- Sub Category Container -->
+        <LinearLayout
+            android:id="@+id/subCategoryContainer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="80dp"/>
 
         <!-- Mid-Content -->
         <LinearLayout
