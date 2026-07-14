@@ -12,8 +12,8 @@ import com.google.android.flexbox.FlexboxLayout
 
 class SearchFragment : Fragment() {
 
-    private lateinit var mainContainer: LinearLayout
-    private lateinit var subContainer: LinearLayout
+    private lateinit var defaultCategory: LinearLayout
+    private lateinit var choiceCategory: LinearLayout
 
     private val categoryMap = mapOf(
         "Philippines" to listOf("Korea", "China", "Russia", "Brazil", "Vietnam"),
@@ -31,8 +31,8 @@ class SearchFragment : Fragment() {
     ): View {
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
-        mainContainer = view.findViewById(R.id.mainCategoryContainer)
-        subContainer = view.findViewById(R.id.subCategoryContainer)
+        defaultCategory = view.findViewById(R.id.default_category_container)
+        choiceCategory = view.findViewById(R.id.choice_category_container)
 
         setupMainCategories()
 
@@ -51,36 +51,30 @@ class SearchFragment : Fragment() {
             }
 
 
-            mainContainer.addView(tv)
+            defaultCategory.addView(tv)
         }
 
         // 🔥 DEFAULT: Philippines
-        val defaultCategory = "Philippines"
+        val defaultCategoryName = "Philippines"
 
-        val index = categoryMap.keys.indexOf(defaultCategory)
+        val index = categoryMap.keys.indexOf(defaultCategoryName)
         if (index != -1) {
-            val defaultView = mainContainer.getChildAt(index)
+            val defaultView = defaultCategory.getChildAt(index)
 
-            // Focus it
             defaultView.requestFocus()
-
-            // Trigger its content manually
-            updateSubCategories(categoryMap[defaultCategory] ?: emptyList())
+            updateSubCategories(categoryMap[defaultCategoryName] ?: emptyList())
         }
 
-        // Auto focus first
-        if (mainContainer.childCount > 0) {
-            mainContainer.getChildAt(0).requestFocus()
-        }
+
     }
 
     // 🔹 Update sub categories
     private fun updateSubCategories(subCategories: List<String>) {
-        subContainer.removeAllViews()
+        choiceCategory.removeAllViews()
 
         subCategories.forEach { sub ->
             val tv = createCategoryTextView(sub, isMain = false)
-            subContainer.addView(tv)
+            choiceCategory.addView(tv)
         }
     }
 
