@@ -11,6 +11,22 @@
     <string name="full_logo">Full Logo Icon</string>
     <string name="background_img">Background Image</string>
 
+    <!-- Main Category -->
+    <string name="philippines">Philippines</string>
+    <string name="title_view">Title View</string>
+    <string name="all">All</string>
+    <string name="new_songs">New Songs</string>
+    <string name="pop">Pop</string>
+    <string name="playlists">Playlists</string>
+    <string name="search_hint">Search...</string>
+
+    <!-- Sub Category -->
+    <string name="korea">Korea</string>
+    <string name="china">China</string>
+    <string name="russia">Russia</string>
+    <string name="brazil">Brazil</string>
+    <string name="vietnam">Vietnam</string>
+    
     <!-- Error messages -->
     <string name="error_fragment_message">An error occurred</string>
     <string name="dismiss_error">Dismiss</string>
