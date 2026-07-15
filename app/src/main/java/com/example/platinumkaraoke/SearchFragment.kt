@@ -29,7 +29,7 @@ class SearchFragment : Fragment() {
         FilterGroup("Category", "All", mutableListOf("Regional", "Kids", "Gospel", "Training")),
         FilterGroup("Date", "New Songs", mutableListOf("<05-2026>")),
         FilterGroup("Genre", "Pop", mutableListOf(
-            "English Classics", "K-Pop", "Rock", "Slow Rock", "Alternative",
+            "English Classics","OPM Classics", "K-Pop", "Rock", "Slow Rock", "Alternative",
             "Country", "EDM/Techno", "Hip-hop/Rap", "RNB/Soul",
             "Love Song", "Power Ballad", "Reggae/Ska", "Novelty", "Folk"
         )),
