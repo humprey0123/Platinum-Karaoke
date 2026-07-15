@@ -13,6 +13,7 @@ class SearchFragment : Fragment() {
 
     private lateinit var activeCategory: LinearLayout
     private lateinit var choiceCategory: LinearLayout
+    private var incomingFilter: String? = null
 
     // 🔷 Data model
     data class FilterGroup(
@@ -29,7 +30,7 @@ class SearchFragment : Fragment() {
         FilterGroup("Date", "New Songs", mutableListOf("<05-2026>")),
         FilterGroup("Genre", "Pop", mutableListOf(
             "English Classics", "K-Pop", "Rock", "Slow Rock", "Alternative",
-            "Country", "EDM/Techno", "Hiphop/Rap", "RNB/Soul",
+            "Country", "EDM/Techno", "Hip-hop/Rap", "RNB/Soul",
             "Love Song", "Power Ballad", "Reggae/Ska", "Novelty", "Folk"
         )),
         FilterGroup("Playlist", "Playlists", mutableListOf("P1", "P2", "P3"))
@@ -46,10 +47,39 @@ class SearchFragment : Fragment() {
 
         activeCategory = view.findViewById(R.id.active_category_container)
         choiceCategory = view.findViewById(R.id.choice_category_container)
-
+        incomingFilter = arguments?.getString("selected_filter")
         setupUI()
+        incomingFilter?.let { filter ->
+            applyIncomingFilter(filter)
+        }
 
         return view
+    }
+
+    private fun applyIncomingFilter(filter: String) {
+        filterGroups.forEachIndexed { index, group ->
+            if (group.choices.contains(filter)) {
+
+                selectedGroupIndex = index
+
+                // swap it into active
+                group.choices.remove(filter)
+                group.choices.add(group.active)
+                group.active = filter
+
+                // refresh UI
+                renderActiveCategories()
+                showChoices()
+
+                // 🔥 FOCUS ACTIVE ITEM
+                activeCategory.post {
+                    val view = activeCategory.getChildAt(index)
+                    view?.requestFocus()
+                }
+
+                return
+            }
+        }
     }
 
     // 🔷 Initial setup

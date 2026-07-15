@@ -25,7 +25,6 @@ class HomeFragment : Fragment() {
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.gridRecycler)
 
-
         // 4 columns
         val layoutManager = GridLayoutManager(requireContext(), 4)
         recyclerView.layoutManager = layoutManager
@@ -97,7 +96,7 @@ class GridAdapter(private val items: List<Category>) :
 
         holder.itemView.setOnClickListener {
             val activity = holder.itemView.context as MainActivity
-            activity.showSearch()
+            activity.showSearch(item.title)
         }
     }
 
