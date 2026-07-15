@@ -29,7 +29,7 @@ class SearchFragment : Fragment() {
         FilterGroup("Category", "All", mutableListOf("Regional", "Kids", "Gospel", "Training")),
         FilterGroup("Date", "New Songs", mutableListOf("<05-2026>")),
         FilterGroup("Genre", "Pop", mutableListOf(
-            "English Classics","OPM Classics", "K-Pop", "Rock", "Slow Rock", "Alternative",
+            "English Classics", "OPM Classics", "K-Pop", "Rock", "Slow Rock", "Alternative",
             "Country", "EDM/Techno", "Hip-hop/Rap", "RNB/Soul",
             "Love Song", "Power Ballad", "Reggae/Ska", "Novelty", "Folk"
         )),
@@ -58,25 +58,38 @@ class SearchFragment : Fragment() {
 
     private fun applyIncomingFilter(filter: String) {
         filterGroups.forEachIndexed { index, group ->
-            if (group.choices.contains(filter)) {
 
+            // ✅ CASE 1: already active
+            if (group.active.equals(filter, ignoreCase = true)) {
                 selectedGroupIndex = index
 
-                // swap it into active
-                group.choices.remove(filter)
-                group.choices.add(group.active)
-                group.active = filter
-
-                // refresh UI
                 renderActiveCategories()
                 showChoices()
 
-                // 🔥 FOCUS ACTIVE ITEM
                 activeCategory.post {
-                    val view = activeCategory.getChildAt(index)
-                    view?.requestFocus()
+                    activeCategory.getChildAt(index)?.requestFocus()
                 }
+                return
+            }
 
+            // ✅ CASE 2: inside choices
+            val match = group.choices.find {
+                it.equals(filter, ignoreCase = true)
+            }
+
+            if (match != null) {
+                selectedGroupIndex = index
+
+                group.choices.remove(match)
+                group.choices.add(group.active)
+                group.active = match
+
+                renderActiveCategories()
+                showChoices()
+
+                activeCategory.post {
+                    activeCategory.getChildAt(index)?.requestFocus()
+                }
                 return
             }
         }
