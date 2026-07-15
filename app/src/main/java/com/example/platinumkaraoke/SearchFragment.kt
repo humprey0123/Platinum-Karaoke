@@ -39,7 +39,7 @@ class SearchFragment : Fragment() {
         return view
     }
 
-    // 🔹 Create main categories
+    // Create main categories
     private fun setupActiveCategories() {
         categoryMap.keys.forEach { category ->
 
@@ -54,7 +54,7 @@ class SearchFragment : Fragment() {
             activeCategory.addView(tv)
         }
 
-        // 🔥 DEFAULT: Philippines
+        // DEFAULT: Philippines
         val activeCategoryName = "Philippines"
 
         val index = categoryMap.keys.indexOf(activeCategoryName)
@@ -68,7 +68,7 @@ class SearchFragment : Fragment() {
 
     }
 
-    // 🔹 Update sub categories
+    // Update sub categories
     private fun updateChoiceCategory(choiceItems: List<String>) {
         choiceCategory.removeAllViews()
 
@@ -78,7 +78,7 @@ class SearchFragment : Fragment() {
         }
     }
 
-    // 🔥 Reusable TextView creator (FIXED margins + dp)
+    // Reusable TextView creator (FIXED margins + dp)
     private fun createCategoryTextView(textValue: String, isActive: Boolean): TextView {
         return TextView(requireContext()).apply {
             text = textValue
@@ -92,10 +92,10 @@ class SearchFragment : Fragment() {
             if (isActive) {
                 setBackgroundResource(R.drawable.selector_search_category)
 
-                // 🔥 Active category padding
+                // Active category padding
                 setPadding(20.dp, 4.dp, 20.dp, 4.dp)
             } else {
-                // 🔥 Subcategory padding (INLINE = 10dp)
+                // Subcategory padding (INLINE = 10dp)
                 setPadding(3.dp, 4.dp, 3.dp, 4.dp)
             }
 
@@ -112,7 +112,7 @@ class SearchFragment : Fragment() {
         }
     }
 
-    // 🔥 DP extension (clean)
+    // DP extension (clean)
     private val Int.dp: Int
         get() = (this * resources.displayMetrics.density).toInt()
 }
