@@ -5,19 +5,19 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".SearchFragment"
-    android:layout_marginTop="20dp">
+    android:layout_marginTop="40dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <!-- Default Category & Searchbar Container -->
+        <!-- Top Navbar -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:layout_marginStart="30dp"
+            android:layout_marginStart="80dp"
             android:layout_marginEnd="30dp"
             android:gravity="center_vertical">
 
@@ -46,11 +46,12 @@
                 />
         </LinearLayout>
 
-        <!-- Category Choices -->
+        <!-- Second Navbar -->
         <HorizontalScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="50dp"
+            android:layout_marginStart="100dp"
+            android:layout_marginEnd="40dp"
             android:scrollbars="none"
             android:fadingEdge="horizontal"
             android:fadingEdgeLength="40dp"
@@ -71,7 +72,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:baselineAligned="false"
-            android:paddingHorizontal="20dp"
+            android:paddingEnd="30dp"
+            android:paddingStart="40dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1">
             <LinearLayout
@@ -83,7 +85,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
+                    android:textSize="10sp"
                     android:layout_marginEnd="10dp"
                     android:text="Training"
                     android:layout_gravity="center"
@@ -103,6 +105,7 @@
                     style="@style/SongInfo"/>
 
             </LinearLayout>
+            <!-- Keyboard -->
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
