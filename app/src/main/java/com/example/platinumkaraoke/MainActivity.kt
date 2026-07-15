@@ -15,13 +15,12 @@ class MainActivity : FragmentActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
         findViewById<View>(R.id.nav_home).setOnClickListener {
             showHome()
         }
 
         findViewById<View>(R.id.nav_search).setOnClickListener {
-            showSearch()
+            showSearch() // ✅ now valid
         }
 
         if (savedInstanceState == null) {
@@ -38,17 +37,20 @@ class MainActivity : FragmentActivity() {
             setImageResource(R.drawable.bg_home)
             setColorFilter(0x80000000.toInt())
         }
-
-//        findViewById<ImageView>(R.id.bgOverlay).visibility = View.VISIBLE
     }
 
-    fun showSearch() {
+    fun showSearch(selectedCategory: String? = null) {
+        val fragment = SearchFragment()
+
+        val bundle = Bundle()
+        bundle.putString("selected_filter", selectedCategory)
+        fragment.arguments = bundle
+
         supportFragmentManager.beginTransaction()
-            .replace(R.id.main_content, SearchFragment())
+            .replace(R.id.main_content, fragment) // ✅ FIXED
             .commit()
 
         findViewById<ImageView>(R.id.bg)
             .setImageResource(R.drawable.bg_songlist)
     }
-
 }
