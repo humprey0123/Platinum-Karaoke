@@ -26,7 +26,7 @@
         <item name="android:layout_marginHorizontal">8dp</item>
     </style>
 
-    <style name="SubCategory">
+    <style name="ChoiceCategory">
         <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">wrap_content</item>
         <item name="android:layout_marginHorizontal">5dp</item>

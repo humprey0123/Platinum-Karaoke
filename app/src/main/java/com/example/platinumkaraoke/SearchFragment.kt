@@ -8,21 +8,34 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
-import com.google.android.flexbox.FlexboxLayout
 
 class SearchFragment : Fragment() {
 
     private lateinit var activeCategory: LinearLayout
     private lateinit var choiceCategory: LinearLayout
 
-    private val categoryMap = mapOf(
-        "Philippines" to listOf("Korea", "China", "Russia", "Brazil", "Vietnam"),
-        "Title View" to listOf("Artist View"),
-        "All" to listOf("Regional", "Kids", "Gospel", "Training"),
-        "New Songs" to listOf("<05-2026>"),
-        "Pop" to listOf("English Classics", "K-Pop", "Rock", "Slow Rock", "Alternative", "Country", "Pop", "EDM/Techno", "Hiphop/Rap", "RNB/Soul", "Love Song", "Power Ballad", "Reggae/Ska", "Novelty", "Folk"),
-        "Playlists" to listOf("P1", "P2", "P3")
+    // 🔷 Data model
+    data class FilterGroup(
+        val name: String,
+        var active: String,
+        val choices: MutableList<String>
     )
+
+    // 🔷 State
+    private val filterGroups = mutableListOf(
+        FilterGroup("Region", "Philippines", mutableListOf("Korea", "China", "Russia", "Brazil", "Vietnam")),
+        FilterGroup("View", "Title View", mutableListOf("Artist View")),
+        FilterGroup("Category", "All", mutableListOf("Regional", "Kids", "Gospel", "Training")),
+        FilterGroup("Date", "New Songs", mutableListOf("<05-2026>")),
+        FilterGroup("Genre", "Pop", mutableListOf(
+            "English Classics", "K-Pop", "Rock", "Slow Rock", "Alternative",
+            "Country", "EDM/Techno", "Hiphop/Rap", "RNB/Soul",
+            "Love Song", "Power Ballad", "Reggae/Ska", "Novelty", "Folk"
+        )),
+        FilterGroup("Playlist", "Playlists", mutableListOf("P1", "P2", "P3"))
+    )
+
+    private var selectedGroupIndex = 0
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -34,67 +47,81 @@ class SearchFragment : Fragment() {
         activeCategory = view.findViewById(R.id.active_category_container)
         choiceCategory = view.findViewById(R.id.choice_category_container)
 
-        setupActiveCategories()
+        setupUI()
 
         return view
     }
 
-    // Create main categories
-    private fun setupActiveCategories() {
-        categoryMap.keys.forEach { category ->
+    // 🔷 Initial setup
+    private fun setupUI() {
+        renderActiveCategories()
+        showChoices()
+    }
 
-            val tv = createCategoryTextView(category, isActive = true)
+    // 🔝 Render active filters (top container)
+    private fun renderActiveCategories() {
+        activeCategory.removeAllViews()
+
+        filterGroups.forEachIndexed { index, group ->
+            val tv = createCategoryTextView(group.active, isActive = true)
 
             tv.setOnClickListener {
-                    updateChoiceCategory(categoryMap[category] ?: emptyList())
-
+                selectedGroupIndex = index
+                showChoices()
             }
-
 
             activeCategory.addView(tv)
         }
-
-        // DEFAULT: Philippines
-        val activeCategoryName = "Philippines"
-
-        val index = categoryMap.keys.indexOf(activeCategoryName)
-        if (index != -1) {
-            val defaultView = activeCategory.getChildAt(index)
-
-            defaultView.requestFocus()
-            updateChoiceCategory(categoryMap[activeCategoryName] ?: emptyList())
-        }
-
     }
 
-    // Update sub categories
-    private fun updateChoiceCategory(choiceItems: List<String>) {
+    // 🔽 Show choices for selected group (bottom container)
+    private fun showChoices() {
+        val group = filterGroups[selectedGroupIndex]
+
         choiceCategory.removeAllViews()
 
-        choiceItems.forEach { item ->
+        group.choices.forEach { item ->
             val tv = createCategoryTextView(item, isActive = false)
+
+            tv.setOnClickListener {
+                swapFilter(item)
+            }
+
             choiceCategory.addView(tv)
         }
     }
 
-    // Reusable TextView creator (FIXED margins + dp)
+    // 🔁 Swap logic (core behavior)
+    private fun swapFilter(selectedItem: String) {
+        val group = filterGroups[selectedGroupIndex]
+
+        val oldActive = group.active
+
+        // swap values
+        group.active = selectedItem
+        group.choices.remove(selectedItem)
+        group.choices.add(oldActive)
+
+        // refresh UI
+        renderActiveCategories()
+        showChoices()
+    }
+
+    // 🔧 Reusable TextView creator
     private fun createCategoryTextView(textValue: String, isActive: Boolean): TextView {
         return TextView(requireContext()).apply {
             text = textValue
 
             setTextAppearance(
-                if (isActive) R.style.CategoryTabs else R.style.SubCategory
+                if (isActive) R.style.CategoryTabs else R.style.ChoiceCategory
             )
 
             setTextColor(resources.getColorStateList(R.drawable.selector_nav_text, null))
 
             if (isActive) {
                 setBackgroundResource(R.drawable.selector_search_category)
-
-                // Active category padding
                 setPadding(20.dp, 4.dp, 20.dp, 4.dp)
             } else {
-                // Subcategory padding (INLINE = 10dp)
                 setPadding(3.dp, 4.dp, 3.dp, 4.dp)
             }
 
@@ -111,7 +138,7 @@ class SearchFragment : Fragment() {
         }
     }
 
-    // DP extension (clean)
+    // 📏 DP helper
     private val Int.dp: Int
         get() = (this * resources.displayMetrics.density).toInt()
 }
