@@ -65,7 +65,6 @@ class SearchFragment : Fragment() {
             updateChoiceCategory(categoryMap[activeCategoryName] ?: emptyList())
         }
 
-
     }
 
     // Update sub categories

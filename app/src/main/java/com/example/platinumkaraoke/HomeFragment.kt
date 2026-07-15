@@ -94,6 +94,11 @@ class GridAdapter(private val items: List<Category>) :
                 .setDuration(150)
                 .start()
         }
+
+        holder.itemView.setOnClickListener {
+            val activity = holder.itemView.context as MainActivity
+            activity.showSearch()
+        }
     }
 
     override fun getItemCount() = items.size
