@@ -8,6 +8,7 @@ import android.widget.LinearLayout
 import android.widget.TextView
 import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
+import android.view.MotionEvent
 
 class SearchFragment : Fragment() {
 
@@ -178,7 +179,8 @@ class SearchFragment : Fragment() {
             }
 
             isFocusable = true
-            isFocusableInTouchMode = true
+            isFocusableInTouchMode = false
+            isClickable = true
 
             layoutParams = LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.WRAP_CONTENT,
