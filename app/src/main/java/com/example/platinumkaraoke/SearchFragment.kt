@@ -159,7 +159,16 @@ class SearchFragment : Fragment() {
                 if (isActive) R.style.CategoryTabs else R.style.ChoiceCategory
             )
 
-            setTextColor(resources.getColorStateList(R.drawable.selector_nav_text, null))
+            if (isActive) {
+                setTextColor(
+                    resources.getColorStateList(
+                        R.drawable.selector_nav_text,
+                        null
+                    )
+                )
+            } else {
+                setTextColor(resources.getColorStateList(R.drawable.selector_nav_choice_category, null))
+            }
 
             if (isActive) {
                 setBackgroundResource(R.drawable.selector_search_category)
