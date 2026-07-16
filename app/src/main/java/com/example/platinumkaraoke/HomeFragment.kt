@@ -8,6 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.ImageView
+import android.view.MotionEvent
 
 class HomeFragment : Fragment() {
 
@@ -53,8 +54,8 @@ class HomeFragment : Fragment() {
 
         // TV focus settings
         recyclerView.setHasFixedSize(true)
-        recyclerView.isFocusable = true
-        recyclerView.isFocusableInTouchMode = true
+        recyclerView.isFocusable = false
+        recyclerView.isFocusableInTouchMode = false
     }
 
 }
@@ -97,6 +98,14 @@ class GridAdapter(private val items: List<Category>) :
         holder.itemView.setOnClickListener {
             val activity = holder.itemView.context as MainActivity
             activity.showSearch(item.title)
+        }
+
+// 🔥 Fix: make touch behave like immediate click
+        holder.itemView.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+            }
+            false
         }
     }
 
