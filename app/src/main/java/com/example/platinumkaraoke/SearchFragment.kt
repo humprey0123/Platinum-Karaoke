@@ -1,6 +1,7 @@
 package com.example.platinumkaraoke
 
 import android.os.Bundle
+import android.view.KeyEvent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +10,7 @@ import android.widget.TextView
 import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
 import android.view.MotionEvent
+
 
 class SearchFragment : Fragment() {
 
@@ -109,15 +111,31 @@ class SearchFragment : Fragment() {
         filterGroups.forEachIndexed { index, group ->
             val tv = createCategoryTextView(group.active, isActive = true)
 
+            tv.isSelected = (index == selectedGroupIndex)
+
             tv.setOnClickListener {
                 selectedGroupIndex = index
+                renderActiveCategories()   // 🔥 re-render to update selection
                 showChoices()
+            }
+
+            tv.setOnKeyListener { _, keyCode, event ->
+                if (event.action == KeyEvent.ACTION_DOWN) {
+                    when (keyCode) {
+                        KeyEvent.KEYCODE_DPAD_DOWN -> {
+                            if (choiceCategory.childCount > 0) {
+                                choiceCategory.getChildAt(0).requestFocus()
+                                return@setOnKeyListener true
+                            }
+                        }
+                    }
+                }
+                false
             }
 
             activeCategory.addView(tv)
         }
     }
-
     // 🔽 Show choices for selected group (bottom container)
     private fun showChoices() {
         val group = filterGroups[selectedGroupIndex]
