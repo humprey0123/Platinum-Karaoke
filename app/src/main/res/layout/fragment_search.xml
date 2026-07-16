@@ -76,35 +76,12 @@
             android:paddingStart="40dp"
             android:layout_marginTop="5dp"
             android:layout_weight="1">
-            <LinearLayout
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/songRecycler"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="3"
-                android:focusable="true"
-                android:focusableInTouchMode="true">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="10sp"
-                    android:layout_marginEnd="10dp"
-                    android:text="Training"
-                    android:layout_gravity="center"
-                    android:duplicateParentState="true"
-                    />
-                <TextView
-                    android:text="17518"
-                    android:layout_weight="1"
-                    style="@style/SongInfo"/>
-                <TextView
-                    android:text="A Beautiful Lie 30"
-                    android:layout_weight="4"
-                    style="@style/SongInfo"/>
-                <TextView
-                    android:text="To Mars"
-                    android:layout_weight="2"
-                    style="@style/SongInfo"/>
+                android:layout_weight="3"/>
 
-            </LinearLayout>
             <!-- Keyboard -->
             <LinearLayout
                 android:layout_width="0dp"
@@ -120,7 +97,7 @@
             </LinearLayout>
         </LinearLayout>
 
-    <!-- Stays at the bottom always-->
+        <!-- Stays at the bottom always-->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -224,3 +201,4 @@
 
 
 </FrameLayout>
+

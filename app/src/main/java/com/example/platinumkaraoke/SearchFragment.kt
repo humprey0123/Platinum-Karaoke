@@ -10,10 +10,14 @@ import android.widget.TextView
 import androidx.core.view.setPadding
 import androidx.fragment.app.Fragment
 import android.view.MotionEvent
+import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.LinearLayoutManager
 
 
 class SearchFragment : Fragment() {
 
+    private lateinit var adapter: SongAdapter
+    private lateinit var allSongs: List<Song>
     private lateinit var activeCategory: LinearLayout
     private lateinit var choiceCategory: LinearLayout
     private var incomingFilter: String? = null
@@ -46,14 +50,33 @@ class SearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
+
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
         activeCategory = view.findViewById(R.id.active_category_container)
         choiceCategory = view.findViewById(R.id.choice_category_container)
+
         incomingFilter = arguments?.getString("selected_filter")
+
         setupUI()
-        incomingFilter?.let { filter ->
-            applyIncomingFilter(filter)
+
+        // 🔥 LOAD CSV
+        val csvReader = CsvReader(requireContext())
+        allSongs = csvReader.loadAllSongs()
+
+        // 🔥 SETUP RECYCLER
+        val recycler = view.findViewById<RecyclerView>(R.id.songRecycler)
+
+        adapter = SongAdapter()
+        recycler.layoutManager = LinearLayoutManager(requireContext())
+        recycler.adapter = adapter
+
+        // 🔥 SHOW SONGS
+        adapter.submitList(allSongs)
+
+        // 🔥 APPLY FILTER IF EXISTS
+        incomingFilter?.let {
+            applyIncomingFilter(it)
         }
 
         return view
