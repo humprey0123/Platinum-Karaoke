@@ -43,12 +43,12 @@
         <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
 
-        <item name="android:textSize">18dp</item>
-        <item name="android:layout_marginEnd">10dp</item>
-
-        <item name="android:maxLength">20</item>
+        <item name="android:textSize">18sp</item>
         <item name="android:maxLines">1</item>
-        <item name="android:ellipsize">end</item>
+        <item name="android:ellipsize">marquee</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:state_selected">true</item>
+        <item name="android:marqueeRepeatLimit">marquee_forever</item>"
 
         <item name="android:textAlignment">viewStart</item>
 

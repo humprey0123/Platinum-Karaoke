@@ -8,18 +8,31 @@
     android:focusableInTouchMode="true">
 
     <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="10sp"
+        android:layout_marginEnd="10dp"
+        android:text="Training"
+        android:layout_gravity="center"
+        android:duplicateParentState="true"
+        />
+
+    <TextView
         android:id="@+id/songNumber"
         android:layout_weight="1"
+        android:layout_marginEnd="1dp"
         style="@style/SongInfo"/>
 
     <TextView
         android:id="@+id/songTitle"
-        android:layout_weight="4"
+        android:layout_weight="3"
+        android:layout_marginEnd="5dp"
         style="@style/SongInfo"/>
 
     <TextView
         android:id="@+id/songArtist"
         android:layout_weight="2"
+        android:layout_marginEnd="5dp"
         style="@style/SongInfo"/>
 
 </LinearLayout>
