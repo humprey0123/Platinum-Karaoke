@@ -71,13 +71,13 @@ class SearchFragment : Fragment() {
         recycler.layoutManager = LinearLayoutManager(requireContext())
         recycler.adapter = adapter
 
-        // 🔥 SHOW SONGS
-        filterSongs()
-
         // 🔥 APPLY FILTER IF EXISTS
         incomingFilter?.let {
             applyIncomingFilter(it)
         }
+
+        // 🔥 SHOW SONGS
+        filterSongs()
 
         return view
     }
