@@ -72,7 +72,7 @@ class SearchFragment : Fragment() {
         recycler.adapter = adapter
 
         // 🔥 SHOW SONGS
-        adapter.submitList(allSongs)
+        filterSongs()
 
         // 🔥 APPLY FILTER IF EXISTS
         incomingFilter?.let {
@@ -80,6 +80,39 @@ class SearchFragment : Fragment() {
         }
 
         return view
+    }
+
+    private fun filterSongs() {
+        val genreGroup = filterGroups.find { it.name == "Genre" }
+
+        val filtered = if (genreGroup != null) {
+            allSongs.filter {
+                it.genre.equals(
+                    mapGenreToFileName(genreGroup.active),
+                    ignoreCase = true
+                )
+            }
+        } else {
+            allSongs
+        }
+
+        adapter.submitList(filtered)
+    }
+
+    private fun mapGenreToFileName(genre: String): String {
+        return when (genre) {
+            "K-Pop" -> "kpop"
+            "Hip-hop/Rap" -> "hiphop"
+            "RNB/Soul" -> "rnb"
+            "EDM/Techno" -> "edm"
+            "Love Song" -> "love_song"
+            "Power Ballad" -> "power ballad"
+            "Slow Rock" -> "slow_rock"
+            "Reggae/Ska" -> "reggae"
+            "OPM Classics" -> "opm"
+            "English Classics" -> "english"
+            else -> genre.lowercase()
+        }
     }
 
     private fun applyIncomingFilter(filter: String) {
@@ -189,6 +222,7 @@ class SearchFragment : Fragment() {
 
         // refresh UI
         renderActiveCategories()
+        filterSongs()
         showChoices()
     }
 

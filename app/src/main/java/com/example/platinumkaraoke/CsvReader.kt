@@ -14,8 +14,8 @@ class CsvReader(private val context: Context) {
 
             files?.forEach { fileName ->
 
+                val genre = fileName.replace(".csv", "")
                 if (fileName.endsWith(".csv")) {
-
                     val inputStream = context.assets.open(fileName)
                     val reader = BufferedReader(InputStreamReader(inputStream))
 
@@ -29,7 +29,7 @@ class CsvReader(private val context: Context) {
                             val title = parts[1].trim()
                             val artist = parts[2].trim()
 
-                            songs.add(Song(songNumber, title, artist))
+                            songs.add(Song(songNumber, title, artist, genre))
                         }
                     }
 

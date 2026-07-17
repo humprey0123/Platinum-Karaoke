@@ -40,10 +40,19 @@
 
 
     <style name="SongInfo">
-        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
         <item name="android:layout_height">wrap_content</item>
+
+        <item name="android:textSize">18dp</item>
         <item name="android:layout_marginEnd">10dp</item>
-        <item name="android:textSize">20dp</item>
+
+        <item name="android:maxLength">20</item>
+        <item name="android:maxLines">1</item>
+        <item name="android:ellipsize">end</item>
+
+        <item name="android:textAlignment">viewStart</item>
+
+
         <item name="android:duplicateParentState">true</item>
         <item name="android:textColor">@color/focus_text_color</item>
         <item name="android:textStyle">bold</item>

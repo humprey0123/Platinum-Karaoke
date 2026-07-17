@@ -9,23 +9,17 @@
 
     <TextView
         android:id="@+id/songNumber"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:textColor="#FFFFFF"/>
+        android:layout_weight="1"
+        style="@style/SongInfo"/>
 
     <TextView
         android:id="@+id/songTitle"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:textColor="#FFFFFF"/>
+        android:layout_weight="4"
+        style="@style/SongInfo"/>
 
     <TextView
         android:id="@+id/songArtist"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
         android:layout_weight="2"
-        android:textColor="#AAAAAA"/>
+        style="@style/SongInfo"/>
 
 </LinearLayout>
