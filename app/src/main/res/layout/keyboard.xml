@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+    <!-- Keyboard -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/keyboard_container"
+    android:layout_width="0dp"
+    android:layout_height="wrap_content"
+    android:layout_weight="2"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#000000"
+    android:padding="5dp">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#000000"/>
+
+    <!-- Row 1 -->
+    <LinearLayout style="@style/KeyboardRow">
+        <TextView style="@style/Key" android:text="a"/>
+        <TextView style="@style/Key" android:text="b"/>
+        <TextView style="@style/Key" android:text="c"/>
+        <TextView style="@style/Key" android:text="d"/>
+        <TextView style="@style/Key" android:text="e"/>
+        <TextView style="@style/Key" android:text="f"/>
+        <TextView style="@style/Key" android:text="g"/>
+        <TextView style="@style/Key" android:text="h"/>
+        <TextView style="@style/Key" android:text="i"/>
+        <TextView style="@style/Key" android:text="j"/>
+
+    </LinearLayout>
+
+    <!-- Row 2 -->
+    <LinearLayout style="@style/KeyboardRow">
+        <TextView style="@style/Key" android:text="k"/>
+        <TextView style="@style/Key" android:text="l"/>
+        <TextView style="@style/Key" android:text="m"/>
+        <TextView style="@style/Key" android:text="n"/>
+        <TextView style="@style/Key" android:text="o"/>
+        <TextView style="@style/Key" android:text="p"/>
+        <TextView style="@style/Key" android:text="q"/>
+        <TextView style="@style/Key" android:text="r"/>
+        <TextView style="@style/Key" android:text="s"/>
+        <TextView style="@style/Key" android:text="t"/>
+    </LinearLayout>
+
+    <!-- Row 3 -->
+    <LinearLayout style="@style/KeyboardRow">
+        <TextView style="@style/Key" android:text="u"/>
+        <TextView style="@style/Key" android:text="v"/>
+        <TextView style="@style/Key" android:text="w"/>
+        <TextView style="@style/Key" android:text="x"/>
+        <TextView style="@style/Key" android:text="y"/>
+        <TextView style="@style/Key" android:text="z"/>
+        <TextView style="@style/Key" android:text="`"/>
+        <TextView style="@style/Key" android:text="-"/>
+        <TextView style="@style/Key" android:text="~"/>
+        <TextView style="@style/Key" android:text="1/1"/>
+    </LinearLayout>
+
+    <!-- Row 4 -->
+    <LinearLayout style="@style/KeyboardRow">
+        <TextView style="@style/Key" android:text="1"/>
+        <TextView style="@style/Key" android:text="2"/>
+        <TextView style="@style/Key" android:text="3"/>
+        <TextView style="@style/Key" android:text="4"/>
+        <TextView style="@style/Key" android:text="5"/>
+        <TextView style="@style/Key" android:text="6"/>
+        <TextView style="@style/Key" android:text="7"/>
+        <TextView style="@style/Key" android:text="8"/>
+        <TextView style="@style/Key" android:text="9"/>
+        <TextView style="@style/Key" android:text="0"/>
+    </LinearLayout>
+
+    <!-- Space row -->
+    <LinearLayout style="@style/KeyboardRow">
+        <TextView style="@style/KeyWide" android:text="SPACE"/>
+        <TextView style="@style/KeyWide" android:text="⌫"/>
+        <TextView style="@style/KeyWide" android:text="🌐"/>
+    </LinearLayout>
+
+</LinearLayout>

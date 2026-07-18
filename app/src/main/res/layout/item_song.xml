@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:textSize="10sp"
         android:layout_marginEnd="10dp"
-        android:text=" "
+        android:text="Training"
         android:layout_gravity="center"
         android:duplicateParentState="true"
         />

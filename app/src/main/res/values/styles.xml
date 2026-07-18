@@ -57,4 +57,32 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="KeyboardRow">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:orientation">horizontal</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="Key">
+        <item name="android:layout_width">30dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/selector_key</item>
+        <item name="android:textColor">#FFF</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:focusable">true</item>
+    </style>
+
+    <style name="KeyWide">
+        <item name="android:layout_width">111dp</item>
+        <item name="android:layout_height">30dp</item>
+        <item name="android:layout_margin">2dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/selector_key</item>
+        <item name="android:textColor">#FFF</item>
+        <item name="android:textSize">14sp</item>
+        <item name="android:focusable">true</item>
+    </style>
 </resources>

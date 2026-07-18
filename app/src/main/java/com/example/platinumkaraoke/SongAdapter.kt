@@ -31,8 +31,19 @@ class SongAdapter : RecyclerView.Adapter<SongAdapter.ViewHolder>() {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val song = songs[position]
+
         holder.songNumber.text = song.songNumber
         holder.title.text = song.title
         holder.artist.text = song.artist
+
+        // ❗ Reset state (VERY IMPORTANT for RecyclerView reuse)
+        holder.title.isSelected = false
+        holder.artist.isSelected = false
+
+        // 🔥 Trigger marquee when row is focused
+        holder.itemView.setOnFocusChangeListener { _, hasFocus ->
+            holder.title.isSelected = hasFocus
+            holder.artist.isSelected = hasFocus
+        }
     }
 }

@@ -82,18 +82,7 @@
                 android:layout_weight="3"/>
 
             <!-- Keyboard -->
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="2">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:textAlignment="center"
-                    android:text="Keyboard Area"
-                    android:textSize="18sp"
-                    android:padding="16dp"/>
-            </LinearLayout>
+            <include layout="@layout/keyboard"/>
         </LinearLayout>
 
         <!-- Stays at the bottom always-->
