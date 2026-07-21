@@ -27,13 +27,6 @@ class TvRecyclerView @JvmOverloads constructor(
             View.FOCUS_UP -> {
                 val targetPos = currentPos - 1
 
-                if (targetPos < 0) {
-                    // 🚫 Block navbar escape
-                    return focused
-                }
-
-                val targetView = lm.findViewByPosition(targetPos)
-                return targetView ?: focused
             }
 
             View.FOCUS_DOWN -> {
