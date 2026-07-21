@@ -13,16 +13,34 @@ class TvRecyclerView @JvmOverloads constructor(
     defStyleAttr: Int = 0
 ) : RecyclerView(context, attrs, defStyleAttr) {
 
-    override fun focusSearch(focused: View?, direction: Int): View? {
+    override fun focusSearch(focused: View, direction: Int): View? {
 
-        if (direction == View.FOCUS_UP) {
-            val lm = layoutManager as? LinearLayoutManager
-            val first = lm?.findFirstCompletelyVisibleItemPosition()
-                ?: NO_POSITION
+        val lm = layoutManager as? LinearLayoutManager ?: return super.focusSearch(focused, direction)
+        val currentPos = getChildAdapterPosition(focused)
 
-            // 🚫 If at top, DO NOT allow focus to escape
-            if (first == 0) {
-                return focused
+        if (currentPos == RecyclerView.NO_POSITION) {
+            return super.focusSearch(focused, direction)
+        }
+
+        when (direction) {
+
+            View.FOCUS_UP -> {
+                val targetPos = currentPos - 1
+
+                if (targetPos < 0) {
+                    // 🚫 Block navbar escape
+                    return focused
+                }
+
+                val targetView = lm.findViewByPosition(targetPos)
+                return targetView ?: focused
+            }
+
+            View.FOCUS_DOWN -> {
+                val targetPos = currentPos + 1
+
+                val targetView = lm.findViewByPosition(targetPos)
+                return targetView ?: focused
             }
         }
 
