@@ -66,6 +66,8 @@ class SearchFragment : Fragment() {
         activeCategory = view.findViewById(R.id.active_category_container)
         choiceCategory = view.findViewById(R.id.choice_category_container)
         recycler = view.findViewById(R.id.songRecycler)
+        val tvRecycler = recycler as TvRecyclerView
+        tvRecycler.topView = choiceCategory
         scrollThumb = view.findViewById(R.id.scrollThumb)
 
         // 🔥 ADDED
