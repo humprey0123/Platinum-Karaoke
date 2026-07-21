@@ -19,6 +19,11 @@ class SearchFragment : Fragment() {
     private lateinit var recycler: RecyclerView
     private lateinit var scrollThumb: View
 
+    // 🔥 ADDED
+    private lateinit var searchEditText: TextView
+    private lateinit var keyboard: LinearLayout
+    private var searchQuery: String = ""
+
     private var incomingFilter: String? = null
     private var selectedGroupIndex = 0
 
@@ -63,15 +68,63 @@ class SearchFragment : Fragment() {
         recycler = view.findViewById(R.id.songRecycler)
         scrollThumb = view.findViewById(R.id.scrollThumb)
 
+        // 🔥 ADDED
+        searchEditText = view.findViewById(R.id.search)
+        keyboard = view.findViewById(R.id.keyboard_container)
+
         incomingFilter = arguments?.getString("selected_filter")
 
         setupRecycler()
         setupScrollbar()
         setupFilters()
 
+        setupKeyboard() // 🔥 ADDED
+
         loadSongs()
 
         return view
+    }
+
+    // ===============================
+    // ⌨️ KEYBOARD LOGIC
+    // ===============================
+    private fun setupKeyboard() {
+        for (i in 0 until keyboard.childCount) {
+            val row = keyboard.getChildAt(i)
+
+            if (row is LinearLayout) {
+                for (j in 0 until row.childCount) {
+                    val keyView = row.getChildAt(j)
+
+                    if (keyView is TextView) {
+                        keyView.setOnClickListener {
+                            val key = keyView.text.toString()
+                            handleKeyPress(key)
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private fun handleKeyPress(key: String) {
+        when (key) {
+
+            "SPACE" -> searchQuery += " "
+
+            "⌫" -> {
+                if (searchQuery.isNotEmpty()) {
+                    searchQuery = searchQuery.dropLast(1)
+                }
+            }
+
+            else -> searchQuery += key
+        }
+
+        searchEditText.text = searchQuery
+
+        // 🔥 triggers your existing filter system
+        filterSongs()
     }
 
     // ===============================
@@ -89,11 +142,18 @@ class SearchFragment : Fragment() {
     private fun filterSongs() {
         val genre = filterGroups.find { it.name == "Genre" }?.active
 
-        val filtered = if (genre != null) {
-            allSongs.filter {
-                it.genre.equals(mapGenreToFileName(genre), true)
-            }
-        } else allSongs
+        val filtered = allSongs.filter { song ->
+
+            val matchesGenre = genre?.let {
+                song.genre.equals(mapGenreToFileName(it), true)
+            } ?: true
+
+            val matchesSearch =
+                song.title.contains(searchQuery, true) ||
+                        song.artist.contains(searchQuery, true)
+
+            matchesGenre && matchesSearch
+        }
 
         adapter.submitList(filtered)
     }
@@ -119,7 +179,6 @@ class SearchFragment : Fragment() {
     // ===============================
     private fun setupRecycler() {
         adapter = SongAdapter()
-
         recycler.layoutManager = LinearLayoutManager(requireContext())
         recycler.adapter = adapter
         recycler.setHasFixedSize(true)
@@ -144,9 +203,11 @@ class SearchFragment : Fragment() {
 
                 scrollThumb.translationY = trackHeight * proportion
 
-                // 🔥 dynamic thumb size
                 val visibleRatio = extent.toFloat() / range
-                val newHeight = (rv.height * visibleRatio).toInt()
+                val minHeight = 40 // 👈 adjust this (in px)
+
+                val calculatedHeight = (rv.height * visibleRatio).toInt()
+                val newHeight = maxOf(minHeight, calculatedHeight)
 
                 scrollThumb.layoutParams.height = newHeight
                 scrollThumb.requestLayout()
@@ -155,7 +216,7 @@ class SearchFragment : Fragment() {
     }
 
     // ===============================
-    // 🎯 FILTER UI
+    // 🎯 FILTER UI (UNCHANGED)
     // ===============================
     private fun setupFilters() {
         renderActiveCategories()
@@ -177,7 +238,6 @@ class SearchFragment : Fragment() {
                 showChoices()
             }
 
-            // 🔥 TV DPAD navigation
             tv.setOnKeyListener { _, keyCode, event ->
                 if (event.action == KeyEvent.ACTION_DOWN) {
                     if (keyCode == KeyEvent.KEYCODE_DPAD_DOWN) {
@@ -200,7 +260,6 @@ class SearchFragment : Fragment() {
         choiceCategory.removeAllViews()
 
         group.choices.forEach { item ->
-
             val tv = createCategoryTextView(item, false)
 
             tv.setOnClickListener {
@@ -225,9 +284,6 @@ class SearchFragment : Fragment() {
         filterSongs()
     }
 
-    // ===============================
-    // 🎯 APPLY INCOMING FILTER
-    // ===============================
     private fun applyIncomingFilter(filter: String) {
 
         for ((index, group) in filterGroups.withIndex()) {
@@ -255,9 +311,6 @@ class SearchFragment : Fragment() {
         }
     }
 
-    // ===============================
-    // 🧱 UI HELPER
-    // ===============================
     private fun createCategoryTextView(textValue: String, isActive: Boolean): TextView {
         return TextView(requireContext()).apply {
 
@@ -267,32 +320,15 @@ class SearchFragment : Fragment() {
                 if (isActive) R.style.CategoryTabs else R.style.ChoiceCategory
             )
 
-            // ✅ RESTORE OLD COLORS
             if (isActive) {
-                setTextColor(
-                    resources.getColorStateList(
-                        R.drawable.selector_nav_text,
-                        null
-                    )
-                )
-            } else {
-                setTextColor(
-                    resources.getColorStateList(
-                        R.drawable.selector_nav_choice_category,
-                        null
-                    )
-                )
-            }
-
-            // ✅ RESTORE OLD BACKGROUND + PADDING
-            if (isActive) {
+                setTextColor(resources.getColorStateList(R.drawable.selector_nav_text, null))
                 setBackgroundResource(R.drawable.selector_search_category)
                 setPadding(20.dp, 4.dp, 20.dp, 4.dp)
             } else {
+                setTextColor(resources.getColorStateList(R.drawable.selector_nav_choice_category, null))
                 setPadding(3.dp, 4.dp, 3.dp, 4.dp)
             }
 
-            // ✅ KEEP TV BEHAVIOR
             isFocusable = true
             isFocusableInTouchMode = false
             isClickable = true
