@@ -179,7 +179,7 @@ class SearchFragment : Fragment() {
     // ===============================
     private fun setupRecycler() {
         adapter = SongAdapter()
-        recycler.layoutManager = LinearLayoutManager(requireContext())
+        recycler.layoutManager = CustomLayoutManager(requireContext())
         recycler.adapter = adapter
         recycler.setHasFixedSize(true)
     }
@@ -346,3 +346,4 @@ class SearchFragment : Fragment() {
     private val Int.dp: Int
         get() = (this * resources.displayMetrics.density).toInt()
 }
+

@@ -86,10 +86,13 @@
                 android:clipChildren="false"
                 android:clipToPadding="false">
 
-                <androidx.recyclerview.widget.RecyclerView
+                <com.example.platinumkaraoke.TvRecyclerView
                     android:id="@+id/songRecycler"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"/>
+                    android:layout_height="match_parent"
+                    android:focusable="true"
+                    android:focusableInTouchMode="true"
+                    android:descendantFocusability="afterDescendants"/>
 
                 <!-- Scrollbar track -->
                 <View
