@@ -51,9 +51,9 @@ class MainActivity : FragmentActivity() {
             false
         }
 
-//        navSettings.setOnClickListener {
-//            showSettingsPopup(it)
-//        }
+        navSettings.setOnClickListener {
+            showSettingsPopup(it)
+        }
         navHome.setOnTouchListener(touchHandler)
         navSearch.setOnTouchListener(touchHandler)
     }
@@ -105,32 +105,34 @@ class MainActivity : FragmentActivity() {
                         View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
         }
     }
-//
-//    private fun showSettingsPopup(anchor: View) {
-//        val view = LayoutInflater.from(this)
-//            .inflate(R.layout.popup_settings, null)
-//
-//        val popup = PopupWindow(
-//            view,
-//            300,
-//            WindowManager.LayoutParams.WRAP_CONTENT,
-//            true
-//        )
-//
-//        popup.elevation = 20f
-//
-//        // Show at TOP RIGHT of the icon
-//        popup.showAsDropDown(anchor, 0, 10, Gravity.END)
-//
-//        // Optional: handle clicks
-//        view.findViewById<View>(R.id.btn_profile).setOnClickListener {
-//            popup.dismiss()
-//            // TODO: open profile
-//        }
-//
-//        view.findViewById<View>(R.id.btn_logout).setOnClickListener {
-//            popup.dismiss()
-//            // TODO: logout logic
-//        }
-//    }
+
+//    Settings Popup
+
+    private fun showSettingsPopup(anchor: View) {
+        val view = LayoutInflater.from(this)
+            .inflate(R.layout.popup_settings, null)
+
+        val popup = PopupWindow(
+            view,
+            300,
+            WindowManager.LayoutParams.WRAP_CONTENT,
+            true
+        )
+
+        popup.elevation = 20f
+
+        // Show at TOP RIGHT of the icon
+        popup.showAtLocation(window.decorView, Gravity.TOP or Gravity.END, 0, 0)
+
+        // Optional: handle clicks
+        view.findViewById<View>(R.id.btn_profile).setOnClickListener {
+            popup.dismiss()
+            // TODO: open profile
+        }
+
+        view.findViewById<View>(R.id.btn_logout).setOnClickListener {
+            popup.dismiss()
+            // TODO: logout logic
+        }
+    }
 }

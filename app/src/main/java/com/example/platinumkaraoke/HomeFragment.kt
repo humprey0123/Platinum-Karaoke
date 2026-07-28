@@ -20,7 +20,7 @@ class HomeFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_home, container, false)
     }
 
-    // 👉 ADD YOUR GRID LOGIC HERE
+    // GRID LOGIC
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -60,7 +60,7 @@ class HomeFragment : Fragment() {
 
 }
 
-// 👉 Adapter class
+// Adapter class
 class GridAdapter(private val items: List<Category>) :
     RecyclerView.Adapter<GridAdapter.ViewHolder>() {
 

@@ -4,25 +4,42 @@
     android:layout_width="200dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:background="@drawable/selector_button"
+    android:background="@drawable/bg_settings_popup"
     android:padding="12dp">
+
+<!-- TODO: add id-->
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginVertical="8dp"
+        android:padding="5dp"
+        android:src="@drawable/gear1"
+        android:background="@drawable/selector_button"
+        android:tint="@color/selector_icon_tint"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:contentDescription="@string/btn_settings"/>
 
     <TextView
         android:id="@+id/btn_profile"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Profile"
-        android:padding="10dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
         android:focusable="true"
-        android:textColor="@android:color/white"/>
+        android:layout_margin="1dp"
+        android:background="@drawable/selector_bg_transparent"/>
 
     <TextView
         android:id="@+id/btn_logout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Logout"
-        android:padding="10dp"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
+        android:layout_margin="1dp"
         android:focusable="true"
-        android:textColor="@android:color/white"/>
+        android:background="@drawable/selector_bg_transparent"/>
 
 </LinearLayout>
