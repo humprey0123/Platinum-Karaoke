@@ -12,6 +12,7 @@ import android.widget.PopupWindow
 import android.view.LayoutInflater
 import android.view.Gravity
 import android.view.WindowManager
+import android.widget.SeekBar
 
 class MainActivity : FragmentActivity() {
 
@@ -65,7 +66,7 @@ class MainActivity : FragmentActivity() {
 
         bg.apply {
             setImageResource(R.drawable.bg_home)
-            setColorFilter(0x80000000.toInt())
+//            setColorFilter(0x80000000.toInt())
         }
     }
 
@@ -112,27 +113,36 @@ class MainActivity : FragmentActivity() {
         val view = LayoutInflater.from(this)
             .inflate(R.layout.popup_settings, null)
 
+//        Get screen width
+        val displayMetrics = resources.displayMetrics
+        val screenWidth = displayMetrics.widthPixels
+
+        val popupwidth = (screenWidth * .3).toInt()
+
         val popup = PopupWindow(
             view,
-            300,
+            popupwidth,
             WindowManager.LayoutParams.WRAP_CONTENT,
             true
         )
+
+        val parent = view.findViewById<View>(R.id.layout_music_volume)
+        val seekBar = view.findViewById<SeekBar>(R.id.seek_music_volume)
+
+        seekBar.setOnFocusChangeListener { _, hasFocus ->
+            parent.isActivated = hasFocus
+        }
 
         popup.elevation = 20f
 
         // Show at TOP RIGHT of the icon
         popup.showAtLocation(window.decorView, Gravity.TOP or Gravity.END, 0, 0)
 
-        // Optional: handle clicks
-        view.findViewById<View>(R.id.btn_profile).setOnClickListener {
-            popup.dismiss()
-            // TODO: open profile
-        }
 
-        view.findViewById<View>(R.id.btn_logout).setOnClickListener {
+        view.findViewById<View>(R.id.music_volume).setOnClickListener {
             popup.dismiss()
             // TODO: logout logic
         }
+
     }
 }

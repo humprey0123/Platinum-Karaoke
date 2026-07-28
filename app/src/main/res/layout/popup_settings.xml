@@ -20,26 +20,39 @@
         android:focusableInTouchMode="true"
         android:contentDescription="@string/btn_settings"/>
 
-    <TextView
-        android:id="@+id/btn_profile"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Profile"
-        android:paddingHorizontal="15dp"
-        android:paddingVertical="5dp"
-        android:focusable="true"
-        android:layout_margin="1dp"
-        android:background="@drawable/selector_bg_transparent"/>
 
-    <TextView
-        android:id="@+id/btn_logout"
+<!--Music Volume-->
+    <LinearLayout
+        android:id="@+id/layout_music_volume"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Logout"
+        android:orientation="horizontal"
         android:paddingHorizontal="15dp"
         android:paddingVertical="5dp"
         android:layout_margin="1dp"
-        android:focusable="true"
-        android:background="@drawable/selector_bg_transparent"/>
+        android:background="@drawable/selector_bg_transparent">
+
+            <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/music_volume"
+            android:text="Music Volume"/>
+
+            <!-- music volume scroll horizontally -->
+
+        <SeekBar
+            android:id="@+id/seek_music_volume"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="50"
+            android:focusable="true"
+            android:focusableInTouchMode="true"/>
+
+    </LinearLayout>
+
+
 
 </LinearLayout>
