@@ -31,15 +31,12 @@
         android:paddingVertical="5dp"
         android:layout_margin="1dp"
         android:background="@drawable/selector_bg_transparent">
-
-            <TextView
+        <TextView
             android:layout_width="0dp"
             android:layout_weight="1"
             android:layout_height="wrap_content"
             android:id="@+id/music_volume"
             android:text="Music Volume"/>
-
-            <!-- music volume scroll horizontally -->
 
         <SeekBar
             android:id="@+id/seek_music_volume"
@@ -50,9 +47,35 @@
             android:progress="50"
             android:focusable="true"
             android:focusableInTouchMode="true"/>
-
     </LinearLayout>
 
+    <!--Key-->
+    <LinearLayout
+        android:id="@+id/layout_music_volume"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
+        android:layout_margin="1dp"
+        android:background="@drawable/selector_bg_transparent">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:id="@+id/music_volume"
+            android:text="Key"/>
+
+        <SeekBar
+            android:id="@+id/seek_music_volume"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:max="100"
+            android:progress="50"
+            android:focusable="true"
+            android:focusableInTouchMode="true"/>
+    </LinearLayout>
 
 
 </LinearLayout>

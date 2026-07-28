@@ -139,10 +139,5 @@ class MainActivity : FragmentActivity() {
         popup.showAtLocation(window.decorView, Gravity.TOP or Gravity.END, 0, 0)
 
 
-        view.findViewById<View>(R.id.music_volume).setOnClickListener {
-            popup.dismiss()
-            // TODO: logout logic
-        }
-
     }
 }
