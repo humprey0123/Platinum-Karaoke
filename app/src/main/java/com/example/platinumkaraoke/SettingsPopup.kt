@@ -6,6 +6,7 @@ import android.widget.LinearLayout
 import android.widget.PopupWindow
 import android.widget.SeekBar
 import android.widget.TextView
+import android.widget.RadioButton
 
 class SettingsPopup(private val context: Context) {
 
@@ -32,6 +33,8 @@ class SettingsPopup(private val context: Context) {
             0,
             0
         )
+
+        setupRadioGroup(view)
 
         setupSliders(view)
     }
@@ -65,6 +68,26 @@ class SettingsPopup(private val context: Context) {
 
         seek.setOnFocusChangeListener { _, hasFocus ->
             container.isActivated = hasFocus
+        }
+    }
+
+    private fun setupRadioGroup(view: View) {
+        val radioButtons = listOf(
+            view.findViewById<RadioButton>(R.id.bgv_auto),
+            view.findViewById<RadioButton>(R.id.bgv_3d),
+            view.findViewById<RadioButton>(R.id.bgv_view),
+            view.findViewById<RadioButton>(R.id.bgv_event),
+            view.findViewById<RadioButton>(R.id.bgv_abstract),
+            view.findViewById<RadioButton>(R.id.bgv_mv),
+            view.findViewById<RadioButton>(R.id.bgv_sexy),
+            view.findViewById<RadioButton>(R.id.bgv_user)
+        )
+
+        radioButtons.forEach { selected ->
+            selected.setOnClickListener {
+                radioButtons.forEach { it.isChecked = false }
+                selected.isChecked = true
+            }
         }
     }
 }
