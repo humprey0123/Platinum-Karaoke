@@ -2,11 +2,11 @@
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/slider_container"
-    android:layout_width="200dp"
     android:layout_height="wrap_content"
     android:orientation="vertical"
     android:background="@drawable/bg_settings_popup"
     android:padding="12dp">
+
 
 <!-- TODO: add id-->
     <ImageView
@@ -20,6 +20,12 @@
         android:focusable="true"
         android:focusableInTouchMode="true"
         android:contentDescription="@string/btn_settings"/>
+
+    <LinearLayout
+        android:id="@+id/popup_settings_seeker"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
 
     <LinearLayout
         android:layout_width="match_parent"

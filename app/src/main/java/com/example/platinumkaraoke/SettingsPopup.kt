@@ -45,7 +45,7 @@ class SettingsPopup(private val context: Context) {
             "Mic Echo"
         )
 
-        val container = view.findViewById<LinearLayout>(R.id.slider_container)
+        val container = view.findViewById<LinearLayout>(R.id.popup_settings_seeker)
 
         sliders.forEach { text ->
             val item = LayoutInflater.from(context)
