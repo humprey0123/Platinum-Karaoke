@@ -8,13 +8,6 @@ import android.view.WindowInsets
 import android.view.WindowInsetsController
 import android.widget.ImageView
 import androidx.fragment.app.FragmentActivity
-import android.widget.PopupWindow
-import android.view.LayoutInflater
-import android.view.Gravity
-import android.view.WindowManager
-import android.widget.SeekBar
-import android.widget.LinearLayout
-import android.widget.TextView
 
 class MainActivity : FragmentActivity() {
 
@@ -55,7 +48,7 @@ class MainActivity : FragmentActivity() {
         }
 
         navSettings.setOnClickListener {
-            showSettingsPopup(it)
+            SettingsPopup(this).show(it)
         }
         navHome.setOnTouchListener(touchHandler)
         navSearch.setOnTouchListener(touchHandler)
@@ -108,64 +101,4 @@ class MainActivity : FragmentActivity() {
                         View.SYSTEM_UI_FLAG_HIDE_NAVIGATION)
         }
     }
-
-//    Settings Popup
-
-    private fun showSettingsPopup(anchor: View) {
-        val view = LayoutInflater.from(this)
-            .inflate(R.layout.popup_settings, null)
-
-//        Get screen width
-        val displayMetrics = resources.displayMetrics
-        val screenWidth = displayMetrics.widthPixels
-
-        val popupwidth = (screenWidth * .3).toInt()
-
-        val popup = PopupWindow(
-            view,
-            popupwidth,
-            WindowManager.LayoutParams.WRAP_CONTENT,
-            true
-        )
-
-
-        popup.elevation = 20f
-
-        // Show at TOP RIGHT of the icon
-        popup.showAtLocation(window.decorView, Gravity.TOP or Gravity.END, 0, 0)
-
-
-
-        val sliders = listOf(
-            "Music Volume",
-            "Key",
-            "Tempo",
-            "Music Level",
-            "Mic Echo"
-        )
-
-        val container = view.findViewById<LinearLayout>(R.id.slider_container)
-
-        sliders.forEach { text ->
-            val item = LayoutInflater.from(this)
-                .inflate(R.layout.item_setting_slider, container, false)
-
-            setupSlider(item, text)
-            container.addView(item)
-        }
-
-    }
-
-    private fun setupSlider(view: View, text: String) {
-        val label = view.findViewById<TextView>(R.id.label)
-        val seek = view.findViewById<SeekBar>(R.id.seek)
-        val container = view.findViewById<View>(R.id.layout_container)
-
-        label.text = text
-
-        seek.setOnFocusChangeListener { _, hasFocus ->
-            container.isActivated = hasFocus
-        }
-    }
-
 }
