@@ -29,15 +29,22 @@
         android:orientation="vertical"/>
 
     <LinearLayout
+        android:id="@+id/bgv_row_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="horizontal"
+        android:paddingHorizontal="15dp"
+        android:paddingVertical="5dp"
+        android:layout_margin="2dp"
+        android:background="@drawable/selector_bg_transparent">
 
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:layout_gravity="center"
+            android:textColor="#fff"
+            android:textSize="12sp"
             android:text="BGV"/>
 
         <RadioGroup
@@ -53,6 +60,7 @@
 
                 <!-- Auto -->
                 <LinearLayout
+                    android:id="@+id/bgv_auto_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -69,11 +77,13 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Auto"
+                        android:textColor="#fff"
                         android:textSize="10sp"/>
                 </LinearLayout>
 
                 <!-- 3D -->
                 <LinearLayout
+                    android:id="@+id/bgv_3d_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -89,12 +99,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="#fff"
                         android:text="3D"
                         android:textSize="10sp"/>
                 </LinearLayout>
 
                 <!-- View -->
                 <LinearLayout
+                    android:id="@+id/bgv_view_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -110,12 +122,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="#fff"
                         android:text="View"
                         android:textSize="10sp"/>
                 </LinearLayout>
 
                 <!-- Event -->
                 <LinearLayout
+                    android:id="@+id/bgv_event_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -131,12 +145,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="#fff"
                         android:text="Event"
                         android:textSize="10sp"/>
                 </LinearLayout>
 
                 <!-- Abstract -->
                 <LinearLayout
+                    android:id="@+id/bgv_abstract_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -152,12 +168,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="#fff"
                         android:text="Abstract"
                         android:textSize="10sp"/>
                 </LinearLayout>
 
                 <!-- MV -->
                 <LinearLayout
+                    android:id="@+id/bgv_mv_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -173,12 +191,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="#fff"
                         android:text="MV"
                         android:textSize="10sp"/>
                 </LinearLayout>
 
                 <!-- Sexy -->
                 <LinearLayout
+                    android:id="@+id/bgv_sexy_container"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -194,13 +214,14 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="#fff"
                         android:text="Sexy"
                         android:textSize="10sp"/>
                 </LinearLayout>
 
                 <!-- User -->
                 <LinearLayout
-                    android:layout_width="0dp"
+                    android:id="@+id/bgv_user_container"                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
                     android:orientation="vertical"
@@ -215,6 +236,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textColor="#fff"
                         android:text="User"
                         android:textSize="10sp"/>
                 </LinearLayout>

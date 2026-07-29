@@ -70,8 +70,10 @@ class SettingsPopup(private val context: Context) {
             container.isActivated = hasFocus
         }
     }
-
     private fun setupRadioGroup(view: View) {
+
+        val parent = view.findViewById<View>(R.id.bgv_row_container)
+
         val radioButtons = listOf(
             view.findViewById<RadioButton>(R.id.bgv_auto),
             view.findViewById<RadioButton>(R.id.bgv_3d),
@@ -83,10 +85,17 @@ class SettingsPopup(private val context: Context) {
             view.findViewById<RadioButton>(R.id.bgv_user)
         )
 
-        radioButtons.forEach { selected ->
-            selected.setOnClickListener {
+        radioButtons.forEach { radio ->
+
+            // selection logic
+            radio.setOnClickListener {
                 radioButtons.forEach { it.isChecked = false }
-                selected.isChecked = true
+                radio.isChecked = true
+            }
+
+            // 👇 THIS is the key part
+            radio.setOnFocusChangeListener { _, hasFocus ->
+                parent.isActivated = hasFocus
             }
         }
     }
