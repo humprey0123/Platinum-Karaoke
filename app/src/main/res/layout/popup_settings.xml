@@ -71,6 +71,7 @@
                         android:id="@+id/bgv_auto"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:buttonTint="@color/selector_radio_color"
                         android:text=""/>
 
                     <TextView
@@ -94,6 +95,7 @@
                         android:id="@+id/bgv_3d"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:buttonTint="@color/selector_radio_color"
                         android:text=""/>
 
                     <TextView
@@ -117,6 +119,7 @@
                         android:id="@+id/bgv_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:buttonTint="@color/selector_radio_color"
                         android:text=""/>
 
                     <TextView
@@ -140,6 +143,7 @@
                         android:id="@+id/bgv_event"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:buttonTint="@color/selector_radio_color"
                         android:text=""/>
 
                     <TextView
@@ -163,6 +167,7 @@
                         android:id="@+id/bgv_abstract"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:buttonTint="@color/selector_radio_color"
                         android:text=""/>
 
                     <TextView
@@ -186,6 +191,7 @@
                         android:id="@+id/bgv_mv"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:buttonTint="@color/selector_radio_color"
                         android:text=""/>
 
                     <TextView
@@ -209,6 +215,7 @@
                         android:id="@+id/bgv_sexy"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:buttonTint="@color/selector_radio_color"
                         android:text=""/>
 
                     <TextView
@@ -231,6 +238,7 @@
                         android:id="@+id/bgv_user"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:buttonTint="@color/selector_radio_color"
                         android:text=""/>
 
                     <TextView
