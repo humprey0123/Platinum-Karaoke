@@ -80,6 +80,19 @@ class SearchFragment : Fragment() {
         searchEditText.showSoftInputOnFocus = false
         searchEditText.isCursorVisible = false
 
+        view.viewTreeObserver.addOnGlobalFocusChangeListener { oldFocus, newFocus ->
+
+            if (keyboard.visibility == View.VISIBLE) {
+
+                val isInsideKeyboard = isViewChildOf(newFocus, keyboard)
+                val isSearch = newFocus == searchEditText
+
+                if (!isInsideKeyboard && !isSearch) {
+                    keyboard.visibility = View.GONE
+                }
+            }
+        }
+
         searchEditText.setOnKeyListener { _, keyCode, event ->
             if (event.action == KeyEvent.ACTION_DOWN &&
                 (keyCode == KeyEvent.KEYCODE_DPAD_CENTER || keyCode == KeyEvent.KEYCODE_ENTER)
@@ -109,6 +122,15 @@ class SearchFragment : Fragment() {
         return view
     }
 
+
+    private fun isViewChildOf(view: View?, parent: View): Boolean {
+        var current = view
+        while (current != null) {
+            if (current == parent) return true
+            current = current.parent as? View
+        }
+        return false
+    }
 
     // ===============================
     // ⌨️ KEYBOARD LOGIC
