@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Background color -->
-    <solid android:color="#50FFFFFF"/>
+    <!-- Focused (HOVER EFFECT) -->
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#80FFFFFF"/> <!-- brighter -->
+            <corners android:radius="30dp"/>
+            <stroke
+                android:width="2dp"
+                android:color="#FFFFFF"/> <!-- highlight border -->
+        </shape>
+    </item>
 
-    <!-- Corner radius -->
-    <corners android:radius="30dp"/>
+    <!-- Default -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#50FFFFFF"/>
+            <corners android:radius="30dp"/>
+            <stroke
+                android:width="1dp"
+                android:color="#20000000"/>
+        </shape>
+    </item>
 
-    <!-- Optional: border -->
-    <stroke
-        android:width="1dp"
-        android:color="#20000000"/>
-
-</shape>
+</selector>
