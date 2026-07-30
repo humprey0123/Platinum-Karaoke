@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import android.widget.EditText
 
 class SearchFragment : Fragment() {
 
@@ -20,7 +21,7 @@ class SearchFragment : Fragment() {
     private lateinit var scrollThumb: View
 
     // 🔥 ADDED
-    private lateinit var searchEditText: TextView
+    private lateinit var searchEditText: EditText
     private lateinit var keyboard: LinearLayout
     private var searchQuery: String = ""
 
@@ -60,7 +61,6 @@ class SearchFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-
         val view = inflater.inflate(R.layout.fragment_search, container, false)
 
         activeCategory = view.findViewById(R.id.active_category_container)
@@ -76,6 +76,28 @@ class SearchFragment : Fragment() {
 
         incomingFilter = arguments?.getString("selected_filter")
 
+// 🔥 Disable Android keyboard
+        searchEditText.showSoftInputOnFocus = false
+        searchEditText.isCursorVisible = false
+
+        searchEditText.setOnKeyListener { _, keyCode, event ->
+            if (event.action == KeyEvent.ACTION_DOWN &&
+                (keyCode == KeyEvent.KEYCODE_DPAD_CENTER || keyCode == KeyEvent.KEYCODE_ENTER)
+            ) {
+                keyboard.visibility = View.VISIBLE
+
+                keyboard.post {
+                    if (keyboard.childCount > 0) {
+                        keyboard.getChildAt(0).requestFocus()
+                    }
+                }
+
+                return@setOnKeyListener true
+            }
+            false
+        }
+
+
         setupRecycler()
         setupScrollbar()
         setupFilters()
@@ -86,6 +108,7 @@ class SearchFragment : Fragment() {
 
         return view
     }
+
 
     // ===============================
     // ⌨️ KEYBOARD LOGIC
@@ -120,12 +143,16 @@ class SearchFragment : Fragment() {
                 }
             }
 
+            "DONE" -> {
+                keyboard.visibility = View.GONE
+                recycler.requestFocus()
+                return
+            }
+
             else -> searchQuery += key
         }
 
-        searchEditText.text = searchQuery
-
-        // 🔥 triggers your existing filter system
+        searchEditText.setText(searchQuery)
         filterSongs()
     }
 

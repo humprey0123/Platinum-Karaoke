@@ -33,11 +33,11 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@drawable/search_radius"
-                android:focusable="false"
-                android:clickable="false"
-                android:focusableInTouchMode="false"
                 android:hint="@string/search_hint"
+
                 android:inputType="none"
+                android:cursorVisible="false"
+
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="4dp"
                 android:textColor="#FFFFFF"
@@ -114,7 +114,9 @@
 
             </FrameLayout>
             <!-- Keyboard -->
-            <include layout="@layout/keyboard"/>
+
+                <include layout="@layout/keyboard"/>
+
         </LinearLayout>
 
         <!-- Stays at the bottom always-->
