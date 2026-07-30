@@ -101,7 +101,7 @@ class SearchFragment : Fragment() {
 
                 keyboard.post {
                     if (keyboard.childCount > 0) {
-                        keyboard.getChildAt(0).requestFocus()
+                        keyboard.getChildAt(1).requestFocus()
                     }
                 }
 
