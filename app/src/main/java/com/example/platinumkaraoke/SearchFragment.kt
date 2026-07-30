@@ -238,6 +238,12 @@ class SearchFragment : Fragment() {
                 selectedGroupIndex = index
                 renderActiveCategories()
                 showChoices()
+
+                choiceCategory.post {
+                    if (choiceCategory.childCount > 0) {
+                        choiceCategory.getChildAt(0).requestFocus()
+                    }
+                }
             }
 
             tv.setOnKeyListener { _, keyCode, event ->
@@ -266,6 +272,10 @@ class SearchFragment : Fragment() {
 
             tv.setOnClickListener {
                 swapFilter(item)
+
+                recycler.post {
+                    recycler.requestFocus()
+                }
             }
 
             choiceCategory.addView(tv)
