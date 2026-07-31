@@ -63,13 +63,35 @@ class SettingsPopup(private val context: Context) {
         val label = view.findViewById<TextView>(R.id.label)
         val seek = view.findViewById<SeekBar>(R.id.seek)
         val container = view.findViewById<View>(R.id.layout_container)
+        val level = view.findViewById<TextView>(R.id.popup_settings_level)
 
         label.text = text
 
+        // 👇 Show level only for specific sliders
+        val showLevel = text == "Tempo" || text == "Music Level" || text == "Mic Echo"
+        level.visibility = if (showLevel) View.VISIBLE else View.GONE
+
+        // 👇 Update value when sliding
+        if (showLevel) {
+            level.text = seek.progress.toString()
+
+            seek.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+                override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+                    level.text = progress.toString()
+                }
+
+                override fun onStartTrackingTouch(seekBar: SeekBar) {}
+                override fun onStopTrackingTouch(seekBar: SeekBar) {}
+            })
+        }
+
+        // Focus highlight (your existing logic)
         seek.setOnFocusChangeListener { _, hasFocus ->
             container.isActivated = hasFocus
         }
     }
+
+    // Radio Group
     private fun setupRadioGroup(view: View) {
 
         val parent = view.findViewById<View>(R.id.bgv_row_container)
