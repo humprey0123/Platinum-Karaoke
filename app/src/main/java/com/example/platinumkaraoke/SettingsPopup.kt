@@ -117,13 +117,11 @@ class SettingsPopup(private val context: Context) {
             view.findViewById<RadioButton>(R.id.bgv_user)
         )
 
-        // ✅ Load saved selection
-        val saved = prefs.getString("bgv_mode", "bgv_auto")
+        // ✅ Load saved ID
+        val savedId = prefs.getInt("bgv_mode", R.id.bgv_auto)
 
         radioButtons.forEach { radio ->
-            if (radio.id == view.resources.getIdentifier(saved, "id", context.packageName)) {
-                radio.isChecked = true
-            }
+            radio.isChecked = radio.id == savedId
         }
 
         radioButtons.forEach { radio ->
@@ -132,9 +130,8 @@ class SettingsPopup(private val context: Context) {
                 radioButtons.forEach { it.isChecked = false }
                 radio.isChecked = true
 
-                // ✅ SAVE
-                val idName = view.resources.getResourceEntryName(radio.id)
-                prefs.edit().putString("bgv_mode", idName).apply()
+                // ✅ SAVE ID directly
+                prefs.edit().putInt("bgv_mode", radio.id).apply()
             }
 
             radio.setOnFocusChangeListener { _, hasFocus ->
