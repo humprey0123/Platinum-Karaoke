@@ -9,6 +9,7 @@ import android.widget.TextView
 import android.widget.RadioButton
 
 class SettingsPopup(private val context: Context) {
+    private val prefs = context.getSharedPreferences("karaoke_settings", Context.MODE_PRIVATE)
 
     fun show(anchor: View) {
         val view = LayoutInflater.from(context)
@@ -67,30 +68,39 @@ class SettingsPopup(private val context: Context) {
 
         label.text = text
 
-        // 👇 Show level only for specific sliders
+        val key = text.replace(" ", "_").lowercase()
+
+        // ✅ Load saved value (default = 50)
+        val savedValue = prefs.getInt(key, 5)
+        seek.progress = savedValue
+
         val showLevel = text == "Tempo" || text == "Music Level" || text == "Mic Echo"
         level.visibility = if (showLevel) View.VISIBLE else View.GONE
 
-        // 👇 Update value when sliding
         if (showLevel) {
-            level.text = seek.progress.toString()
+            level.text = savedValue.toString()
+        }
 
-            seek.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
-                override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+        seek.setOnSeekBarChangeListener(object : SeekBar.OnSeekBarChangeListener {
+            override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) {
+
+                // ✅ Update UI
+                if (showLevel) {
                     level.text = progress.toString()
                 }
 
-                override fun onStartTrackingTouch(seekBar: SeekBar) {}
-                override fun onStopTrackingTouch(seekBar: SeekBar) {}
-            })
-        }
+                // ✅ SAVE
+                prefs.edit().putInt(key, progress).apply()
+            }
 
-        // Focus highlight (your existing logic)
+            override fun onStartTrackingTouch(seekBar: SeekBar) {}
+            override fun onStopTrackingTouch(seekBar: SeekBar) {}
+        })
+
         seek.setOnFocusChangeListener { _, hasFocus ->
             container.isActivated = hasFocus
         }
     }
-
     // Radio Group
     private fun setupRadioGroup(view: View) {
 
@@ -107,15 +117,26 @@ class SettingsPopup(private val context: Context) {
             view.findViewById<RadioButton>(R.id.bgv_user)
         )
 
+        // ✅ Load saved selection
+        val saved = prefs.getString("bgv_mode", "bgv_auto")
+
+        radioButtons.forEach { radio ->
+            if (radio.id == view.resources.getIdentifier(saved, "id", context.packageName)) {
+                radio.isChecked = true
+            }
+        }
+
         radioButtons.forEach { radio ->
 
-            // selection logic
             radio.setOnClickListener {
                 radioButtons.forEach { it.isChecked = false }
                 radio.isChecked = true
+
+                // ✅ SAVE
+                val idName = view.resources.getResourceEntryName(radio.id)
+                prefs.edit().putString("bgv_mode", idName).apply()
             }
 
-            // 👇 THIS is the key part
             radio.setOnFocusChangeListener { _, hasFocus ->
                 parent.isActivated = hasFocus
             }
