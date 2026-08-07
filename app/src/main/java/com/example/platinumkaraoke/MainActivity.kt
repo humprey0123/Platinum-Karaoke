@@ -14,7 +14,7 @@ class MainActivity : FragmentActivity() {
     private lateinit var bg: ImageView
     private lateinit var navHome: View
     private lateinit var navSearch: View
-
+    private lateinit var searchOverlay: View
     private lateinit var navSettings: View
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -26,6 +26,7 @@ class MainActivity : FragmentActivity() {
         navHome = findViewById(R.id.nav_home)
         navSearch = findViewById(R.id.nav_search)
         navSettings = findViewById(R.id.nav_settings) // ✅ ADD THIS
+        searchOverlay = findViewById(R.id.search_overlay)
 
         setupNavigation()
 
@@ -55,15 +56,15 @@ class MainActivity : FragmentActivity() {
     }
 
     fun showHome() {
+        hideSearch() // 👈 important
+
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_content, HomeFragment())
             .commit()
 
-        bg.apply {
-            setImageResource(R.drawable.bg_home)
-//            setColorFilter(0x80000000.toInt())
-        }
+        bg.setImageResource(R.drawable.bg_home)
     }
+//            setColorFilter(0x80000000.toInt())
 
     fun showSearch(selectedCategory: String? = null) {
         val fragment = SearchFragment().apply {
@@ -72,11 +73,25 @@ class MainActivity : FragmentActivity() {
             }
         }
 
+        searchOverlay.visibility = View.VISIBLE
+
         supportFragmentManager.beginTransaction()
-            .replace(R.id.main_content, fragment)
+            .replace(R.id.search_overlay, fragment)
+            .replace(R.id.main_content, KaraokeFragment())
             .commit()
 
-        bg.setImageResource(R.drawable.bg_songlist)
+        bg.setImageResource(R.drawable.bg_home)
+    }
+
+    fun hideSearch() {
+        searchOverlay.visibility = View.GONE
+
+        supportFragmentManager.beginTransaction()
+            .remove(
+                supportFragmentManager.findFragmentById(R.id.search_overlay)
+                    ?: return
+            )
+            .commit()
     }
 
     // 🔥 Fullscreen (modern + backward compatible)
