@@ -32,12 +32,18 @@ class MainActivity : FragmentActivity() {
         setupNavigation()
 
         onBackPressedDispatcher.addCallback(this) {
+            val currentFragment = supportFragmentManager.findFragmentById(R.id.main_content)
+
             if (searchOverlay.visibility == View.VISIBLE) {
                 hideSearch()
+            } else if (currentFragment !is HomeFragment) {
+                showHome()
             } else {
-                finish() // or call isEnabled = false; onBackPressedDispatcher.onBackPressed()
+                finish()
             }
         }
+
+
         if (savedInstanceState == null) {
             showHome()
         }
