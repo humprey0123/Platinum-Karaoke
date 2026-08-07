@@ -7,6 +7,7 @@ import android.view.View
 import android.view.WindowInsets
 import android.view.WindowInsetsController
 import android.widget.ImageView
+import androidx.activity.addCallback
 import androidx.fragment.app.FragmentActivity
 
 class MainActivity : FragmentActivity() {
@@ -30,6 +31,13 @@ class MainActivity : FragmentActivity() {
 
         setupNavigation()
 
+        onBackPressedDispatcher.addCallback(this) {
+            if (searchOverlay.visibility == View.VISIBLE) {
+                hideSearch()
+            } else {
+                finish() // or call isEnabled = false; onBackPressedDispatcher.onBackPressed()
+            }
+        }
         if (savedInstanceState == null) {
             showHome()
         }
@@ -73,7 +81,11 @@ class MainActivity : FragmentActivity() {
             }
         }
 
+        if (searchOverlay.visibility == View.VISIBLE) {
+            searchOverlay.visibility = View.GONE
+        } else {
         searchOverlay.visibility = View.VISIBLE
+        }
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.search_overlay, fragment)
