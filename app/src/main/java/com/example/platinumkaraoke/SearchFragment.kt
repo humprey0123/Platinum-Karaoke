@@ -10,11 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.EditText
 
+// Split into 2 fragments: SearchFragment and KaraokeFragment
+// Kt files = Song, SongAdapter, SearchKeyboardController,
+
 class SearchFragment : Fragment() {
 
     private lateinit var adapter: SongAdapter
     private lateinit var allSongs: List<Song>
-
+    private lateinit var keyboardController: SearchKeyboardController
     private lateinit var activeCategory: LinearLayout
     private lateinit var choiceCategory: LinearLayout
     private lateinit var recycler: RecyclerView
@@ -113,13 +116,23 @@ class SearchFragment : Fragment() {
             false
         }
 
-
         setupRecycler()
         setupScrollbar()
         setupFilters()
 
-        setupKeyboard() // 🔥 ADDED
+        keyboardController = SearchKeyboardController(
+            keyboard = keyboard,
+            searchEditText = searchEditText,
+            onQueryChanged = { query ->
+                searchQuery = query
+                filterSongs()
+            },
+            onDone = {
+                recycler.requestFocus()
+            }
+        )
 
+        keyboardController.init()
         loadSongs()
 
         return view
@@ -134,53 +147,7 @@ class SearchFragment : Fragment() {
         }
         return false
     }
-
-    // ===============================
-    // ⌨️ KEYBOARD LOGIC
-    // ===============================
-    private fun setupKeyboard() {
-        for (i in 0 until keyboard.childCount) {
-            val row = keyboard.getChildAt(i)
-
-            if (row is LinearLayout) {
-                for (j in 0 until row.childCount) {
-                    val keyView = row.getChildAt(j)
-
-                    if (keyView is TextView) {
-                        keyView.setOnClickListener {
-                            val key = keyView.text.toString()
-                            handleKeyPress(key)
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private fun handleKeyPress(key: String) {
-        when (key) {
-
-            "SPACE" -> searchQuery += " "
-
-            "⌫" -> {
-                if (searchQuery.isNotEmpty()) {
-                    searchQuery = searchQuery.dropLast(1)
-                }
-            }
-
-            "DONE" -> {
-                keyboard.visibility = View.GONE
-                recycler.requestFocus()
-                return
-            }
-
-            else -> searchQuery += key
-        }
-
-        searchEditText.setText(searchQuery)
-        filterSongs()
-    }
-
+    
     // ===============================
     // 🎵 SONG LOGIC
     // ===============================
