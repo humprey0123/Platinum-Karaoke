@@ -70,6 +70,9 @@ class SearchFragment : Fragment() {
         tvRecycler.topView = choiceCategory
         scrollThumb = view.findViewById(R.id.scrollThumb)
 
+        activeCategory.post {
+            activeCategory.getChildAt(selectedGroupIndex)?.requestFocus()
+        }
         // 🔥 ADDED
         searchEditText = view.findViewById(R.id.search)
         keyboard = view.findViewById(R.id.keyboard_container)

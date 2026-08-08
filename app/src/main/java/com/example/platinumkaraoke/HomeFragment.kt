@@ -23,6 +23,8 @@ class HomeFragment : Fragment() {
     // GRID LOGIC
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        view.requestFocus()
+
 
         val recyclerView = view.findViewById<RecyclerView>(R.id.gridRecycler)
 

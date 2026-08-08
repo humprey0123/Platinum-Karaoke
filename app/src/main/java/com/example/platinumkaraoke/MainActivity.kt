@@ -70,7 +70,7 @@ class MainActivity : FragmentActivity() {
     }
 
     fun showHome() {
-        hideSearch() // 👈 important
+        hideSearch()
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_content, HomeFragment())
@@ -88,7 +88,7 @@ class MainActivity : FragmentActivity() {
         }
 
         if (searchOverlay.visibility == View.VISIBLE) {
-            searchOverlay.visibility = View.GONE
+            hideSearch()
         } else {
         searchOverlay.visibility = View.VISIBLE
         }
