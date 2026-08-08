@@ -73,6 +73,7 @@ class SearchFragment : Fragment() {
         tvRecycler.topView = choiceCategory
         scrollThumb = view.findViewById(R.id.scrollThumb)
 
+        (activity as? MainActivity)?.setSearchExpanded(false)
 
         activeCategory.post {
             activeCategory.getChildAt(selectedGroupIndex)?.requestFocus()
@@ -120,6 +121,7 @@ class SearchFragment : Fragment() {
         searchOverlay = view
         adapter = SongAdapter { song ->
             expandSearchOverlay()
+            expanded = true
         }
 
         setupRecycler()
@@ -389,6 +391,8 @@ class SearchFragment : Fragment() {
 
         searchOverlay.layoutParams = params
         searchOverlay.requestLayout()
+
+        (activity as? MainActivity)?.setSearchExpanded(true)
 
         expanded = !expanded
     }

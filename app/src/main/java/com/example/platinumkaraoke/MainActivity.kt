@@ -17,6 +17,7 @@ class MainActivity : FragmentActivity() {
     private lateinit var navSearch: View
     private lateinit var searchOverlay: View
     private lateinit var navSettings: View
+    private var expanded = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -34,7 +35,7 @@ class MainActivity : FragmentActivity() {
         onBackPressedDispatcher.addCallback(this) {
             val currentFragment = supportFragmentManager.findFragmentById(R.id.main_content)
 
-            if (searchOverlay.visibility == View.VISIBLE) {
+            if (searchOverlay.visibility == View.VISIBLE && expanded) {
                 hideSearch()
             } else if (currentFragment !is HomeFragment) {
                 showHome()
@@ -42,7 +43,6 @@ class MainActivity : FragmentActivity() {
                 finish()
             }
         }
-
 
         if (savedInstanceState == null) {
             showHome()
@@ -99,6 +99,10 @@ class MainActivity : FragmentActivity() {
             .commit()
 
         bg.setImageResource(R.drawable.bg_home)
+    }
+
+    fun setSearchExpanded(value: Boolean) {
+        expanded = value
     }
 
     fun hideSearch() {
