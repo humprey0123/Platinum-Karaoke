@@ -14,7 +14,7 @@ import android.widget.EditText
 // Kt files = Song, SongAdapter, SearchKeyboardController,
 
 class SearchFragment : Fragment() {
-
+    private lateinit var searchOverlay: View
     private lateinit var adapter: SongAdapter
     private lateinit var allSongs: List<Song>
     private lateinit var keyboardController: SearchKeyboardController
@@ -73,6 +73,7 @@ class SearchFragment : Fragment() {
         tvRecycler.topView = choiceCategory
         scrollThumb = view.findViewById(R.id.scrollThumb)
 
+
         activeCategory.post {
             activeCategory.getChildAt(selectedGroupIndex)?.requestFocus()
         }
@@ -114,6 +115,11 @@ class SearchFragment : Fragment() {
                 return@setOnKeyListener true
             }
             false
+        }
+
+        searchOverlay = view
+        adapter = SongAdapter { song ->
+            expandSearchOverlay()
         }
 
         setupRecycler()
@@ -199,7 +205,6 @@ class SearchFragment : Fragment() {
     // 🧾 RECYCLER
     // ===============================
     private fun setupRecycler() {
-        adapter = SongAdapter()
         recycler.layoutManager = CustomLayoutManager(requireContext())
         recycler.adapter = adapter
         recycler.setHasFixedSize(true)
@@ -372,6 +377,20 @@ class SearchFragment : Fragment() {
                 marginEnd = 8.dp
             }
         }
+    }
+
+    private var expanded = false
+
+    private fun expandSearchOverlay() {
+        val params = searchOverlay.layoutParams as ViewGroup.MarginLayoutParams
+        val extra = (130 * resources.displayMetrics.density).toInt()
+
+        params.bottomMargin = if (!expanded) extra else 0
+
+        searchOverlay.layoutParams = params
+        searchOverlay.requestLayout()
+
+        expanded = !expanded
     }
 
     private val Int.dp: Int

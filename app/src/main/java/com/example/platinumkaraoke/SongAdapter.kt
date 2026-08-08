@@ -6,7 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class SongAdapter : RecyclerView.Adapter<SongAdapter.ViewHolder>() {
+class SongAdapter(
+    private val onSongClick: (Song) -> Unit
+) : RecyclerView.Adapter<SongAdapter.ViewHolder>() {
 
     private var songs: List<Song> = listOf()
 
@@ -32,6 +34,10 @@ class SongAdapter : RecyclerView.Adapter<SongAdapter.ViewHolder>() {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val song = songs[position]
 
+        holder.itemView.setOnClickListener {
+            onSongClick(song)
+        }
+
         holder.songNumber.text = song.songNumber
         holder.title.text = song.title
         holder.artist.text = song.artist
@@ -46,4 +52,5 @@ class SongAdapter : RecyclerView.Adapter<SongAdapter.ViewHolder>() {
             holder.artist.isSelected = hasFocus
         }
     }
+
 }
