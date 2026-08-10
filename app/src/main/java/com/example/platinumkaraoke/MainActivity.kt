@@ -78,6 +78,15 @@ class MainActivity : FragmentActivity() {
 
         bg.setImageResource(R.drawable.bg_home)
     }
+    fun showSettings(anchor: View) {
+        hideSearch()
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.main_content, SettingsFragment())
+            .commit()
+
+        bg.setImageResource(R.drawable.bg_songlist)
+    }
 //            setColorFilter(0x80000000.toInt())
 
     fun showSearch(selectedCategory: String? = null) {
