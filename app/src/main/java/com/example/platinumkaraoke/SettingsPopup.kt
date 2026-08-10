@@ -26,6 +26,12 @@ class SettingsPopup(private val context: Context) {
             true
         )
 
+        val btnSettings = view.findViewById<View>(R.id.btn_settings)
+
+        btnSettings.setOnClickListener {
+            (context as MainActivity).showSettings(it)
+        }
+
         popup.elevation = 20f
 
         popup.showAtLocation(
@@ -39,6 +45,7 @@ class SettingsPopup(private val context: Context) {
 
         setupSliders(view)
     }
+
 
     private fun setupSliders(view: View) {
         val sliders = listOf(

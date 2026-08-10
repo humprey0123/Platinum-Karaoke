@@ -17,6 +17,8 @@ class MainActivity : FragmentActivity() {
     private lateinit var navSearch: View
     private lateinit var searchOverlay: View
     private lateinit var navSettings: View
+    private lateinit var navbar: View
+    private var expanded = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -28,16 +30,20 @@ class MainActivity : FragmentActivity() {
         navSearch = findViewById(R.id.nav_search)
         navSettings = findViewById(R.id.nav_settings) // ✅ ADD THIS
         searchOverlay = findViewById(R.id.search_overlay)
+        navbar = findViewById(R.id.navbar)
 
         setupNavigation()
 
         onBackPressedDispatcher.addCallback(this) {
             val currentFragment = supportFragmentManager.findFragmentById(R.id.main_content)
 
-            if (searchOverlay.visibility == View.VISIBLE) {
+            if (searchOverlay.visibility == View.VISIBLE && expanded) {
                 hideSearch()
             } else if (currentFragment !is HomeFragment) {
                 showHome()
+            } else if (navbar.visibility == View.GONE) {
+                showHome()
+                navbar.visibility = View.VISIBLE
             } else {
                 finish()
             }
@@ -70,13 +76,24 @@ class MainActivity : FragmentActivity() {
     }
 
     fun showHome() {
-        hideSearch() // 👈 important
-
+        hideSearch()
+        navbar.visibility = View.VISIBLE
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_content, HomeFragment())
             .commit()
 
         bg.setImageResource(R.drawable.bg_home)
+    }
+    fun showSettings(anchor: View) {
+        hideSearch()
+
+        navbar.visibility = View.GONE
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.main_content, SettingsFragment())
+            .commit()
+
+        bg.setImageResource(R.drawable.bg_songlist)
     }
 //            setColorFilter(0x80000000.toInt())
 
@@ -87,8 +104,10 @@ class MainActivity : FragmentActivity() {
             }
         }
 
+        navbar.visibility = View.VISIBLE
+
         if (searchOverlay.visibility == View.VISIBLE) {
-            searchOverlay.visibility = View.GONE
+            hideSearch()
         } else {
         searchOverlay.visibility = View.VISIBLE
         }
@@ -99,6 +118,10 @@ class MainActivity : FragmentActivity() {
             .commit()
 
         bg.setImageResource(R.drawable.bg_home)
+    }
+
+    fun setSearchExpanded(value: Boolean) {
+        expanded = value
     }
 
     fun hideSearch() {

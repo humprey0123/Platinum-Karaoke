@@ -2,33 +2,31 @@ package com.example.platinumkaraoke
 
 import android.os.Bundle
 import android.view.View
-
 import androidx.core.content.ContextCompat
+import androidx.fragment.app.FragmentManager
 import androidx.leanback.app.ErrorSupportFragment
 
-/**
- * This class demonstrates how to extend [ErrorSupportFragment].
- */
 class ErrorFragment : ErrorSupportFragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        title = resources.getString(R.string.app_name)
+        title = getString(R.string.app_name)
     }
 
-    internal fun setErrorContent() {
-        imageDrawable =
-            ContextCompat.getDrawable(context!!, androidx.leanback.R.drawable.lb_ic_sad_cloud)
-        message = resources.getString(R.string.error_fragment_message)
-        setDefaultBackground(TRANSLUCENT)
+    fun setErrorContent() {
+        imageDrawable = ContextCompat.getDrawable(
+            requireContext(),
+            androidx.leanback.R.drawable.lb_ic_sad_cloud
+        )
 
-        buttonText = resources.getString(R.string.dismiss_error)
+        message = getString(R.string.error_fragment_message)
+        setDefaultBackground(true)
+
+        buttonText = getString(R.string.dismiss_error)
         buttonClickListener = View.OnClickListener {
-            fragmentManager!!.beginTransaction().remove(this@ErrorFragment).commit()
+            parentFragmentManager.beginTransaction()
+                .remove(this@ErrorFragment)
+                .commit()
         }
-    }
-
-    companion object {
-        private val TRANSLUCENT = true
     }
 }

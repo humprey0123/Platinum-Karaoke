@@ -10,11 +10,14 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import android.widget.EditText
 
-class SearchFragment : Fragment() {
+// Split into 2 fragments: SearchFragment and KaraokeFragment
+// Kt files = Song, SongAdapter, SearchKeyboardController,
 
+class SearchFragment : Fragment() {
+    private lateinit var searchOverlay: View
     private lateinit var adapter: SongAdapter
     private lateinit var allSongs: List<Song>
-
+    private lateinit var keyboardController: SearchKeyboardController
     private lateinit var activeCategory: LinearLayout
     private lateinit var choiceCategory: LinearLayout
     private lateinit var recycler: RecyclerView
@@ -70,6 +73,11 @@ class SearchFragment : Fragment() {
         tvRecycler.topView = choiceCategory
         scrollThumb = view.findViewById(R.id.scrollThumb)
 
+        (activity as? MainActivity)?.setSearchExpanded(false)
+
+        activeCategory.post {
+            activeCategory.getChildAt(selectedGroupIndex)?.requestFocus()
+        }
         // 🔥 ADDED
         searchEditText = view.findViewById(R.id.search)
         keyboard = view.findViewById(R.id.keyboard_container)
@@ -110,13 +118,29 @@ class SearchFragment : Fragment() {
             false
         }
 
+        searchOverlay = view
+        adapter = SongAdapter { song ->
+            expandSearchOverlay()
+            expanded = true
+        }
 
         setupRecycler()
         setupScrollbar()
         setupFilters()
 
-        setupKeyboard() // 🔥 ADDED
+        keyboardController = SearchKeyboardController(
+            keyboard = keyboard,
+            searchEditText = searchEditText,
+            onQueryChanged = { query ->
+                searchQuery = query
+                filterSongs()
+            },
+            onDone = {
+                recycler.requestFocus()
+            }
+        )
 
+        keyboardController.init()
         loadSongs()
 
         return view
@@ -131,53 +155,7 @@ class SearchFragment : Fragment() {
         }
         return false
     }
-
-    // ===============================
-    // ⌨️ KEYBOARD LOGIC
-    // ===============================
-    private fun setupKeyboard() {
-        for (i in 0 until keyboard.childCount) {
-            val row = keyboard.getChildAt(i)
-
-            if (row is LinearLayout) {
-                for (j in 0 until row.childCount) {
-                    val keyView = row.getChildAt(j)
-
-                    if (keyView is TextView) {
-                        keyView.setOnClickListener {
-                            val key = keyView.text.toString()
-                            handleKeyPress(key)
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    private fun handleKeyPress(key: String) {
-        when (key) {
-
-            "SPACE" -> searchQuery += " "
-
-            "⌫" -> {
-                if (searchQuery.isNotEmpty()) {
-                    searchQuery = searchQuery.dropLast(1)
-                }
-            }
-
-            "DONE" -> {
-                keyboard.visibility = View.GONE
-                recycler.requestFocus()
-                return
-            }
-
-            else -> searchQuery += key
-        }
-
-        searchEditText.setText(searchQuery)
-        filterSongs()
-    }
-
+    
     // ===============================
     // 🎵 SONG LOGIC
     // ===============================
@@ -229,7 +207,6 @@ class SearchFragment : Fragment() {
     // 🧾 RECYCLER
     // ===============================
     private fun setupRecycler() {
-        adapter = SongAdapter()
         recycler.layoutManager = CustomLayoutManager(requireContext())
         recycler.adapter = adapter
         recycler.setHasFixedSize(true)
@@ -402,6 +379,22 @@ class SearchFragment : Fragment() {
                 marginEnd = 8.dp
             }
         }
+    }
+
+    private var expanded = false
+
+    private fun expandSearchOverlay() {
+        val params = searchOverlay.layoutParams as ViewGroup.MarginLayoutParams
+        val extra = (130 * resources.displayMetrics.density).toInt()
+
+        params.bottomMargin = if (!expanded) extra else 0
+
+        searchOverlay.layoutParams = params
+        searchOverlay.requestLayout()
+
+        (activity as? MainActivity)?.setSearchExpanded(true)
+
+        expanded = !expanded
     }
 
     private val Int.dp: Int
