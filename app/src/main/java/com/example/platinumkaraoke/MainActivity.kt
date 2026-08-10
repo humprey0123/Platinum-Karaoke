@@ -41,17 +41,14 @@ class MainActivity : FragmentActivity() {
                 hideSearch()
             } else if (currentFragment !is HomeFragment) {
                 showHome()
+            } else if (navbar.visibility == View.GONE) {
+                showHome()
+                navbar.visibility = View.VISIBLE
             } else {
                 finish()
             }
         }
 
-        val currentFragment = supportFragmentManager.findFragmentById(R.id.main_content)
-        if (currentFragment is SearchFragment) {
-            navbar.visibility = View.GONE
-        } else {
-            navbar.visibility = View.VISIBLE
-        }
 
         if (savedInstanceState == null) {
             showHome()
@@ -80,7 +77,7 @@ class MainActivity : FragmentActivity() {
 
     fun showHome() {
         hideSearch()
-
+        navbar.visibility = View.VISIBLE
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_content, HomeFragment())
             .commit()
@@ -89,6 +86,8 @@ class MainActivity : FragmentActivity() {
     }
     fun showSettings(anchor: View) {
         hideSearch()
+
+        navbar.visibility = View.GONE
 
         supportFragmentManager.beginTransaction()
             .replace(R.id.main_content, SettingsFragment())
@@ -104,6 +103,8 @@ class MainActivity : FragmentActivity() {
                 putString("selected_filter", selectedCategory)
             }
         }
+
+        navbar.visibility = View.VISIBLE
 
         if (searchOverlay.visibility == View.VISIBLE) {
             hideSearch()
