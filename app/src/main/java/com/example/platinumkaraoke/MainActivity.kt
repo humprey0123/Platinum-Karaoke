@@ -17,6 +17,7 @@ class MainActivity : FragmentActivity() {
     private lateinit var navSearch: View
     private lateinit var searchOverlay: View
     private lateinit var navSettings: View
+    private lateinit var navbar: View
     private var expanded = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -29,6 +30,7 @@ class MainActivity : FragmentActivity() {
         navSearch = findViewById(R.id.nav_search)
         navSettings = findViewById(R.id.nav_settings) // ✅ ADD THIS
         searchOverlay = findViewById(R.id.search_overlay)
+        navbar = findViewById(R.id.navbar)
 
         setupNavigation()
 
@@ -42,6 +44,13 @@ class MainActivity : FragmentActivity() {
             } else {
                 finish()
             }
+        }
+
+        val currentFragment = supportFragmentManager.findFragmentById(R.id.main_content)
+        if (currentFragment is SearchFragment) {
+            navbar.visibility = View.GONE
+        } else {
+            navbar.visibility = View.VISIBLE
         }
 
         if (savedInstanceState == null) {
