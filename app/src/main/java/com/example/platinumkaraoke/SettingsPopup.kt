@@ -11,6 +11,13 @@ import android.widget.RadioButton
 class SettingsPopup(private val context: Context) {
     private val prefs = context.getSharedPreferences("karaoke_settings", Context.MODE_PRIVATE)
 
+    private var popup: PopupWindow? = null
+
+    fun dismiss() {
+        popup?.dismiss()
+        popup = null
+    }
+
     fun show(anchor: View) {
         val view = LayoutInflater.from(context)
             .inflate(R.layout.popup_settings, null)
@@ -19,7 +26,7 @@ class SettingsPopup(private val context: Context) {
         val screenWidth = displayMetrics.widthPixels
         val popupWidth = (screenWidth * 0.3).toInt()
 
-        val popup = PopupWindow(
+        popup = PopupWindow(
             view,
             popupWidth,
             WindowManager.LayoutParams.WRAP_CONTENT,
@@ -32,9 +39,9 @@ class SettingsPopup(private val context: Context) {
             (context as MainActivity).showSettings(it)
         }
 
-        popup.elevation = 20f
+        popup?.elevation = 20f
 
-        popup.showAtLocation(
+        popup?.showAtLocation(
             anchor.rootView,
             Gravity.TOP or Gravity.END,
             0,
@@ -45,7 +52,6 @@ class SettingsPopup(private val context: Context) {
 
         setupSliders(view)
     }
-
 
     private fun setupSliders(view: View) {
         val sliders = listOf(

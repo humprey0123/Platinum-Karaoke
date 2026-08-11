@@ -18,6 +18,7 @@ class MainActivity : FragmentActivity() {
     private lateinit var searchOverlay: View
     private lateinit var navSettings: View
     private lateinit var navbar: View
+    private var settingsPopup: SettingsPopup? = null
     private var expanded = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -69,7 +70,10 @@ class MainActivity : FragmentActivity() {
         }
 
         navSettings.setOnClickListener {
-            SettingsPopup(this).show(it)
+            settingsPopup?.dismiss()
+
+            settingsPopup = SettingsPopup(this)
+            settingsPopup?.show(it)
         }
         navHome.setOnTouchListener(touchHandler)
         navSearch.setOnTouchListener(touchHandler)
@@ -85,6 +89,7 @@ class MainActivity : FragmentActivity() {
         bg.setImageResource(R.drawable.bg_home)
     }
     fun showSettings(anchor: View) {
+        settingsPopup?.dismiss()
         hideSearch()
 
         navbar.visibility = View.GONE
