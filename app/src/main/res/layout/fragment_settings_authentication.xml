@@ -11,7 +11,8 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         android:gravity="center"
-        android:layout_weight="3">
+        android:layout_weight="3"
+        android:layout_marginBottom="60dp">
 
         <EditText
             android:layout_marginTop="30dp"
@@ -23,6 +24,8 @@
             android:paddingHorizontal="10dp"
             android:paddingVertical="5dp" />
         <TextView
+            android:textStyle="bold"
+            android:textSize="14sp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Authentication:"/>
@@ -37,6 +40,8 @@
             android:paddingHorizontal="10dp"
             android:paddingVertical="5dp" />
         <TextView
+            android:textSize="14sp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Available Token:"/>
@@ -51,11 +56,14 @@
             android:paddingHorizontal="10dp"
             android:paddingVertical="5dp" />
         <TextView
+            android:textSize="14sp"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Select Month:"/>
 
         <TextView
+            android:id="@+id/usb_auth"
             android:layout_marginTop="50dp"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
@@ -65,10 +73,11 @@
             android:paddingHorizontal="10dp"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:textColor="@drawable/selector_nav_text"
+            android:textColor="@drawable/selector_settings_button_text"
             android:background="@drawable/selector_settings_button"
             android:text="Usb Authentication"/>
         <TextView
+            android:id="@+id/phone_auth"
             android:layout_marginTop="5dp"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
@@ -78,7 +87,7 @@
             android:textAlignment="center"
             android:focusable="true"
             android:focusableInTouchMode="true"
-            android:textColor="@drawable/selector_nav_text"
+            android:textColor="@drawable/selector_settings_button_text"
             android:background="@drawable/selector_settings_button"
             android:text="Phone Authentication"/>
 

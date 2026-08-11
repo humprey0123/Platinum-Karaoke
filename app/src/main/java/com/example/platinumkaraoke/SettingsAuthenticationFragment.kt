@@ -23,6 +23,32 @@ class SettingsAuthenticationFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         val main = view.findViewById<View>(R.id.fragment_settings_authentication)
+        val usb = view.findViewById<View>(R.id.usb_auth)
+        val phone = view.findViewById<View>(R.id.phone_auth)
+
         main.requestFocus()
+
+        usb.setOnClickListener {
+            setSelectedNav(usb)
+        }
+
+        phone.setOnClickListener {
+            setSelectedNav(phone)
+        }
+    }
+
+    private fun setSelectedNav(selectedView: View) {
+        selectedView.isSelected = true
+
+        val navViews = listOf(
+            view?.findViewById<View>(R.id.usb_auth),
+            view?.findViewById<View>(R.id.phone_auth)
+        )
+
+        navViews.forEach { nav ->
+            if (nav != selectedView) {
+                nav?.isSelected = false
+            }
+        }
     }
 }
