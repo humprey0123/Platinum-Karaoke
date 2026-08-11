@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/fragment_settings_authentication"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_weight="3">
+
+        <EditText
+            android:layout_marginTop="30dp"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_square_gray"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Authentication:"/>
+
+        <EditText
+            android:layout_marginTop="30dp"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_square_gray"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Available Token:"/>
+
+        <EditText
+            android:layout_marginTop="30dp"
+            android:layout_width="500dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edittext_square_gray"
+            android:inputType="text"
+            android:textAlignment="center"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Select Month:"/>
+
+        <TextView
+            android:layout_marginTop="50dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:paddingVertical="3dp"
+            android:textAlignment="center"
+            android:paddingHorizontal="10dp"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColor="@drawable/selector_nav_text"
+            android:background="@drawable/selector_settings_button"
+            android:text="Usb Authentication"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:paddingVertical="3dp"
+            android:paddingHorizontal="10dp"
+            android:textAlignment="center"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:textColor="@drawable/selector_nav_text"
+            android:background="@drawable/selector_settings_button"
+            android:text="Phone Authentication"/>
+
+    </LinearLayout>
+
+</LinearLayout>

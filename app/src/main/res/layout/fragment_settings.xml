@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_settings"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <LinearLayout
         android:layout_width="0dp"
@@ -11,34 +13,41 @@
 
         <ImageView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:scaleType="fitStart"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:scaleType="centerCrop"
             android:adjustViewBounds="true"
             android:src="@drawable/settings_logo" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="6"
             android:orientation="vertical">
 
 
             <TextView
+                android:id="@+id/nav_authentication"
                 style="@style/SettingNav"
                 android:text="Authentication"/>
 
             <TextView
+                android:id="@+id/nav_sound"
                 style="@style/SettingNav"
                 android:text="Sound"/>
 
             <TextView
+                android:id="@+id/nav_equalizer"
                 style="@style/SettingNav"
                 android:text="Equalizer"/>
 
             <TextView
+                android:id="@+id/nav_score"
                 style="@style/SettingNav"
                 android:text="Score"/>
 
             <TextView
+                android:id="@+id/nav_coin_time"
                 style="@style/SettingNav"
                 android:text="Coin/Time"/>
 
@@ -91,6 +100,7 @@
         android:layout_height="match_parent"
         android:layout_weight="3"
         android:orientation="vertical">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -111,10 +121,16 @@
                 android:layout_marginRight="37dp"
                 />
         </LinearLayout>
+
+
         <FrameLayout
+            android:id="@+id/settings_content"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="7"/>
+            android:layout_weight="6">
+
+
+        </FrameLayout>
     </LinearLayout>
 
 
