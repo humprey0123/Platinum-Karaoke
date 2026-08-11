@@ -27,10 +27,12 @@ class SettingsFragment : Fragment(){
         main.requestFocus()
 
         navAuthentication.setOnClickListener {
+            setSelectedNav(navAuthentication)
             replaceSettingsContent(SettingsAuthenticationFragment())
         }
 
         navSound.setOnClickListener {
+            setSelectedNav(navSound)
             replaceSettingsContent(SettingsSoundFragment())
         }
 
@@ -39,9 +41,26 @@ class SettingsFragment : Fragment(){
 //        }
 
         // Show Authentication by default
+        setSelectedNav(navAuthentication)
         replaceSettingsContent(SettingsAuthenticationFragment())
     }
 
+
+    private fun setSelectedNav(selectedView: View) {
+        selectedView.isSelected = true
+
+        val navViews = listOf(
+            view?.findViewById<View>(R.id.nav_authentication),
+            view?.findViewById<View>(R.id.nav_sound),
+            view?.findViewById<View>(R.id.nav_equalizer)
+        )
+
+        navViews.forEach { nav ->
+            if (nav != selectedView) {
+                nav?.isSelected = false
+            }
+        }
+    }
     private fun replaceSettingsContent(fragment: Fragment) {
         childFragmentManager.beginTransaction()
             .replace(R.id.settings_content, fragment)
