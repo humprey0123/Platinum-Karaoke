@@ -35,6 +35,8 @@ class SettingsAuthenticationFragment : Fragment() {
         phone.setOnClickListener {
             setSelectedNav(phone)
         }
+
+        setSelectedNav(phone)
     }
 
     private fun setSelectedNav(selectedView: View) {

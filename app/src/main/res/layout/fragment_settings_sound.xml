@@ -15,6 +15,7 @@
         android:background="#33010101">
 
         <LinearLayout
+            android:id="@+id/intro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="17dp">

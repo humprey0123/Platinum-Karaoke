@@ -24,4 +24,6 @@ class SettingsSoundFragment : Fragment() {
         val main = view.findViewById<View>(R.id.fragment_settings_sound)
         main.requestFocus()
     }
+
+    private fun setSelected
 }

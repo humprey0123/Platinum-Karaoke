@@ -6,23 +6,25 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:orientation="vertical"
         android:gravity="center"
         android:layout_weight="3"
-        android:layout_marginBottom="60dp">
+        android:layout_marginBottom="60dp"
+        android:background="#33000000">
 
         <EditText
-            android:layout_marginTop="30dp"
-            android:layout_width="500dp"
+            android:layout_marginTop="25dp"
+            android:layout_width="450dp"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_square_gray"
             android:inputType="text"
             android:textAlignment="center"
             android:paddingHorizontal="10dp"
-            android:paddingVertical="5dp" />
+            android:paddingVertical="2dp" />
         <TextView
             android:textStyle="bold"
             android:textSize="14sp"
@@ -31,14 +33,14 @@
             android:text="Authentication:"/>
 
         <EditText
-            android:layout_marginTop="30dp"
-            android:layout_width="500dp"
+            android:layout_marginTop="25dp"
+            android:layout_width="450dp"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_square_gray"
             android:inputType="text"
             android:textAlignment="center"
             android:paddingHorizontal="10dp"
-            android:paddingVertical="5dp" />
+            android:paddingVertical="2dp" />
         <TextView
             android:textSize="14sp"
             android:textStyle="bold"
@@ -47,14 +49,14 @@
             android:text="Available Token:"/>
 
         <EditText
-            android:layout_marginTop="30dp"
-            android:layout_width="500dp"
+            android:layout_marginTop="25dp"
+            android:layout_width="450dp"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_square_gray"
             android:inputType="text"
             android:textAlignment="center"
             android:paddingHorizontal="10dp"
-            android:paddingVertical="5dp" />
+            android:paddingVertical="2dp" />
         <TextView
             android:textSize="14sp"
             android:textStyle="bold"
@@ -78,7 +80,7 @@
             android:text="Usb Authentication"/>
         <TextView
             android:id="@+id/phone_auth"
-            android:layout_marginTop="5dp"
+            android:layout_marginTop="3dp"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:textStyle="bold"

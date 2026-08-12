@@ -52,42 +52,52 @@
                 android:text="Coin/Time"/>
 
             <TextView
+                android:id="@+id/nav_display"
                 style="@style/SettingNav"
                 android:text="Display"/>
 
             <TextView
+                android:id="@+id/nav_user_content"
                 style="@style/SettingNav"
                 android:text="User Content"/>
 
             <TextView
+                android:id="@+id/nav_greetings"
                 style="@style/SettingNav"
                 android:text="Greetings"/>
 
             <TextView
+                android:id="@+id/nav_default"
                 style="@style/SettingNav"
                 android:text="Default"/>
 
             <TextView
+                android:id="@+id/nav_password"
                 style="@style/SettingNav"
                 android:text="Password"/>
 
             <TextView
+                android:id="@+id/nav_update"
                 style="@style/SettingNav"
                 android:text="Update"/>
 
             <TextView
+                android:id="@+id/nav_mic_settings"
                 style="@style/SettingNav"
                 android:text="Mic Settings"/>
 
             <TextView
+                android:id="@+id/nav_lyric_font"
                 style="@style/SettingNav"
                 android:text="Lyric Font"/>
 
             <TextView
+                android:id="@+id/nav_lyric_color"
                 style="@style/SettingNav"
                 android:text="Lyric Color"/>
 
             <TextView
+                android:id="@+id/nav_platinum_link"
                 style="@style/SettingNav"
                 android:text="Platinum  Link"/>
 
