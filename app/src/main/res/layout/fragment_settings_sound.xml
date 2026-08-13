@@ -27,16 +27,20 @@
                 android:textSize="14sp"
                 android:text="Intro Sound:"/>
             <TextView
+                android:id="@+id/sound_intro_off"
                 style="@style/SoundSettings"
                 android:text="Off"/>
 
             <TextView
+                android:id="@+id/sound_intro_low"
                 style="@style/SoundSettings"
                 android:text="Low"/>
             <TextView
+                android:id="@+id/sound_intro_middle"
                 style="@style/SoundSettings"
                 android:text="Middle"/>
             <TextView
+                android:id="@+id/sound_intro_high"
                 style="@style/SoundSettings"
                 android:text="High"/>
 
@@ -54,17 +58,21 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:text="Button Sound:"/>
-            <TextView
-                style="@style/SoundSettings"
-                android:text="Off"/>
 
             <TextView
+                android:id="@+id/sound_button_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/sound_button_low"
                 style="@style/SoundSettings"
                 android:text="Low"/>
             <TextView
+                android:id="@+id/sound_button_middle"
                 style="@style/SoundSettings"
                 android:text="Middle"/>
             <TextView
+                android:id="@+id/sound_button_high"
                 style="@style/SoundSettings"
                 android:text="High"/>
 
@@ -82,17 +90,21 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:text="Cheer Sound:"/>
-            <TextView
-                style="@style/SoundSettings"
-                android:text="Off"/>
 
             <TextView
+                android:id="@+id/sound_cheer_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/sound_cheer_low"
                 style="@style/SoundSettings"
                 android:text="Low"/>
             <TextView
+                android:id="@+id/sound_cheer_middle"
                 style="@style/SoundSettings"
                 android:text="Middle"/>
             <TextView
+                android:id="@+id/sound_cheer_high"
                 style="@style/SoundSettings"
                 android:text="High"/>
 
@@ -110,17 +122,22 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:text="Vocal/Chorus:"/>
-            <TextView
-                style="@style/SoundSettings"
-                android:text="Off"/>
+
 
             <TextView
+                android:id="@+id/sound_vocal_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/sound_vocal_low"
                 style="@style/SoundSettings"
                 android:text="Low"/>
             <TextView
+                android:id="@+id/sound_vocal_middle"
                 style="@style/SoundSettings"
                 android:text="Middle"/>
             <TextView
+                android:id="@+id/sound_vocal_high"
                 style="@style/SoundSettings"
                 android:text="High"/>
 
@@ -138,17 +155,21 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:text="Applause:"/>
+            
             <TextView
+                android:id="@+id/sound_applause_off"
                 style="@style/SoundSettings"
                 android:text="Off"/>
-
             <TextView
+                android:id="@+id/sound_applause_low"
                 style="@style/SoundSettings"
                 android:text="Low"/>
             <TextView
+                android:id="@+id/sound_applause_middle"
                 style="@style/SoundSettings"
                 android:text="Middle"/>
             <TextView
+                android:id="@+id/sound_applause_high"
                 style="@style/SoundSettings"
                 android:text="High"/>
 
@@ -166,17 +187,21 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:text="Background Music:"/>
+            
             <TextView
+                android:id="@+id/sound_bgm_off"
                 style="@style/SoundSettings"
                 android:text="Off"/>
-
             <TextView
+                android:id="@+id/sound_bgm_low"
                 style="@style/SoundSettings"
                 android:text="Low"/>
             <TextView
+                android:id="@+id/sound_bgm_middle"
                 style="@style/SoundSettings"
                 android:text="Middle"/>
             <TextView
+                android:id="@+id/sound_bgm_high"
                 style="@style/SoundSettings"
                 android:text="High"/>
 
@@ -194,17 +219,21 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:text="Background Music Volume:"/>
-            <TextView
-                style="@style/SoundSettings"
-                android:text="Off"/>
 
             <TextView
+                android:id="@+id/sound_bgm_volume_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/sound_bgm_volume_low"
                 style="@style/SoundSettings"
                 android:text="Low"/>
             <TextView
+                android:id="@+id/sound_bgm_volume_middle"
                 style="@style/SoundSettings"
                 android:text="Middle"/>
             <TextView
+                android:id="@+id/sound_bgm_volume_high"
                 style="@style/SoundSettings"
                 android:text="High"/>
 
@@ -222,20 +251,23 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:text="Drum Sound Volume:"/>
-            <TextView
-                style="@style/SoundSettings"
-                android:text="Off"/>
 
             <TextView
+                android:id="@+id/sound_drum_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/sound_drum_low"
                 style="@style/SoundSettings"
                 android:text="Low"/>
             <TextView
+                android:id="@+id/sound_drum_middle"
                 style="@style/SoundSettings"
                 android:text="Middle"/>
             <TextView
+                android:id="@+id/sound_drum_high"
                 style="@style/SoundSettings"
                 android:text="High"/>
-
         </LinearLayout>
 
         <LinearLayout
@@ -250,17 +282,21 @@
                 android:textSize="14sp"
                 android:textStyle="bold"
                 android:text="Navigation Sound Volume:"/>
-            <TextView
-                style="@style/SoundSettings"
-                android:text="Off"/>
 
             <TextView
+                android:id="@+id/sound_nav_vol_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/sound_nav_vol_low"
                 style="@style/SoundSettings"
                 android:text="Low"/>
             <TextView
+                android:id="@+id/sound_nav_vol_medium"
                 style="@style/SoundSettings"
                 android:text="Middle"/>
             <TextView
+                android:id="@+id/sound_nav_vol_high"
                 style="@style/SoundSettings"
                 android:text="High"/>
 
