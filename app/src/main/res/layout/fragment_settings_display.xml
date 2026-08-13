@@ -3,12 +3,199 @@
     android:id="@+id/fragment_settings_display"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="150dp">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Display"
-        android:textSize="30sp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Sexy BGV:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10">
+
+            <TextView
+                android:id="@+id/sexy_bgv_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/sexy_bgv_on"
+                style="@style/SoundSettings"
+                android:text="On"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Selected Song:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10">
+
+            <TextView
+                android:id="@+id/selected_song_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/selected_song_on"
+                style="@style/SoundSettings"
+                android:text="On"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="New Song:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10">
+
+            <TextView
+                android:id="@+id/new_song_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/new_song_on"
+                style="@style/SoundSettings"
+                android:text="On"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Logo"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10">
+
+            <TextView
+                android:id="@+id/logo_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/logo_on"
+                style="@style/SoundSettings"
+                android:text="On"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="PK Logo:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10">
+
+            <TextView
+                android:id="@+id/pk_logo_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/pk_logo_on"
+                style="@style/SoundSettings"
+                android:text="On"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Greetings:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10">
+
+            <TextView
+                android:id="@+id/greetings_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/greetings_on"
+                style="@style/SoundSettings"
+                android:text="On"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Features:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10">
+
+            <TextView
+                android:id="@+id/features_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/features_on"
+                style="@style/SoundSettings"
+                android:text="On"/>
+        </LinearLayout>
+    </LinearLayout>
+
 
 </LinearLayout>
