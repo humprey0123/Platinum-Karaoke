@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:paddingHorizontal="150dp">
+    android:paddingHorizontal="100dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -22,7 +22,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="10">
+            android:layout_weight="7">
 
             <TextView
                 android:id="@+id/song_registration_user_mp3"
@@ -49,7 +49,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="10">
+            android:layout_weight="7">
 
             <TextView
                 android:id="@+id/bgv_regis_video"
@@ -76,7 +76,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="10">
+            android:layout_weight="7">
             <TextView
                 android:id="@+id/score_meme_reg_clip"
                 style="@style/SoundSettings"
@@ -98,7 +98,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="10">
+            android:layout_weight="7">
 
             <TextView
                 android:id="@+id/management_user_mp3"
@@ -122,7 +122,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="10">
+            android:layout_weight="7">
             <TextView
                 android:id="@+id/management_bgv_video"
                 style="@style/SoundSettings"
@@ -145,7 +145,7 @@
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="10">
+            android:layout_weight="7">
 
             <TextView
                 android:id="@+id/management_score_clip"

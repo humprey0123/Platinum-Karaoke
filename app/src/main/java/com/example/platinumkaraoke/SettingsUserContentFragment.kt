@@ -33,7 +33,7 @@ class SettingsUserContentFragment : Fragment() {
         // BGV Registration
         setupGroupSelection(
             listOf(R.id.bgv_regis_video, R.id.bgv_regis_photo),
-            R.id.bgv_regis_video
+            R.id.bgv_regis_photo
         )
 
         // Score Meme Registration
@@ -51,7 +51,7 @@ class SettingsUserContentFragment : Fragment() {
         // Management (BGV)
         setupGroupSelection(
             listOf(R.id.management_bgv_video, R.id.management_bgv_photo),
-            R.id.management_bgv_video
+            R.id.management_bgv_photo
         )
 
         // Management (Score/List)
