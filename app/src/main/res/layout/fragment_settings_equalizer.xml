@@ -3,12 +3,238 @@
     android:id="@+id/fragment_settings_equalizer"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
 
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Equalizer"
-        android:textSize="30sp"/>
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="4 BAND EQUALIZER"
+        android:gravity="center"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="10"
+        android:background="#66000000"
+        android:padding="16dp">
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:layout_weight="2"
+            android:gravity="center"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/equalizer_standard"
+                style="@style/SettingEqualizer"
+                android:text="Standard"/>
+            <TextView
+                android:id="@+id/equalizer_classic"
+                style="@style/SettingEqualizer"
+                android:text="Classic"/>
+            <TextView
+                android:id="@+id/equalizer_jazz"
+                style="@style/SettingEqualizer"
+                android:text="Jazz"/>
+            <TextView
+                android:id="@+id/equalizer_rock"
+                style="@style/SettingEqualizer"
+                android:text="Rock"/>
+            <TextView
+                android:id="@+id/equalizer_pop"
+                style="@style/SettingEqualizer"
+                android:text="Pop"/>
+            <TextView
+                android:id="@+id/equalizer_ballad"
+                style="@style/SettingEqualizer"
+                android:text="Ballad"/>
+            <TextView
+                android:id="@+id/equalizer_disco"
+                style="@style/SettingEqualizer"
+                android:text="Disco"/>
+            <TextView
+                android:id="@+id/equalizer_user"
+                style="@style/SettingEqualizer"
+                android:text="User"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:layout_weight="7"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Low"/>
+
+                <com.example.platinumkaraoke.VerticalSeekBar
+                    android:id="@+id/seekbar_low"
+                    android:layout_width="60dp"
+                    android:layout_height="0dp"
+                    android:focusable="true"
+                    android:layout_weight="8"
+                    android:max="20"
+                    android:progress="10"
+                    android:thumb="@drawable/equalizer_thumb"
+                    android:progressDrawable="@drawable/equalizer_track"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:splitTrack="false"
+                    android:background="@null" />
+
+                <TextView
+                    android:id="@+id/text_gain_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0dB" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Mid-Low" />
+
+                <com.example.platinumkaraoke.VerticalSeekBar
+                    android:id="@+id/seekbar_mid_low"
+                    android:layout_width="60dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"
+                    android:focusable="true"
+                    android:max="20"
+                    android:progress="10"
+                    android:thumb="@drawable/equalizer_thumb"
+                    android:progressDrawable="@drawable/equalizer_track"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:splitTrack="false"
+                    android:background="@null" />
+
+                <TextView
+                    android:id="@+id/text_gain_mid_low"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0dB" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="Mid-High" />
+
+                <com.example.platinumkaraoke.VerticalSeekBar
+                    android:id="@+id/seekbar_mid_high"
+                    android:layout_width="60dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"
+                    android:focusable="true"
+                    android:max="20"
+                    android:progress="10"
+                    android:thumb="@drawable/equalizer_thumb"
+                    android:progressDrawable="@drawable/equalizer_track"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:splitTrack="false"
+                    android:background="@null" />
+
+                <TextView
+                    android:id="@+id/text_gain_mid_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0dB" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="High" />
+
+                <com.example.platinumkaraoke.VerticalSeekBar
+                    android:id="@+id/seekbar_high"
+                    android:layout_width="60dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="8"
+                    android:focusable="true"
+                    android:max="20"
+                    android:progress="10"
+                    android:thumb="@drawable/equalizer_thumb"
+                    android:progressDrawable="@drawable/equalizer_track"
+                    android:paddingStart="0dp"
+                    android:paddingEnd="0dp"
+                    android:splitTrack="false"
+                    android:background="@null" />
+
+                <TextView
+                    android:id="@+id/text_gain_high"
+                    android:layout_width="wrap_content"
+                    android:layout_height="0dp"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="0dB" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="7">
+
+    </LinearLayout>
 
 </LinearLayout>

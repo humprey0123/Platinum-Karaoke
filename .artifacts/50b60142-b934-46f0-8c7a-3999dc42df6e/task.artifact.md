@@ -1,0 +1,4 @@
+- `[x]` Update `VerticalSeekBar.kt` logic and drawing
+- `[x]` Update `SettingsEqualizerFragment.kt` gain calculation
+- `[x]` Update `fragment_settings_equalizer.xml` initial values
+- `[x]` Verify build and changes

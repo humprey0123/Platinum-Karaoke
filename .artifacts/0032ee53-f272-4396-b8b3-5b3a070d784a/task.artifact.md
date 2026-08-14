@@ -1,0 +1,5 @@
+- `[x]` Fix `equalizer_track.xml` insets for vertical orientation
+- `[x]` Refine `VerticalSeekBar.kt` tick marks and thumb rendering
+- `[x]` Finalize `fragment_settings_equalizer.xml` layout
+- `[x]` Add left vertical line to `VerticalSeekBar.kt`
+- `[/]` Verify UI on device
