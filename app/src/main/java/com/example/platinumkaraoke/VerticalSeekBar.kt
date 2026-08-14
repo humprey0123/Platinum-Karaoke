@@ -74,7 +74,7 @@ class VerticalSeekBar @JvmOverloads constructor(
         for (i in 0..count) {
             val y = startY + i * step
             // Longer ticks every 5 steps
-            val tickWidth = if (i % 5 == 0) 15f else 8f
+            val tickWidth = if (i % 10 == 0) 15f else 8f
             canvas.drawLine(tickStartX, y, tickStartX + tickWidth, y, tickPaint)
         }
     }

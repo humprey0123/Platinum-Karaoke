@@ -83,7 +83,8 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Low"/>
+                    android:text="Low"
+                    android:layout_marginBottom="5dp"/>
 
                 <com.example.platinumkaraoke.VerticalSeekBar
                     android:id="@+id/seekbar_low"
@@ -122,7 +123,8 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Mid-Low" />
+                    android:text="Mid-Low"
+                    android:layout_marginBottom="5dp" />
 
                 <com.example.platinumkaraoke.VerticalSeekBar
                     android:id="@+id/seekbar_mid_low"
@@ -161,7 +163,8 @@
                     android:layout_height="0dp"
                     android:layout_weight="1"
                     android:gravity="center"
-                    android:text="Mid-High" />
+                    android:text="Mid-High"
+                    android:layout_marginBottom="5dp" />
 
                 <com.example.platinumkaraoke.VerticalSeekBar
                     android:id="@+id/seekbar_mid_high"
