@@ -2,13 +2,95 @@
 <LinearLayout
     android:id="@+id/fragment_settings_update"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="match_parent"
+    android:paddingHorizontal="100dp"
+    android:layout_gravity="center"
     android:layout_height="match_parent">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Update"
-        android:textSize="30sp"/>
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Song:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7">
+
+            <TextView
+                android:id="@+id/song_usb"
+                style="@style/SoundSettings"
+                android:text="USB"/>
+            <TextView
+                android:id="@+id/song_network"
+                style="@style/SoundSettings"
+                android:text="Network"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="System Upgrade:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7">
+
+            <TextView
+                android:id="@+id/system_upgrade_usb"
+                style="@style/SoundSettings"
+                android:text="USB"/>
+            <TextView
+                android:id="@+id/system_upgrade_network"
+                style="@style/SoundSettings"
+                android:text="Network"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Auto OTA:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7">
+
+            <TextView
+                android:id="@+id/auto_ota_disable"
+                style="@style/SoundSettings"
+                android:text="Disable"/>
+            <TextView
+                android:id="@+id/auto_ota_Enable"
+                style="@style/SoundSettings"
+                android:text="Enable"/>
+        </LinearLayout>
+    </LinearLayout>
+
 
 </LinearLayout>
