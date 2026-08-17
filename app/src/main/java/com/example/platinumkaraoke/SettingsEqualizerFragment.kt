@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.RadioButton
 import android.widget.SeekBar
 import android.widget.TextView
 import androidx.fragment.app.Fragment
@@ -40,6 +41,27 @@ class SettingsEqualizerFragment : Fragment() {
             R.id.equalizer_standard
         )
         setupEqualizerBands()
+        setupAudioOutputGroup()
+    }
+
+    private fun setupAudioOutputGroup() {
+        val radioButtons = listOf(
+            R.id.radioSafeMode,
+            R.id.radioNormalOutput,
+            R.id.radioHighOutput
+        ).mapNotNull { view?.findViewById<RadioButton>(it) }
+
+        radioButtons.forEach { radio ->
+            radio.setOnClickListener {
+                radioButtons.forEach { it.isChecked = false }
+                radio.isChecked = true
+            }
+        }
+
+        // Set default if needed
+        if (radioButtons.none { it.isChecked }) {
+            radioButtons.find { it.id == R.id.radioSafeMode }?.isChecked = true
+        }
     }
 
     private fun setupGroupSelection(viewIds: List<Int>, defaultId: Int) {
