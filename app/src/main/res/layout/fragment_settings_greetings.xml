@@ -3,12 +3,64 @@
     android:id="@+id/fragment_settings_greetings"
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Greetings"
-        android:textSize="30sp"/>
+        android:layout_height="350dp"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_marginBottom="60dp"
+        android:background="@drawable/dark_opacity_bg_rounded">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <TextView
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Greeting 1:"
+                android:layout_marginRight="30dp"/>
+            <EditText
+                android:layout_width="450dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_square_gray"
+                android:inputType="text"
+                android:textAlignment="center"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="2dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:orientation="horizontal">
+            <TextView
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:layout_marginRight="30dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Greeting 2:"/>
+            <EditText
+                android:layout_width="450dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/edittext_square_gray"
+                android:inputType="text"
+                android:textAlignment="center"
+                android:paddingHorizontal="10dp"
+                android:paddingVertical="2dp" />
+        </LinearLayout>
+
+
+    </LinearLayout>
+
 
 </LinearLayout>
