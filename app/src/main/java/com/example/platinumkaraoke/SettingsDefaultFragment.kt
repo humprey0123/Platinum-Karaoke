@@ -6,6 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 
+import android.widget.TextView
+import android.widget.Toast
+
 class SettingsDefaultFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -21,6 +24,36 @@ class SettingsDefaultFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        val default = view.findViewById<View>(R.id.fragment_settings_default)
+
+        val clearPopularList = view.findViewById<TextView>(R.id.default_clear_popular_list)
+        val factoryReset = view.findViewById<TextView>(R.id.default_factory_reset)
+        val clearCoin = view.findViewById<TextView>(R.id.default_clear_coin)
+        val clearProsco = view.findViewById<TextView>(R.id.default_clear_prosco)
+        val countryEnumeration = view.findViewById<TextView>(R.id.default_country_enumeration)
+        val enableHomeMenu = view.findViewById<TextView>(R.id.default_enable_home_menu_on_boot)
+        val defaultFragment = view.findViewById<View>(R.id.fragment_settings_default)
+
+        defaultFragment.requestFocus()
+
+        val settingsItems = listOf(
+            clearPopularList,
+            factoryReset,
+            clearCoin,
+            clearProsco,
+            countryEnumeration,
+            enableHomeMenu
+        )
+
+        settingsItems.forEach { item ->
+            item.setOnClickListener {
+                // Clear selection from all items
+                settingsItems.forEach { it.isSelected = false }
+                // Set the clicked item as selected
+                item.isSelected = true
+            }
+        }
+
+        // Optionally set the first item as selected by default
+        clearPopularList.isSelected = true
     }
 }

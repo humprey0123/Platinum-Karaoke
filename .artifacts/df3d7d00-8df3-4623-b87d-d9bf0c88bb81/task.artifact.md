@@ -1,0 +1,4 @@
+- `[x]` Update `fragment_settings_default.xml` to use `ConstraintLayout`
+- `[x]` Assign unique IDs to setting items
+- `[x]` Implement vertical chain for even distribution
+- `[x]` Verify layout structure and constraints

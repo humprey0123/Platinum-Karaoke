@@ -2,13 +2,127 @@
 <LinearLayout
     android:id="@+id/fragment_settings_default"
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <TextView
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="Default"
-        android:textSize="30sp"/>
+        android:layout_marginHorizontal="100dp"
+        android:layout_marginBottom="100dp">
+
+        <TextView
+            android:id="@+id/default_clear_popular_list"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_settings_button"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingRight="10dp"
+            android:paddingLeft="40dp"
+            android:paddingVertical="3dp"
+            android:text="Clear Popular List"
+            android:textColor="@drawable/selector_settings_button_text"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/default_factory_reset"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread" />
+
+        <TextView
+            android:id="@+id/default_factory_reset"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_settings_button"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingRight="10dp"
+            android:paddingLeft="40dp"
+            android:paddingVertical="3dp"
+            android:text="Factory Reset"
+            android:textColor="@drawable/selector_settings_button_text"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/default_clear_coin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/default_clear_popular_list" />
+
+
+        <TextView
+            android:id="@+id/default_clear_prosco"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_settings_button"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingRight="10dp"
+            android:paddingLeft="40dp"
+            android:paddingVertical="3dp"
+            android:text="Clear Prosco"
+            android:textColor="@drawable/selector_settings_button_text"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/default_country_enumeration"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/default_clear_coin" />
+
+        <TextView
+            android:id="@+id/default_clear_coin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_settings_button"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingRight="10dp"
+            android:paddingLeft="40dp"
+            android:paddingVertical="3dp"
+            android:text="Clear Coin"
+            android:textColor="@drawable/selector_settings_button_text"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/default_clear_prosco"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/default_factory_reset" />
+
+
+        <TextView
+            android:id="@+id/default_country_enumeration"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_settings_button"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingRight="10dp"
+            android:paddingLeft="40dp"
+            android:paddingVertical="3dp"
+            android:text="Country Enumeration"
+            android:textColor="@drawable/selector_settings_button_text"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/default_enable_home_menu_on_boot"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/default_clear_prosco" />
+
+        <TextView
+            android:id="@+id/default_enable_home_menu_on_boot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/selector_settings_button"
+            android:focusable="true"
+            android:focusableInTouchMode="true"
+            android:paddingRight="10dp"
+            android:paddingLeft="40dp"
+            android:paddingVertical="3dp"
+            android:text="Enable Home Menu on Boot"
+            android:textColor="@drawable/selector_settings_button_text"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/default_country_enumeration" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>
