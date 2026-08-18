@@ -58,8 +58,6 @@
                 android:paddingHorizontal="10dp"
                 android:paddingVertical="2dp" />
         </LinearLayout>
-
-
     </LinearLayout>
 
 
