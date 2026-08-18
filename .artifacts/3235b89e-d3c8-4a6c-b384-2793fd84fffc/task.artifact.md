@@ -1,0 +1,3 @@
+- [x] Initialize default selection states in `SettingsMicFragment.kt`
+- [x] Implement toggle logic for ON/OFF buttons in `SettingsMicFragment.kt`
+- [x] Verify selection behavior in UI
