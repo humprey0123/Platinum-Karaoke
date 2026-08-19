@@ -11,8 +11,7 @@
         android:layout_height="0dp"
         android:layout_weight="6"
         android:paddingHorizontal="40dp"
-        android:orientation="vertical"
-        android:background="#33010101">
+        android:orientation="vertical">
 
         <LinearLayout
             android:id="@+id/score_level"
@@ -22,7 +21,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
+                android:layout_weight="3"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:text="Score Level:  "/>
@@ -58,7 +57,7 @@
             <TextView
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="4"
+                android:layout_weight="3"
                 android:textStyle="bold"
                 android:textSize="14sp"
                 android:text="Score Animation:"/>

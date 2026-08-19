@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <selector xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Checked and Focused -->
-    <item android:state_checked="true" android:state_focused="true">
-        <layer-list>
-            <item>
-                <shape android:shape="rectangle">
-                    <stroke android:width="2dp" android:color="#E2AE24" />
-                </shape>
-            </item>
-            <item android:gravity="center" android:width="15dp" android:height="15dp">
-                <shape android:shape="oval">
-                    <solid android:color="#E2AE24" />
-                </shape>
-            </item>
-        </layer-list>
-    </item>
-
     <!-- Checked only -->
     <item android:state_checked="true">
         <layer-list>
@@ -38,7 +22,7 @@
         <layer-list>
             <item>
                 <shape android:shape="rectangle">
-                    <stroke android:width="2dp" android:color="#E2AE24" />
+                    <stroke android:width="1dp" android:color="#000000" />
                 </shape>
             </item>
             <item android:gravity="center" android:width="15dp" android:height="15dp">

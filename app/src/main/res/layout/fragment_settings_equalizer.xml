@@ -7,8 +7,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-
-
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -21,8 +19,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7"
-        android:background="#66000000"
+        android:layout_weight="6"
+        android:background="#33000000"
         android:padding="10dp">
         <LinearLayout
             android:layout_width="0dp"
@@ -247,7 +245,8 @@
         android:layout_weight="4"
         android:gravity="center"
         android:orientation="vertical"
-        android:layout_marginRight="50dp">
+        android:layout_marginRight="50dp"
+        android:layout_marginLeft="20dp">
 
         <RadioGroup
             android:id="@+id/audioOutputGroup"
@@ -264,18 +263,18 @@
 
                 <TextView
                     android:layout_width="120dp"
-                    android:layout_height="32dp"
+                    android:layout_height="25dp"
                     android:background="@drawable/selector_settings_border"
                     android:paddingHorizontal="10dp"
                     android:gravity="center_vertical"
                     android:singleLine="true"
-                    android:textSize="9sp"
+                    android:textSize="10sp"
                     android:text="Audio Input Option" />
 
                 <RadioButton
                     android:id="@+id/radioSafeMode"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:padding="0dp"
                     android:focusable="true"
                     android:button="@null"
@@ -284,13 +283,13 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
+                    android:layout_height="25dp"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="10dp"
                     android:background="@drawable/selector_settings_border">
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:text="Safe Mode:"
                         android:textSize="10sp"/>
@@ -319,8 +318,8 @@
 
                 <RadioButton
                     android:id="@+id/radioNormalOutput"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:padding="0dp"
                     android:focusable="true"
                     android:button="@null"
@@ -329,13 +328,13 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
+                    android:layout_height="25dp"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="10dp"
                     android:background="@drawable/selector_settings_border">
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:text="Normal Output:"
                         android:textSize="10sp" />
@@ -364,8 +363,8 @@
 
                 <RadioButton
                     android:id="@+id/radioHighOutput"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
                     android:focusable="true"
                     android:padding="0dp"
                     android:button="@null"
@@ -374,13 +373,13 @@
 
                 <LinearLayout
                     android:layout_width="wrap_content"
-                    android:layout_height="32dp"
+                    android:layout_height="25dp"
                     android:gravity="center_vertical"
                     android:paddingHorizontal="10dp"
                     android:background="@drawable/selector_settings_border">
 
                     <TextView
-                        android:layout_width="100dp"
+                        android:layout_width="80dp"
                         android:layout_height="wrap_content"
                         android:textSize="10sp"
                         android:text="High Output:" />
