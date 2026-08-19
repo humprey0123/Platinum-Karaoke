@@ -385,7 +385,7 @@ class SearchFragment : Fragment() {
 
     private fun expandSearchOverlay() {
         val params = searchOverlay.layoutParams as ViewGroup.MarginLayoutParams
-        val extra = (130 * resources.displayMetrics.density).toInt()
+        val extra = (160 * resources.displayMetrics.density).toInt()
 
         params.bottomMargin = if (!expanded) extra else 0
 

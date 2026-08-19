@@ -7,16 +7,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"/>
+
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:textSize="110sp"
+        android:textSize="11sp"
         android:textStyle="bold"
         android:text="4 BAND EQUALIZER"
         android:gravity="center"/>
@@ -24,9 +21,9 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10"
+        android:layout_weight="7"
         android:background="#66000000"
-        android:padding="16dp">
+        android:padding="10dp">
         <LinearLayout
             android:layout_width="0dp"
             android:layout_height="match_parent"
@@ -85,6 +82,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:textSize="10sp"
                     android:gravity="center"
                     android:text="Low"
                     android:layout_marginBottom="5dp"/>
@@ -109,6 +107,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:textSize="10sp"
                     android:gravity="center"
                     android:text="0dB" />
 
@@ -124,6 +123,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:textSize="10sp"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="Mid-Low"
@@ -148,6 +148,7 @@
                     android:id="@+id/text_gain_mid_low"
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
+                    android:textSize="10sp"
                     android:layout_weight="1"
                     android:gravity="center"
                     android:text="0dB" />
@@ -165,6 +166,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:textSize="10sp"
                     android:gravity="center"
                     android:text="Mid-High"
                     android:layout_marginBottom="5dp" />
@@ -189,6 +191,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:textSize="10sp"
                     android:gravity="center"
                     android:text="0dB" />
 
@@ -205,6 +208,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:textSize="10sp"
                     android:gravity="center"
                     android:text="High" />
 
@@ -228,6 +232,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="0dp"
                     android:layout_weight="1"
+                    android:textSize="10sp"
                     android:gravity="center"
                     android:text="0dB"/>
 
@@ -239,9 +244,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="7"
+        android:layout_weight="4"
         android:gravity="center"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:layout_marginRight="50dp">
 
         <RadioGroup
             android:id="@+id/audioOutputGroup"
@@ -257,7 +263,7 @@
                 android:orientation="horizontal">
 
                 <TextView
-                    android:layout_width="150dp"
+                    android:layout_width="120dp"
                     android:layout_height="32dp"
                     android:background="@drawable/selector_settings_border"
                     android:paddingHorizontal="10dp"
@@ -308,7 +314,7 @@
                 android:orientation="horizontal">
 
                 <Space
-                    android:layout_width="150dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content" />
 
                 <RadioButton
@@ -353,7 +359,7 @@
                 android:orientation="horizontal">
 
                 <Space
-                    android:layout_width="150dp"
+                    android:layout_width="120dp"
                     android:layout_height="wrap_content" />
 
                 <RadioButton
