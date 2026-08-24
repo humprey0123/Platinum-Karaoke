@@ -2,6 +2,7 @@ package com.example.platinumkaraoke
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -35,6 +36,14 @@ class SettingsDefaultFragment : Fragment() {
 
         defaultFragment.requestFocus()
 
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+                return@OnTouchListener true
+            }
+            false
+        }
+
         val settingsItems = listOf(
             clearPopularList,
             factoryReset,
@@ -51,6 +60,7 @@ class SettingsDefaultFragment : Fragment() {
                 // Set the clicked item as selected
                 item.isSelected = true
             }
+            item.setOnTouchListener(touchHandler)
         }
 
         // Optionally set the first item as selected by default

@@ -1,0 +1,9 @@
+- [x] Update `styles.xml` to set `focusableInTouchMode` to `false`
+- [x] Remove `focusableInTouchMode="true"` from `component_navbar.xml`
+- [x] Remove `focusableInTouchMode="true"` from `fragment_search.xml`
+- [x] Remove `focusableInTouchMode="true"` from `fragment_settings_authentication.xml`
+- [x] Remove `focusableInTouchMode="true"` from `fragment_settings_default.xml`
+- [x] Remove `focusableInTouchMode="true"` from `item_setting_slider.xml`
+- [x] Remove `focusableInTouchMode="true"` from `item_song.xml`
+- [x] Remove `focusableInTouchMode="true"` from `popup_settings.xml`
+- [x] Update `CardPresenter.kt` to set `isFocusableInTouchMode = false`

@@ -2,6 +2,7 @@ package com.example.platinumkaraoke
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -23,6 +24,14 @@ class SettingsSoundFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         val main = view.findViewById<View>(R.id.fragment_settings_sound)
         main.requestFocus()
+
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+                return@OnTouchListener true
+            }
+            false
+        }
 
         val introOff = view.findViewById<View>(R.id.sound_intro_off)
         val introLow = view.findViewById<View>(R.id.sound_intro_low)
@@ -73,122 +82,185 @@ class SettingsSoundFragment : Fragment() {
         introOff.setOnClickListener {
             setSelectedIntroSound(introOff)
         }
+        introOff.setOnTouchListener(touchHandler)
+
         introLow.setOnClickListener {
             setSelectedIntroSound(introLow)
         }
+        introLow.setOnTouchListener(touchHandler)
+
         introMiddle.setOnClickListener {
             setSelectedIntroSound(introMiddle)
         }
+        introMiddle.setOnTouchListener(touchHandler)
+
         introHigh.setOnClickListener {
             setSelectedIntroSound(introHigh)
         }
+        introHigh.setOnTouchListener(touchHandler)
 
 //        Sound
         soundOff.setOnClickListener {
             setSelectedButtonSound(soundOff)
         }
+        soundOff.setOnTouchListener(touchHandler)
+
         soundLow.setOnClickListener {
             setSelectedButtonSound(soundLow)
         }
+        soundLow.setOnTouchListener(touchHandler)
+
         soundMiddle.setOnClickListener {
             setSelectedButtonSound(soundMiddle)
         }
+        soundMiddle.setOnTouchListener(touchHandler)
+
         soundHigh.setOnClickListener {
             setSelectedButtonSound(soundHigh)
         }
+        soundHigh.setOnTouchListener(touchHandler)
 
         cheerOff.setOnClickListener {
             setSelectedCheerSound(cheerOff)
         }
+        cheerOff.setOnTouchListener(touchHandler)
+
         cheerLow.setOnClickListener {
             setSelectedCheerSound(cheerLow)
         }
+        cheerLow.setOnTouchListener(touchHandler)
+
         cheerMiddle.setOnClickListener {
             setSelectedCheerSound(cheerMiddle)
         }
+        cheerMiddle.setOnTouchListener(touchHandler)
+
         cheerHigh.setOnClickListener {
             setSelectedCheerSound(cheerHigh)
         }
+        cheerHigh.setOnTouchListener(touchHandler)
 
         vocalOff.setOnClickListener {
             setSelectedVocalSound(vocalOff)
         }
+        vocalOff.setOnTouchListener(touchHandler)
+
         vocalLow.setOnClickListener {
             setSelectedVocalSound(vocalLow)
         }
+        vocalLow.setOnTouchListener(touchHandler)
+
         vocalMiddle.setOnClickListener {
             setSelectedVocalSound(vocalMiddle)
         }
+        vocalMiddle.setOnTouchListener(touchHandler)
+
         vocalHigh.setOnClickListener {
             setSelectedVocalSound(vocalHigh)
         }
+        vocalHigh.setOnTouchListener(touchHandler)
 
         applauseOff.setOnClickListener {
             setSelectedApplauseSound(applauseOff)
         }
+        applauseOff.setOnTouchListener(touchHandler)
+
         applauseLow.setOnClickListener {
             setSelectedApplauseSound(applauseLow)
         }
+        applauseLow.setOnTouchListener(touchHandler)
+
         applauseMiddle.setOnClickListener {
             setSelectedApplauseSound(applauseMiddle)
         }
+        applauseMiddle.setOnTouchListener(touchHandler)
+
         applauseHigh.setOnClickListener {
             setSelectedApplauseSound(applauseHigh)
         }
+        applauseHigh.setOnTouchListener(touchHandler)
 
 
         bgmOff.setOnClickListener {
             setSelectedBGM(bgmOff)
         }
+        bgmOff.setOnTouchListener(touchHandler)
+
         bgmLow.setOnClickListener {
             setSelectedBGM(bgmLow)
         }
+        bgmLow.setOnTouchListener(touchHandler)
+
         bgmMiddle.setOnClickListener {
             setSelectedBGM(bgmMiddle)
         }
+        bgmMiddle.setOnTouchListener(touchHandler)
+
         bgmHigh.setOnClickListener {
             setSelectedBGM(bgmHigh)
         }
+        bgmHigh.setOnTouchListener(touchHandler)
 
         bgmVolumeOff.setOnClickListener {
             setSelectedBGMVolume(bgmVolumeOff)
         }
+        bgmVolumeOff.setOnTouchListener(touchHandler)
+
         bgmVolumeLow.setOnClickListener {
             setSelectedBGMVolume(bgmVolumeLow)
         }
+        bgmVolumeLow.setOnTouchListener(touchHandler)
+
         bgmVolumeMiddle.setOnClickListener {
             setSelectedBGMVolume(bgmVolumeMiddle)
         }
+        bgmVolumeMiddle.setOnTouchListener(touchHandler)
+
         bgmVolumeHigh.setOnClickListener {
             setSelectedBGMVolume(bgmVolumeHigh)
         }
+        bgmVolumeHigh.setOnTouchListener(touchHandler)
 
         drumOff.setOnClickListener {
             setSelectedDrum(drumOff)
         }
+        drumOff.setOnTouchListener(touchHandler)
+
         drumLow.setOnClickListener {
             setSelectedDrum(drumLow)
         }
+        drumLow.setOnTouchListener(touchHandler)
+
         drumMiddle.setOnClickListener {
             setSelectedDrum(drumMiddle)
         }
+        drumMiddle.setOnTouchListener(touchHandler)
+
         drumHigh.setOnClickListener {
             setSelectedDrum(drumHigh)
         }
+        drumHigh.setOnTouchListener(touchHandler)
 
 
         navVolOff.setOnClickListener {
             setSelectedNavVol(navVolOff)
         }
+        navVolOff.setOnTouchListener(touchHandler)
+
         navVolLow.setOnClickListener {
             setSelectedNavVol(navVolLow)
         }
+        navVolLow.setOnTouchListener(touchHandler)
+
         navVolMiddle.setOnClickListener {
             setSelectedNavVol(navVolMiddle)
         }
+        navVolMiddle.setOnTouchListener(touchHandler)
+
         navVolHigh.setOnClickListener {
             setSelectedNavVol(navVolHigh)
         }
+        navVolHigh.setOnTouchListener(touchHandler)
 
 
 

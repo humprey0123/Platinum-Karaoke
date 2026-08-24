@@ -2,6 +2,7 @@ package com.example.platinumkaraoke
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RadioButton
@@ -51,11 +52,20 @@ class SettingsEqualizerFragment : Fragment() {
             R.id.radioHighOutput
         ).mapNotNull { view?.findViewById<RadioButton>(it) }
 
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+                return@OnTouchListener true
+            }
+            false
+        }
+
         radioButtons.forEach { radio ->
             radio.setOnClickListener {
                 radioButtons.forEach { it.isChecked = false }
                 radio.isChecked = true
             }
+            radio.setOnTouchListener(touchHandler)
         }
 
         // Set default if needed
@@ -67,10 +77,19 @@ class SettingsEqualizerFragment : Fragment() {
     private fun setupGroupSelection(viewIds: List<Int>, defaultId: Int) {
         val views = viewIds.mapNotNull { view?.findViewById<View>(it) }
 
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+                return@OnTouchListener true
+            }
+            false
+        }
+
         views.forEach { v ->
             v.setOnClickListener {
                 updateSelection(views, it)
             }
+            v.setOnTouchListener(touchHandler)
         }
 
         // Set initial selection

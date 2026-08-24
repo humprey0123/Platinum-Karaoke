@@ -2,6 +2,7 @@ package com.example.platinumkaraoke
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -26,15 +27,25 @@ class SettingsAuthenticationFragment : Fragment() {
         val usb = view.findViewById<View>(R.id.usb_auth)
         val phone = view.findViewById<View>(R.id.phone_auth)
 
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+                return@OnTouchListener true
+            }
+            false
+        }
+
         main.requestFocus()
 
         usb.setOnClickListener {
             setSelectedNav(usb)
         }
+        usb.setOnTouchListener(touchHandler)
 
         phone.setOnClickListener {
             setSelectedNav(phone)
         }
+        phone.setOnTouchListener(touchHandler)
 
         setSelectedNav(phone)
     }

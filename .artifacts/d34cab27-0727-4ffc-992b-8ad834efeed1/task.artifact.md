@@ -1,0 +1,3 @@
+- `[ ]` Update `MainActivity.kt` with selection logic
+- `[ ]` Update `selector_icon_tint.xml` to support selection state
+- `[ ]` Verify changes

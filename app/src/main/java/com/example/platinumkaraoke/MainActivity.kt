@@ -65,11 +65,13 @@ class MainActivity : FragmentActivity() {
         val touchHandler = View.OnTouchListener { v, event ->
             if (event.action == MotionEvent.ACTION_UP) {
                 v.performClick()
+                return@OnTouchListener true
             }
             false
         }
 
         navSettings.setOnClickListener {
+            updateNavSelection(it)
             settingsPopup?.dismiss()
 
             settingsPopup = SettingsPopup(this)
@@ -82,7 +84,13 @@ class MainActivity : FragmentActivity() {
         navSettings.setOnTouchListener(touchHandler)
     }
 
+    private fun updateNavSelection(selectedView: View?) {
+        navHome.isSelected = selectedView == navHome
+        navSearch.isSelected = selectedView == navSearch
+    }
+
     fun showHome() {
+        updateNavSelection(navHome)
         hideSearch()
         navbar.visibility = View.VISIBLE
         supportFragmentManager.beginTransaction()
@@ -92,6 +100,7 @@ class MainActivity : FragmentActivity() {
         bg.setImageResource(R.drawable.bg_home)
     }
     fun showSettings(anchor: View) {
+        updateNavSelection(navSettings)
         settingsPopup?.dismiss()
         hideSearch()
 
@@ -106,6 +115,7 @@ class MainActivity : FragmentActivity() {
 //            setColorFilter(0x80000000.toInt())
 
     fun showSearch(selectedCategory: String? = null) {
+        updateNavSelection(navSearch)
         val fragment = SearchFragment().apply {
             arguments = Bundle().apply {
                 putString("selected_filter", selectedCategory)

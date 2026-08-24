@@ -73,7 +73,6 @@
             android:textAlignment="center"
             android:paddingHorizontal="10dp"
             android:focusable="true"
-            android:focusableInTouchMode="true"
             android:textColor="@drawable/selector_settings_button_text"
             android:background="@drawable/selector_settings_button"
             android:text="Usb Authentication"/>
@@ -87,7 +86,6 @@
             android:paddingHorizontal="10dp"
             android:textAlignment="center"
             android:focusable="true"
-            android:focusableInTouchMode="true"
             android:textColor="@drawable/selector_settings_button_text"
             android:background="@drawable/selector_settings_button"
             android:text="Phone Authentication"/>

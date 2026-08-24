@@ -2,6 +2,7 @@ package com.example.platinumkaraoke
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -24,6 +25,14 @@ class SettingsScoreFragment : Fragment() {
 
         score.requestFocus()
 
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+                return@OnTouchListener true
+            }
+            false
+        }
+
         val scoreLevelOff = view.findViewById<View>(R.id.score_level_off)
         val scoreLevelCasual = view.findViewById<View>(R.id.score_level_casual)
         val scoreLevelExpert = view.findViewById<View>(R.id.score_level_expert)
@@ -35,22 +44,32 @@ class SettingsScoreFragment : Fragment() {
         scoreLevelOff.setOnClickListener {
             setSelectedScoreLevel(scoreLevelOff)
         }
+        scoreLevelOff.setOnTouchListener(touchHandler)
+
         scoreLevelCasual.setOnClickListener {
             setSelectedScoreLevel(scoreLevelCasual)
         }
+        scoreLevelCasual.setOnTouchListener(touchHandler)
+
         scoreLevelExpert.setOnClickListener {
             setSelectedScoreLevel(scoreLevelExpert)
         }
+        scoreLevelExpert.setOnTouchListener(touchHandler)
+
         scoreLevelPro.setOnClickListener {
             setSelectedScoreLevel(scoreLevelPro)
         }
+        scoreLevelPro.setOnTouchListener(touchHandler)
 
         scoreAnimationDefault.setOnClickListener {
             setSelectedScoreAnimation(scoreAnimationDefault)
         }
+        scoreAnimationDefault.setOnTouchListener(touchHandler)
+
         scoreAnimationCustom.setOnClickListener {
             setSelectedScoreAnimation(scoreAnimationCustom)
         }
+        scoreAnimationCustom.setOnTouchListener(touchHandler)
 
         setSelectedScoreAnimation(scoreAnimationDefault)
         setSelectedScoreLevel(scoreLevelCasual)

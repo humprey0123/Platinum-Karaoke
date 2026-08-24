@@ -35,7 +35,7 @@ class CardPresenter : Presenter() {
         }
 
         cardView.isFocusable = true
-        cardView.isFocusableInTouchMode = true
+        cardView.isFocusableInTouchMode = false
         updateCardBackgroundColor(cardView, false)
         return Presenter.ViewHolder(cardView)
     }

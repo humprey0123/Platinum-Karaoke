@@ -19,7 +19,6 @@
         android:background="@drawable/selector_button"
         android:tint="@color/selector_icon_tint"
         android:focusable="true"
-        android:focusableInTouchMode="true"
         android:contentDescription="@string/btn_settings"
         android:id="@+id/btn_settings"/>
 

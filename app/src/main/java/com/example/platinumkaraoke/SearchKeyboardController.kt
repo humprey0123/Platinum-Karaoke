@@ -64,6 +64,7 @@ class SearchKeyboardController(
         val touchHandler = View.OnTouchListener { v, event ->
             if (event.action == MotionEvent.ACTION_UP) {
                 v.performClick()
+                return@OnTouchListener true
             }
             false
         }

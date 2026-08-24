@@ -2,6 +2,7 @@ package com.example.platinumkaraoke
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -64,10 +65,19 @@ class SettingsUserContentFragment : Fragment() {
     private fun setupGroupSelection(viewIds: List<Int>, defaultId: Int) {
         val views = viewIds.mapNotNull { view?.findViewById<View>(it) }
 
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+                return@OnTouchListener true
+            }
+            false
+        }
+
         views.forEach { v ->
             v.setOnClickListener {
                 updateSelection(views, it)
             }
+            v.setOnTouchListener(touchHandler)
         }
 
         // Set initial selection
