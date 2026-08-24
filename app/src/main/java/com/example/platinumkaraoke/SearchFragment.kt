@@ -75,6 +75,13 @@ class SearchFragment : Fragment() {
 
         (activity as? MainActivity)?.setSearchExpanded(false)
 
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+            }
+            false
+        }
+
         activeCategory.post {
             activeCategory.getChildAt(selectedGroupIndex)?.requestFocus()
         }
@@ -84,9 +91,19 @@ class SearchFragment : Fragment() {
 
         incomingFilter = arguments?.getString("selected_filter")
 
-// 🔥 Disable Android keyboard
+        // 🔥 Disable Android keyboard
         searchEditText.showSoftInputOnFocus = false
         searchEditText.isCursorVisible = false
+
+        searchEditText.setOnTouchListener(touchHandler)
+        searchEditText.setOnClickListener {
+            keyboard.visibility = View.VISIBLE
+            keyboard.post {
+                if (keyboard.childCount > 0) {
+                    keyboard.getChildAt(1).requestFocus()
+                }
+            }
+        }
 
         view.viewTreeObserver.addOnGlobalFocusChangeListener { oldFocus, newFocus ->
 
@@ -252,6 +269,13 @@ class SearchFragment : Fragment() {
     }
 
     private fun renderActiveCategories() {
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+            }
+            false
+        }
+
         activeCategory.removeAllViews()
 
         filterGroups.forEachIndexed { index, group ->
@@ -260,6 +284,7 @@ class SearchFragment : Fragment() {
 
             tv.isSelected = index == selectedGroupIndex
 
+            tv.setOnTouchListener(touchHandler)
             tv.setOnClickListener {
                 selectedGroupIndex = index
                 renderActiveCategories()
@@ -289,6 +314,13 @@ class SearchFragment : Fragment() {
     }
 
     private fun showChoices() {
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+            }
+            false
+        }
+
         val group = filterGroups[selectedGroupIndex]
 
         choiceCategory.removeAllViews()
@@ -296,6 +328,7 @@ class SearchFragment : Fragment() {
         group.choices.forEach { item ->
             val tv = createCategoryTextView(item, false)
 
+            tv.setOnTouchListener(touchHandler)
             tv.setOnClickListener {
                 swapFilter(item)
 

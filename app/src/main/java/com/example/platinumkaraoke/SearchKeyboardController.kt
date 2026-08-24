@@ -1,6 +1,7 @@
 package com.example.platinumkaraoke
 
 import android.view.KeyEvent
+import android.view.MotionEvent
 import android.view.View
 import android.widget.EditText
 import android.widget.LinearLayout
@@ -60,6 +61,13 @@ class SearchKeyboardController(
     }
 
     private fun setupKeyboard() {
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+            }
+            false
+        }
+
         for (i in 0 until keyboard.childCount) {
             val row = keyboard.getChildAt(i)
 
@@ -68,6 +76,7 @@ class SearchKeyboardController(
                     val keyView = row.getChildAt(j)
 
                     if (keyView is TextView) {
+                        keyView.setOnTouchListener(touchHandler)
                         keyView.setOnClickListener {
                             val key = keyView.text.toString()
                             handleKeyPress(key)

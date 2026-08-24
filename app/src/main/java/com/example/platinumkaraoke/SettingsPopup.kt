@@ -35,6 +35,14 @@ class SettingsPopup(private val context: Context) {
 
         val btnSettings = view.findViewById<View>(R.id.btn_settings)
 
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+            }
+            false
+        }
+
+        btnSettings.setOnTouchListener(touchHandler)
         btnSettings.setOnClickListener {
             (context as MainActivity).showSettings(it)
         }
@@ -139,6 +147,14 @@ class SettingsPopup(private val context: Context) {
 
         radioButtons.forEach { radio ->
 
+            val touchHandler = View.OnTouchListener { v, event ->
+                if (event.action == MotionEvent.ACTION_UP) {
+                    v.performClick()
+                }
+                false
+            }
+
+            radio.setOnTouchListener(touchHandler)
             radio.setOnClickListener {
                 radioButtons.forEach { it.isChecked = false }
                 radio.isChecked = true

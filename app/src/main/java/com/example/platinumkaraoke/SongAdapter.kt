@@ -1,6 +1,7 @@
 package com.example.platinumkaraoke
 
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
@@ -34,6 +35,14 @@ class SongAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val song = songs[position]
 
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+            }
+            false
+        }
+
+        holder.itemView.setOnTouchListener(touchHandler)
         holder.itemView.setOnClickListener {
             onSongClick(song)
         }
