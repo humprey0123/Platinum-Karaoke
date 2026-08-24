@@ -43,6 +43,7 @@
         android:layout_height="0dp"
         android:layout_weight="8">
         <RadioGroup
+            android:id="@+id/lyric_font_group1"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:paddingLeft="20dp"
@@ -85,6 +86,7 @@
 
         </RadioGroup>
         <RadioGroup
+            android:id="@+id/lyric_font_group2"
             android:layout_width="0dp"
             android:layout_weight="1"
             android:paddingLeft="20dp"

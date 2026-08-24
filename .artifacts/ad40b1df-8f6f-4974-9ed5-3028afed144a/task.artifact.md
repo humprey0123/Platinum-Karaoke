@@ -1,0 +1,9 @@
+- [x] Implement single-tap behavior for Lyric Color Settings
+    - [x] Identify all RadioButtons in fragment_settings_lyric_color.xml
+    - [x] Replace OnCheckedChangeListener with shared OnClickListener in SettingsLyricColorFragment.kt
+    - [x] Verify selection logic and mode switching
+- [x] Implement single-tap behavior for Lyric Font Settings
+    - [x] Identify all RadioButtons in fragment_settings_lyric_font.xml
+    - [x] Replace OnCheckedChangeListener with shared OnClickListener in SettingsLyricFontFragment.kt
+    - [x] Verify selection logic and mode switching
+- [x] Final verification of both fragments

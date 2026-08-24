@@ -32,24 +32,11 @@ class SettingsLyricColorFragment : Fragment() {
 
         val group1 = view.findViewById<RadioGroup>(R.id.lyric_color_group1)
         val group2 = view.findViewById<RadioGroup>(R.id.lyric_color_group2)
-        val navyBlack = view.findViewById<RadioButton>(R.id.lyric_color_navy_black)
         val lyricColorSample = view.findViewById<StrokeTextView>(R.id.lyric_color_sample)
 
         // Setup Stroke for the sample text
         lyricColorSample.strokeColor = android.graphics.Color.WHITE
         lyricColorSample.strokeWidth = 8f // Clear white outline
-
-        // Synchronization between two RadioGroups
-        group1.setOnCheckedChangeListener { _, checkedId ->
-            if (checkedId != -1) {
-                group2.clearCheck()
-            }
-        }
-        group2.setOnCheckedChangeListener { _, checkedId ->
-            if (checkedId != -1) {
-                group1.clearCheck()
-            }
-        }
 
         // Mode Selection logic
         val modeViews = listOf(modeDefault, modeRandomAll, modeSelectOne)
@@ -59,18 +46,49 @@ class SettingsLyricColorFragment : Fragment() {
             selectedView.requestFocus()
         }
 
+        // Helper to handle RadioButton clicks across both groups
+        val onColorSelected = { radioButton: RadioButton, otherGroup: RadioGroup ->
+            otherGroup.clearCheck()
+            selectMode(modeSelectOne, radioButton.text.toString())
+            // Update sample text color based on selection if needed
+            // For now, we update the "Selected" text which is already done in selectMode
+        }
+
+        val colorButtonsGroup1 = listOf(
+            R.id.lyric_color_navy_black, R.id.lyric_color_sky_navy, R.id.lyric_color_rose_wine,
+            R.id.lyric_color_olive_green, R.id.lyric_color_cherry_gold
+        )
+        val colorButtonsGroup2 = listOf(
+            R.id.lyric_color_mustard_brown, R.id.lyric_color_emerald_mint, R.id.lyric_color_mocha_red,
+            R.id.lyric_color_cobalt_navy, R.id.lyric_color_scarlet_gold
+        )
+
+        colorButtonsGroup1.forEach { id ->
+            val rb = view.findViewById<RadioButton>(id)
+            rb.setOnClickListener { onColorSelected(rb, group2) }
+        }
+
+        colorButtonsGroup2.forEach { id ->
+            val rb = view.findViewById<RadioButton>(id)
+            rb.setOnClickListener { onColorSelected(rb, group1) }
+        }
+
         modeDefault.setOnClickListener {
             selectMode(modeDefault, "Default")
+            group1.clearCheck()
+            group2.clearCheck()
         }
         modeRandomAll.setOnClickListener {
             selectMode(modeRandomAll, "Random All")
+            group1.clearCheck()
+            group2.clearCheck()
         }
         modeSelectOne.setOnClickListener {
             selectMode(modeSelectOne, "Select One")
         }
 
         // Set default states
-        navyBlack.isChecked = true
-        selectMode(modeSelectOne, "Select One")
+        view.findViewById<RadioButton>(R.id.lyric_color_navy_black).isChecked = true
+        selectMode(modeSelectOne, "Navy Black")
     }
 }
