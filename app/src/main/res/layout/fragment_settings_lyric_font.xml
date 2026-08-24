@@ -21,6 +21,7 @@
             android:textSize="18sp"
             style="@style/SoundSettings"
             android:text="Default"/>
+
         <TextView
             android:id="@+id/lyric_font_random_all"
             android:layout_width="0dp"
@@ -29,6 +30,7 @@
             android:textSize="18sp"
             style="@style/SoundSettings"
             android:text="Random All"/>
+
         <TextView
             android:id="@+id/lyric_font_select_one"
             android:layout_width="0dp"

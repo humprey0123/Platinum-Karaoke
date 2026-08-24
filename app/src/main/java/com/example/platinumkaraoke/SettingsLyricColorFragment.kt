@@ -49,7 +49,6 @@ class SettingsLyricColorFragment : Fragment() {
         // Helper to handle RadioButton clicks across both groups
         val onColorSelected = { radioButton: RadioButton, otherGroup: RadioGroup ->
             otherGroup.clearCheck()
-            selectMode(modeSelectOne, radioButton.text.toString())
             // Update sample text color based on selection if needed
             // For now, we update the "Selected" text which is already done in selectMode
         }
@@ -75,13 +74,9 @@ class SettingsLyricColorFragment : Fragment() {
 
         modeDefault.setOnClickListener {
             selectMode(modeDefault, "Default")
-            group1.clearCheck()
-            group2.clearCheck()
         }
         modeRandomAll.setOnClickListener {
             selectMode(modeRandomAll, "Random All")
-            group1.clearCheck()
-            group2.clearCheck()
         }
         modeSelectOne.setOnClickListener {
             selectMode(modeSelectOne, "Select One")
@@ -89,6 +84,6 @@ class SettingsLyricColorFragment : Fragment() {
 
         // Set default states
         view.findViewById<RadioButton>(R.id.lyric_color_navy_black).isChecked = true
-        selectMode(modeSelectOne, "Navy Black")
+        selectMode(modeSelectOne, "Select One")
     }
 }

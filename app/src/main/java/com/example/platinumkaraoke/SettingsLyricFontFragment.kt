@@ -49,7 +49,6 @@ class SettingsLyricFontFragment : Fragment() {
         // Helper to handle RadioButton clicks across both groups
         val onFontSelected = { radioButton: RadioButton, otherGroup: RadioGroup ->
             otherGroup.clearCheck()
-            selectMode(modeSelectOne, radioButton.text.toString())
             // Note: In a real implementation, you would also update the typeface of lyricFontSample here
             // e.g., lyricFontSample.typeface = radioButton.typeface
         }
@@ -75,13 +74,9 @@ class SettingsLyricFontFragment : Fragment() {
 
         modeDefault.setOnClickListener {
             selectMode(modeDefault, "Default")
-            group1.clearCheck()
-            group2.clearCheck()
         }
         modeRandomAll.setOnClickListener {
             selectMode(modeRandomAll, "Random All")
-            group1.clearCheck()
-            group2.clearCheck()
         }
         modeSelectOne.setOnClickListener {
             selectMode(modeSelectOne, "Select One")
@@ -89,6 +84,6 @@ class SettingsLyricFontFragment : Fragment() {
 
         // Set default states
         view.findViewById<RadioButton>(R.id.lyric_font_agenta_chubby_demo).isChecked = true
-        selectMode(modeSelectOne, "Agenta Chubby Demo")
+        selectMode(modeSelectOne, "Select One")
     }
 }
