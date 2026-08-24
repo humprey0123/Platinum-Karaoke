@@ -29,7 +29,7 @@ class MainActivity : FragmentActivity() {
         bg = findViewById(R.id.bg)
         navHome = findViewById(R.id.nav_home)
         navSearch = findViewById(R.id.nav_search)
-        navSettings = findViewById(R.id.nav_settings) // ✅ ADD THIS
+        navSettings = findViewById(R.id.nav_settings)
         searchOverlay = findViewById(R.id.search_overlay)
         navbar = findViewById(R.id.navbar)
 
@@ -61,7 +61,7 @@ class MainActivity : FragmentActivity() {
         navHome.setOnClickListener { showHome() }
         navSearch.setOnClickListener { showSearch() }
 
-        // 🔥 Fix: make touch behave like single tap (no double tap issue)
+        // Make touch behave like single tap (no double tap issue)
         val touchHandler = View.OnTouchListener { v, event ->
             if (event.action == MotionEvent.ACTION_UP) {
                 v.performClick()
@@ -75,8 +75,11 @@ class MainActivity : FragmentActivity() {
             settingsPopup = SettingsPopup(this)
             settingsPopup?.show(it)
         }
+
+        // Touch Nav
         navHome.setOnTouchListener(touchHandler)
         navSearch.setOnTouchListener(touchHandler)
+        navSettings.setOnTouchListener(touchHandler)
     }
 
     fun showHome() {

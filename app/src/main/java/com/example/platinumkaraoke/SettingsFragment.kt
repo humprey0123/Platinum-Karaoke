@@ -2,6 +2,7 @@ package com.example.platinumkaraoke
 
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
@@ -36,6 +37,13 @@ class SettingsFragment : Fragment(){
         val navLyricColor = view.findViewById<View>(R.id.nav_lyric_color)
         val navPlatinumLink = view.findViewById<View>(R.id.nav_platinum_link)
 
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+            }
+            false
+        }
+
         main.requestFocus()
 
         navAuthentication.setOnClickListener {
@@ -43,70 +51,94 @@ class SettingsFragment : Fragment(){
             replaceSettingsContent(SettingsAuthenticationFragment())
         }
 
+        navAuthentication.setOnTouchListener(touchHandler)
+
         navSound.setOnClickListener {
             setSelectedNav(navSound)
             replaceSettingsContent(SettingsSoundFragment())
         }
 
+        navSound.setOnTouchListener(touchHandler)
+
         navEqualizer.setOnClickListener {
             setSelectedNav(navEqualizer)
             replaceSettingsContent(SettingsEqualizerFragment())
         }
+        navEqualizer.setOnTouchListener(touchHandler)
 
         navScore.setOnClickListener {
             setSelectedNav(navScore)
             replaceSettingsContent(SettingsScoreFragment())
         }
+        navScore.setOnTouchListener(touchHandler)
 
 
         navCoinTime.setOnClickListener {
             setSelectedNav(navCoinTime)
             replaceSettingsContent(SettingsCoinTimeFragment())
         }
+        navCoinTime.setOnTouchListener(touchHandler)
 
         navDisplay.setOnClickListener {
             setSelectedNav(navDisplay)
             replaceSettingsContent(SettingsDisplayFragment())
         }
+        navDisplay.setOnTouchListener(touchHandler)
 
         navUserContent.setOnClickListener {
             setSelectedNav(navUserContent)
             replaceSettingsContent(SettingsUserContentFragment())
         }
+        navUserContent.setOnTouchListener(touchHandler)
 
         navGreetings.setOnClickListener {
             setSelectedNav(navGreetings)
             replaceSettingsContent(SettingsGreetingsFragment())
         }
+        navGreetings.setOnTouchListener(touchHandler)
 
         navDefault.setOnClickListener {
             setSelectedNav(navDefault)
             replaceSettingsContent(SettingsDefaultFragment())
         }
+        navDefault.setOnTouchListener(touchHandler)
+
         navPassword.setOnClickListener {
             setSelectedNav(navPassword)
             replaceSettingsContent(SettingsPasswordFragment())
         }
+        navPassword.setOnTouchListener(touchHandler)
+
         navUpdate.setOnClickListener {
             setSelectedNav(navUpdate)
             replaceSettingsContent(SettingsUpdateFragment())
         }
+        navUpdate.setOnTouchListener(touchHandler)
+
         navMic.setOnClickListener {
             setSelectedNav(navMic)
             replaceSettingsContent(SettingsMicFragment())
         }
+        navMic.setOnTouchListener(touchHandler)
+
         navLyricFont.setOnClickListener {
             setSelectedNav(navLyricFont)
             replaceSettingsContent(SettingsLyricFontFragment())
         }
+        navLyricFont.setOnTouchListener(touchHandler)
+
         navLyricColor.setOnClickListener {
             setSelectedNav(navLyricColor)
             replaceSettingsContent(SettingsLyricColorFragment())
         }
+        navLyricColor.setOnTouchListener(touchHandler)
+
         navPlatinumLink.setOnClickListener {
             setSelectedNav(navPlatinumLink)
             replaceSettingsContent(SettingsPlatinumLinkFragment())
         }
+        navPlatinumLink.setOnTouchListener(touchHandler)
+
 
         // Show Authentication by default
         setSelectedNav(navAuthentication)
