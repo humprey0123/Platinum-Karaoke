@@ -138,8 +138,7 @@ class SearchFragment : Fragment() {
 
         searchOverlay = view
         adapter = SongAdapter { song ->
-            expandSearchOverlay()
-            expanded = true
+            setSearchExpanded(true)
         }
 
         setupRecycler()
@@ -163,7 +162,6 @@ class SearchFragment : Fragment() {
 
         return view
     }
-
 
     private fun isViewChildOf(view: View?, parent: View): Boolean {
         var current = view
@@ -419,18 +417,20 @@ class SearchFragment : Fragment() {
 
     private var expanded = false
 
-    private fun expandSearchOverlay() {
+    private fun setSearchExpanded(isExpanded: Boolean) {
+        if (expanded == isExpanded) return
+
         val params = searchOverlay.layoutParams as ViewGroup.MarginLayoutParams
         val extra = (160 * resources.displayMetrics.density).toInt()
 
-        params.bottomMargin = if (!expanded) extra else 0
+        params.bottomMargin = if (isExpanded) extra else 0
 
         searchOverlay.layoutParams = params
         searchOverlay.requestLayout()
 
-        (activity as? MainActivity)?.setSearchExpanded(true)
+        (activity as? MainActivity)?.setSearchExpanded(isExpanded)
 
-        expanded = !expanded
+        expanded = isExpanded
     }
 
     private val Int.dp: Int
