@@ -9,6 +9,7 @@ import android.view.WindowInsetsController
 import android.widget.ImageView
 import androidx.activity.addCallback
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentTransaction
 
 class MainActivity : FragmentActivity() {
 
@@ -91,24 +92,25 @@ class MainActivity : FragmentActivity() {
 
     fun showHome() {
         updateNavSelection(navHome)
-        hideSearch()
         navbar.visibility = View.VISIBLE
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.main_content, HomeFragment())
-            .commit()
-
         bg.setImageResource(R.drawable.bg_home)
+
+        val transaction = supportFragmentManager.beginTransaction()
+        hideSearch(transaction)
+        transaction.replace(R.id.main_content, HomeFragment())
+        transaction.commit()
     }
+
     fun showSettings(anchor: View) {
         updateNavSelection(navSettings)
         settingsPopup?.dismiss()
-        hideSearch()
 
         navbar.visibility = View.GONE
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.main_content, SettingsFragment())
-            .commit()
+        val transaction = supportFragmentManager.beginTransaction()
+        hideSearch(transaction)
+        transaction.replace(R.id.main_content, SettingsFragment())
+        transaction.commit()
 
         bg.setImageResource(R.drawable.bg_songlist)
     }
@@ -142,15 +144,19 @@ class MainActivity : FragmentActivity() {
         expanded = value
     }
 
-    fun hideSearch() {
+    fun hideSearch(transaction: FragmentTransaction? = null) {
         searchOverlay.visibility = View.GONE
 
-        supportFragmentManager.beginTransaction()
-            .remove(
-                supportFragmentManager.findFragmentById(R.id.search_overlay)
-                    ?: return
-            )
-            .commit()
+        val fragment = supportFragmentManager.findFragmentById(R.id.search_overlay)
+            ?: return
+
+        if (transaction != null) {
+            transaction.remove(fragment)
+        } else {
+            supportFragmentManager.beginTransaction()
+                .remove(fragment)
+                .commit()
+        }
     }
 
     // 🔥 Fullscreen (modern + backward compatible)
