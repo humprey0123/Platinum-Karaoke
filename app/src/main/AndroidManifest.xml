@@ -14,8 +14,9 @@
 
     <application
         android:allowBackup="true"
-        android:banner="@drawable/the_platinum"
-        android:icon="@mipmap/ic_launcher"
+        android:banner="@drawable/icon_platinum_tv"
+        android:icon="@drawable/icon_platinum_app"
+        android:roundIcon="@drawable/icon_platinum_app"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/Theme.PlatinumKaraoke">

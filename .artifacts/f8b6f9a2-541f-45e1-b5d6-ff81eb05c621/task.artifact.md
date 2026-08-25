@@ -1,0 +1,9 @@
+- [x] Delete invalid resource directories
+    - [x] Delete `app/src/main/res/assets/`
+    - [x] Delete `app/src/main/res/drawable/figma/`
+    - [x] Delete `app/src/main/res/drawable/Genre/`
+    - [x] Delete `app/src/main/res/Fon/`
+    - [x] Delete `app/src/main/res/Font/`
+    - [x] Delete `app/src/main/font/`
+- [x] Verify fix by building resources
+- [x] Final build check
