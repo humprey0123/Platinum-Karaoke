@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/fragment_settings_coin_time"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="40dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Coin Per Song:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10">
+            <TextView
+                android:id="@+id/coin_per_song_none"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="None"/>
+            <TextView
+                android:id="@+id/coin_per_song_1"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="1 Coin"/>
+            <TextView
+                android:id="@+id/coin_per_song_2"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="2 Coins"/>
+            <TextView
+                android:id="@+id/coin_per_song_3"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="3 Coins"/>
+            <TextView
+                android:id="@+id/coin_per_song_4"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="4 Coins"/>
+            <TextView
+                android:id="@+id/coin_per_song_5"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="5 Coins"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Song Per Coin:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10">
+            <TextView
+                android:id="@+id/song_per_coin_none"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="None"/>
+            <TextView
+                android:id="@+id/song_per_coin_1"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="1 Song"/>
+            <TextView
+                android:id="@+id/song_per_coin_2"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="2 Songs"/>
+            <TextView
+                android:id="@+id/song_per_coin_3"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="3 Songs"/>
+            <TextView
+                android:id="@+id/song_per_coin_4"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="4 Songs"/>
+            <TextView
+                android:id="@+id/song_per_coin_5"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="5 Songs"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Time Bound:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10">
+            <TextView
+                android:id="@+id/time_bound_none"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="None"/>
+            <TextView
+                android:id="@+id/time_bound_30min"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="30 Min"/>
+            <TextView
+                android:id="@+id/time_bound_1hr"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="1 Hour"/>
+            <TextView
+                android:id="@+id/time_bound_2hrs"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="2 Hours"/>
+            <TextView
+                android:id="@+id/time_bound_4hrs"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="4 Hours"/>
+            <TextView
+                android:id="@+id/time_bound_8hrs"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="8 Hours"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Time Per Coin:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="10">
+            <TextView
+                android:id="@+id/time_per_coin_none"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="None"/>
+            <TextView
+                android:id="@+id/time_per_coin_15min"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="15 Mins"/>
+            <TextView
+                android:id="@+id/time_per_coin_30min"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="30 Mins"/>
+            <TextView
+                android:id="@+id/time_per_coin_1hr"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="1 Hour"/>
+            <TextView
+                android:id="@+id/time_per_coin_2hr"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="2 Hours"/>
+            <TextView
+                android:id="@+id/time_per_coin_3hr"
+                android:layout_width="70dp"
+                style="@style/SoundSettings"
+                android:text="3 Hours"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

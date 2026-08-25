@@ -1,0 +1,4 @@
+- [x] Refactor `SearchFragment.kt` to prevent unwanted collapsing of search overlay
+    - [x] Modify `expandSearchOverlay` to `setSearchExpanded(shouldExpand: Boolean)`
+    - [x] Update song click listener in `onCreateView`
+- [x] Verify fix by reviewing code and logic

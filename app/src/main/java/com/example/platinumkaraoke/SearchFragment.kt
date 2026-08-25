@@ -75,6 +75,14 @@ class SearchFragment : Fragment() {
 
         (activity as? MainActivity)?.setSearchExpanded(false)
 
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+                return@OnTouchListener true
+            }
+            false
+        }
+
         activeCategory.post {
             activeCategory.getChildAt(selectedGroupIndex)?.requestFocus()
         }
@@ -84,9 +92,19 @@ class SearchFragment : Fragment() {
 
         incomingFilter = arguments?.getString("selected_filter")
 
-// 🔥 Disable Android keyboard
+        // 🔥 Disable Android keyboard
         searchEditText.showSoftInputOnFocus = false
         searchEditText.isCursorVisible = false
+
+        searchEditText.setOnTouchListener(touchHandler)
+        searchEditText.setOnClickListener {
+            keyboard.visibility = View.VISIBLE
+            keyboard.post {
+                if (keyboard.childCount > 0) {
+                    keyboard.getChildAt(1).requestFocus()
+                }
+            }
+        }
 
         view.viewTreeObserver.addOnGlobalFocusChangeListener { oldFocus, newFocus ->
 
@@ -120,8 +138,7 @@ class SearchFragment : Fragment() {
 
         searchOverlay = view
         adapter = SongAdapter { song ->
-            expandSearchOverlay()
-            expanded = true
+            setSearchExpanded(true)
         }
 
         setupRecycler()
@@ -145,7 +162,6 @@ class SearchFragment : Fragment() {
 
         return view
     }
-
 
     private fun isViewChildOf(view: View?, parent: View): Boolean {
         var current = view
@@ -252,6 +268,14 @@ class SearchFragment : Fragment() {
     }
 
     private fun renderActiveCategories() {
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+                return@OnTouchListener true
+            }
+            false
+        }
+
         activeCategory.removeAllViews()
 
         filterGroups.forEachIndexed { index, group ->
@@ -260,6 +284,7 @@ class SearchFragment : Fragment() {
 
             tv.isSelected = index == selectedGroupIndex
 
+            tv.setOnTouchListener(touchHandler)
             tv.setOnClickListener {
                 selectedGroupIndex = index
                 renderActiveCategories()
@@ -289,6 +314,14 @@ class SearchFragment : Fragment() {
     }
 
     private fun showChoices() {
+        val touchHandler = View.OnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_UP) {
+                v.performClick()
+                return@OnTouchListener true
+            }
+            false
+        }
+
         val group = filterGroups[selectedGroupIndex]
 
         choiceCategory.removeAllViews()
@@ -296,6 +329,7 @@ class SearchFragment : Fragment() {
         group.choices.forEach { item ->
             val tv = createCategoryTextView(item, false)
 
+            tv.setOnTouchListener(touchHandler)
             tv.setOnClickListener {
                 swapFilter(item)
 
@@ -383,18 +417,20 @@ class SearchFragment : Fragment() {
 
     private var expanded = false
 
-    private fun expandSearchOverlay() {
-        val params = searchOverlay.layoutParams as ViewGroup.MarginLayoutParams
-        val extra = (130 * resources.displayMetrics.density).toInt()
+    private fun setSearchExpanded(isExpanded: Boolean) {
+        if (expanded == isExpanded) return
 
-        params.bottomMargin = if (!expanded) extra else 0
+        val params = searchOverlay.layoutParams as ViewGroup.MarginLayoutParams
+        val extra = (160 * resources.displayMetrics.density).toInt()
+
+        params.bottomMargin = if (isExpanded) extra else 0
 
         searchOverlay.layoutParams = params
         searchOverlay.requestLayout()
 
-        (activity as? MainActivity)?.setSearchExpanded(true)
+        (activity as? MainActivity)?.setSearchExpanded(isExpanded)
 
-        expanded = !expanded
+        expanded = isExpanded
     }
 
     private val Int.dp: Int

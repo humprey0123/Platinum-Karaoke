@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/fragment_settings_mic_settings"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="50dp">
+    
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MIC"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/mic_on"
+                    android:layout_width="50dp"
+                    style="@style/SoundSettings"
+                    android:clickable="true"
+                    android:text="ON"/>
+                <TextView
+                    android:id="@+id/mic_off"
+                    android:layout_width="50dp"
+                    style="@style/SoundSettings"
+                    android:text="OFF"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:layout_marginVertical="3dp"
+                android:paddingVertical="10dp"
+                android:background="#33ffffff">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:text="Level"
+                    android:textStyle="bold"/>
+                <SeekBar
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:focusable="true"
+                    android:thumbTint="@color/focus_text_color"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:layout_marginVertical="3dp"
+                android:paddingVertical="10dp"
+                android:background="#33ffffff">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:text="Noise Gate Threshold"
+                    android:textStyle="bold"/>
+                <SeekBar
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:focusable="true"
+                    android:thumbTint="@color/focus_text_color"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:layout_marginVertical="3dp"
+                android:paddingVertical="10dp"
+                android:background="#33ffffff">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:text="Lowcut"
+                    android:textStyle="bold"/>
+                <SeekBar
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:focusable="true"
+                    android:thumbTint="@color/focus_text_color"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"/>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="5"
+            android:layout_height="wrap_content">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="FEEDBACK CANCEL"
+                    android:textStyle="bold"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/feedback_cancel_on"
+                        android:layout_width="50dp"
+                        style="@style/SoundSettings"
+                        android:text="ON"/>
+                    <TextView
+                        android:id="@+id/feedback_cancel_off"
+                        android:layout_width="50dp"
+                        style="@style/SoundSettings"
+                        android:text="OFF"/>
+                </LinearLayout>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="USER ECHO"
+                    android:textStyle="bold"/>
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/user_echo_on"
+                        android:layout_width="50dp"
+                        style="@style/SoundSettings"
+                        android:text="ON"/>
+                    <TextView
+                        android:id="@+id/user_echo_off"
+                        android:layout_width="50dp"
+                        style="@style/SoundSettings"
+                        android:text="OFF"/>
+                </LinearLayout>
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="8"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ECHO TYPE"
+                android:textStyle="bold"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/echo_on"
+                    android:layout_width="50dp"
+                    style="@style/SoundSettings"
+                    android:text="ON"/>
+                <TextView
+                    android:id="@+id/echo_off"
+                    android:layout_width="50dp"
+                    style="@style/SoundSettings"
+                    android:text="OFF"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:layout_marginVertical="3dp"
+                android:paddingVertical="10dp"
+                android:background="#33ffffff">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:text="Level"
+                    android:textStyle="bold"/>
+                <SeekBar
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:focusable="true"
+                    android:thumbTint="@color/focus_text_color"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:layout_marginVertical="3dp"
+                android:paddingVertical="10dp"
+                android:background="#33ffffff">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:text="Noise Delay Time"
+                    android:textStyle="bold"/>
+                <SeekBar
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:focusable="true"
+                    android:thumbTint="@color/focus_text_color"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="20dp"
+                android:layout_marginVertical="3dp"
+                android:paddingVertical="10dp"
+                android:background="#33ffffff">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_weight="3"
+                    android:layout_height="wrap_content"
+                    android:text="Echo Feedback"
+                    android:textStyle="bold"/>
+                <SeekBar
+                    android:layout_width="0dp"
+                    android:layout_weight="4"
+                    android:focusable="true"
+                    android:thumbTint="@color/focus_text_color"
+                    android:layout_height="wrap_content"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

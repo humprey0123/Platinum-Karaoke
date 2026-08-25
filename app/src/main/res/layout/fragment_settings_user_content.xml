@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/fragment_settings_user_content"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingHorizontal="100dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="70dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Song Registration:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7">
+
+            <TextView
+                android:id="@+id/song_registration_user_mp3"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/song_registration_user_mtv"
+                style="@style/SoundSettings"
+                android:text="On"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="BGV Registration:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7">
+
+            <TextView
+                android:id="@+id/bgv_regis_video"
+                style="@style/SoundSettings"
+                android:text="Video"/>
+            <TextView
+                android:id="@+id/bgv_regis_photo"
+                style="@style/SoundSettings"
+                android:text="Photo"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Score Meme Registration:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7">
+            <TextView
+                android:id="@+id/score_meme_reg_clip"
+                style="@style/SoundSettings"
+                android:text="Clip"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"
+            android:textStyle="bold"
+            android:textSize="14sp"
+            android:text="Management:"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7">
+
+            <TextView
+                android:id="@+id/management_user_mp3"
+                style="@style/SoundSettings"
+                android:text="User MP3"/>
+            <TextView
+                android:id="@+id/management_user_mtv"
+                style="@style/SoundSettings"
+                android:text="User MTV"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7">
+            <TextView
+                android:id="@+id/management_bgv_video"
+                style="@style/SoundSettings"
+                android:text="BGV Video"/>
+            <TextView
+                android:id="@+id/management_bgv_photo"
+                style="@style/SoundSettings"
+                android:text="BGV Photo"/>
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="17dp">
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="4"/>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="7">
+
+            <TextView
+                android:id="@+id/management_score_clip"
+                style="@style/SoundSettings"
+                android:text="Score Clip"/>
+            <TextView
+                android:id="@+id/management_get_song_list"
+                style="@style/SoundSettings"
+                android:text="Get Song List"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,26 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Focused -->
+    <item android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#E2AE24"/>
+        </shape>
+    </item>
+
+    <!-- Selected -->
+    <item android:state_selected="true">
+        <shape android:shape="rectangle">
+            <solid android:color="#ffffff"/>
+        </shape>
+    </item>
+
+
+
+    <!-- Default -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="#33ffffff"/>
+        </shape>
+    </item>
+
+</selector>

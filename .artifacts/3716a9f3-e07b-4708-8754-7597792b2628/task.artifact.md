@@ -1,0 +1,3 @@
+- `[x]` Update IDs and text in `fragment_settings_default.xml`
+- `[x]` Update `SettingsDefaultFragment.kt` to bind views and set listeners
+- `[x]` Verify the build and functionality

@@ -9,6 +9,7 @@ import android.view.WindowInsetsController
 import android.widget.ImageView
 import androidx.activity.addCallback
 import androidx.fragment.app.FragmentActivity
+import androidx.fragment.app.FragmentTransaction
 
 class MainActivity : FragmentActivity() {
 
@@ -18,6 +19,7 @@ class MainActivity : FragmentActivity() {
     private lateinit var searchOverlay: View
     private lateinit var navSettings: View
     private lateinit var navbar: View
+    private var settingsPopup: SettingsPopup? = null
     private var expanded = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -28,7 +30,7 @@ class MainActivity : FragmentActivity() {
         bg = findViewById(R.id.bg)
         navHome = findViewById(R.id.nav_home)
         navSearch = findViewById(R.id.nav_search)
-        navSettings = findViewById(R.id.nav_settings) // ✅ ADD THIS
+        navSettings = findViewById(R.id.nav_settings)
         searchOverlay = findViewById(R.id.search_overlay)
         navbar = findViewById(R.id.navbar)
 
@@ -60,44 +62,62 @@ class MainActivity : FragmentActivity() {
         navHome.setOnClickListener { showHome() }
         navSearch.setOnClickListener { showSearch() }
 
-        // 🔥 Fix: make touch behave like single tap (no double tap issue)
+        // Make touch behave like single tap (no double tap issue)
         val touchHandler = View.OnTouchListener { v, event ->
             if (event.action == MotionEvent.ACTION_UP) {
                 v.performClick()
+                return@OnTouchListener true
             }
             false
         }
 
         navSettings.setOnClickListener {
-            SettingsPopup(this).show(it)
+            updateNavSelection(it)
+            settingsPopup?.dismiss()
+
+            settingsPopup = SettingsPopup(this)
+            settingsPopup?.show(it)
         }
+
+        // Touch Nav
         navHome.setOnTouchListener(touchHandler)
         navSearch.setOnTouchListener(touchHandler)
+        navSettings.setOnTouchListener(touchHandler)
+    }
+
+    private fun updateNavSelection(selectedView: View?) {
+        navHome.isSelected = selectedView == navHome
+        navSearch.isSelected = selectedView == navSearch
     }
 
     fun showHome() {
-        hideSearch()
+        updateNavSelection(navHome)
         navbar.visibility = View.VISIBLE
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.main_content, HomeFragment())
-            .commit()
-
         bg.setImageResource(R.drawable.bg_home)
+
+        val transaction = supportFragmentManager.beginTransaction()
+        hideSearch(transaction)
+        transaction.replace(R.id.main_content, HomeFragment())
+        transaction.commit()
     }
+
     fun showSettings(anchor: View) {
-        hideSearch()
+        updateNavSelection(navSettings)
+        settingsPopup?.dismiss()
 
         navbar.visibility = View.GONE
 
-        supportFragmentManager.beginTransaction()
-            .replace(R.id.main_content, SettingsFragment())
-            .commit()
+        val transaction = supportFragmentManager.beginTransaction()
+        hideSearch(transaction)
+        transaction.replace(R.id.main_content, SettingsFragment())
+        transaction.commit()
 
         bg.setImageResource(R.drawable.bg_songlist)
     }
 //            setColorFilter(0x80000000.toInt())
 
     fun showSearch(selectedCategory: String? = null) {
+        updateNavSelection(navSearch)
         val fragment = SearchFragment().apply {
             arguments = Bundle().apply {
                 putString("selected_filter", selectedCategory)
@@ -124,15 +144,19 @@ class MainActivity : FragmentActivity() {
         expanded = value
     }
 
-    fun hideSearch() {
+    fun hideSearch(transaction: FragmentTransaction? = null) {
         searchOverlay.visibility = View.GONE
 
-        supportFragmentManager.beginTransaction()
-            .remove(
-                supportFragmentManager.findFragmentById(R.id.search_overlay)
-                    ?: return
-            )
-            .commit()
+        val fragment = supportFragmentManager.findFragmentById(R.id.search_overlay)
+            ?: return
+
+        if (transaction != null) {
+            transaction.remove(fragment)
+        } else {
+            supportFragmentManager.beginTransaction()
+                .remove(fragment)
+                .commit()
+        }
     }
 
     // 🔥 Fullscreen (modern + backward compatible)

@@ -1,0 +1,10 @@
+- [x] Center Radio Buttons and Borders in `fragment_settings_equalizer.xml`
+    - [x] Create `radio_button_centered.xml` with combined border and dot
+    - [x] Update `RadioButton`s to use `android:button="@null"` and new background
+    - [x] Adjust row layout (margins/widths) for better horizontal centering
+- [x] Add Focus States to `radio_button_centered.xml`
+    - [x] Update `radio_button_centered.xml` with `state_focused` items
+    - [x] Verify focus highlight on device
+- [x] Fix Radio Button Grouping
+    - [x] Update `SettingsEqualizerFragment.kt` with manual grouping logic
+    - [x] Verify selection logic on device

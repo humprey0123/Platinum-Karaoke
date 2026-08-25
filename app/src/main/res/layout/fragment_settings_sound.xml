@@ -1,0 +1,310 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/fragment_settings_sound"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginHorizontal="30dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:paddingHorizontal="20dp"
+        android:orientation="vertical"
+        android:background="#33010101">
+
+        <LinearLayout
+            android:id="@+id/intro"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="Intro Sound:"/>
+            <TextView
+                android:id="@+id/sound_intro_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+
+            <TextView
+                android:id="@+id/sound_intro_low"
+                style="@style/SoundSettings"
+                android:text="Low"/>
+            <TextView
+                android:id="@+id/sound_intro_middle"
+                style="@style/SoundSettings"
+                android:text="Middle"/>
+            <TextView
+                android:id="@+id/sound_intro_high"
+                style="@style/SoundSettings"
+                android:text="High"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="Button Sound:"/>
+
+            <TextView
+                android:id="@+id/sound_button_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/sound_button_low"
+                style="@style/SoundSettings"
+                android:text="Low"/>
+            <TextView
+                android:id="@+id/sound_button_middle"
+                style="@style/SoundSettings"
+                android:text="Middle"/>
+            <TextView
+                android:id="@+id/sound_button_high"
+                style="@style/SoundSettings"
+                android:text="High"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="Cheer Sound:"/>
+
+            <TextView
+                android:id="@+id/sound_cheer_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/sound_cheer_low"
+                style="@style/SoundSettings"
+                android:text="Low"/>
+            <TextView
+                android:id="@+id/sound_cheer_middle"
+                style="@style/SoundSettings"
+                android:text="Middle"/>
+            <TextView
+                android:id="@+id/sound_cheer_high"
+                style="@style/SoundSettings"
+                android:text="High"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="Vocal/Chorus:"/>
+
+
+            <TextView
+                android:id="@+id/sound_vocal_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/sound_vocal_low"
+                style="@style/SoundSettings"
+                android:text="Low"/>
+            <TextView
+                android:id="@+id/sound_vocal_middle"
+                style="@style/SoundSettings"
+                android:text="Middle"/>
+            <TextView
+                android:id="@+id/sound_vocal_high"
+                style="@style/SoundSettings"
+                android:text="High"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="Applause:"/>
+            
+            <TextView
+                android:id="@+id/sound_applause_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/sound_applause_low"
+                style="@style/SoundSettings"
+                android:text="Low"/>
+            <TextView
+                android:id="@+id/sound_applause_middle"
+                style="@style/SoundSettings"
+                android:text="Middle"/>
+            <TextView
+                android:id="@+id/sound_applause_high"
+                style="@style/SoundSettings"
+                android:text="High"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="Background Music:"/>
+            
+            <TextView
+                android:id="@+id/sound_bgm_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/sound_bgm_low"
+                style="@style/SoundSettings"
+                android:text="Low"/>
+            <TextView
+                android:id="@+id/sound_bgm_middle"
+                style="@style/SoundSettings"
+                android:text="Middle"/>
+            <TextView
+                android:id="@+id/sound_bgm_high"
+                style="@style/SoundSettings"
+                android:text="High"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:text="Background Music Volume:"/>
+
+            <TextView
+                android:id="@+id/sound_bgm_volume_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/sound_bgm_volume_low"
+                style="@style/SoundSettings"
+                android:text="Low"/>
+            <TextView
+                android:id="@+id/sound_bgm_volume_middle"
+                style="@style/SoundSettings"
+                android:text="Middle"/>
+            <TextView
+                android:id="@+id/sound_bgm_volume_high"
+                style="@style/SoundSettings"
+                android:text="High"/>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="Drum Sound Volume:"/>
+
+            <TextView
+                android:id="@+id/sound_drum_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/sound_drum_low"
+                style="@style/SoundSettings"
+                android:text="Low"/>
+            <TextView
+                android:id="@+id/sound_drum_middle"
+                style="@style/SoundSettings"
+                android:text="Middle"/>
+            <TextView
+                android:id="@+id/sound_drum_high"
+                style="@style/SoundSettings"
+                android:text="High"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            >
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:text="Navigation Sound Volume:"/>
+
+            <TextView
+                android:id="@+id/sound_nav_vol_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/sound_nav_vol_low"
+                style="@style/SoundSettings"
+                android:text="Low"/>
+            <TextView
+                android:id="@+id/sound_nav_vol_medium"
+                style="@style/SoundSettings"
+                android:text="Middle"/>
+            <TextView
+                android:id="@+id/sound_nav_vol_high"
+                style="@style/SoundSettings"
+                android:text="High"/>
+
+        </LinearLayout>
+        
+    </LinearLayout>
+    <Space
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"/>
+</LinearLayout>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    android:id="@+id/fragment_settings_score"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="6"
+        android:paddingHorizontal="40dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/score_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="70dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="Score Level:  "/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8">
+            <TextView
+                android:id="@+id/score_level_off"
+                style="@style/SoundSettings"
+                android:text="Off"/>
+            <TextView
+                android:id="@+id/score_level_casual"
+                style="@style/SoundSettings"
+                android:text="Casual"/>
+            <TextView
+                android:id="@+id/score_level_expert"
+                style="@style/SoundSettings"
+                android:text="Expert"/>
+            <TextView
+                android:id="@+id/score_level_pro"
+                style="@style/SoundSettings"
+                android:text="Pro"/>
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/score_level"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="17dp">
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3"
+                android:textStyle="bold"
+                android:textSize="14sp"
+                android:text="Score Animation:"/>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="8">
+
+                <TextView
+                    android:id="@+id/score_animation_default"
+                    style="@style/SoundSettings"
+                    android:text="Default"/>
+                <TextView
+                    android:id="@+id/score_animation_custom"
+                    style="@style/SoundSettings"
+                    android:text="Custom Clip"/>
+            </LinearLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

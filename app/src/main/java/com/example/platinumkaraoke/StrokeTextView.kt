@@ -12,21 +12,47 @@ class StrokeTextView @JvmOverloads constructor(
     attrs: AttributeSet? = null
 ) : AppCompatTextView(context, attrs) {
 
-    private var strokeColor: Int = Color.BLACK
-    private var strokeWidth: Float = 7f
+    var strokeColor: Int = Color.BLACK
+        set(value) {
+            field = value
+            invalidate()
+        }
+    var strokeWidth: Float = 6f
+        set(value) {
+            field = value
+            invalidate()
+        }
+    private var isDrawing: Boolean = false
 
     override fun onDraw(canvas: Canvas) {
-        val textColor = currentTextColor
+        if (isDrawing) return // Prevent recursion from setTextColor
 
-        // Draw stroke (outline)
-        paint.style = Paint.Style.STROKE
-        paint.strokeWidth = strokeWidth
-        setTextColor(strokeColor)
-        super.onDraw(canvas)
+        if (strokeWidth > 0) {
+            isDrawing = true
+            val textColor = currentTextColor
 
-        // Draw fill (actual text)
-        paint.style = Paint.Style.FILL
-        setTextColor(textColor)
+            // Draw stroke (outline)
+            val p = paint
+            p.style = Paint.Style.STROKE
+            p.strokeWidth = strokeWidth
+            p.strokeJoin = Paint.Join.ROUND
+            
+            // Temporarily disable shadow for the stroke pass
+            val sColor = shadowColor
+            val sDx = shadowDx
+            val sDy = shadowDy
+            val sRadius = shadowRadius
+            setShadowLayer(0f, 0f, 0f, 0)
+            
+            setTextColor(strokeColor)
+            super.onDraw(canvas)
+
+            // Draw fill (actual text)
+            p.style = Paint.Style.FILL
+            setTextColor(textColor)
+            setShadowLayer(sRadius, sDx, sDy, sColor)
+            isDrawing = false
+        }
         super.onDraw(canvas)
     }
 }

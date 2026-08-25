@@ -10,7 +10,7 @@
     <!-- Selected -->
     <item android:state_selected="true">
         <shape android:shape="rectangle">
-            <solid android:color="#E2AE24"/>
+            <solid android:color="#33ffffff"/>
         </shape>
     </item>
 

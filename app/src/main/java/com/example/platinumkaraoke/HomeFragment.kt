@@ -106,6 +106,7 @@ class GridAdapter(private val items: List<Category>) :
         holder.itemView.setOnTouchListener { v, event ->
             if (event.action == MotionEvent.ACTION_UP) {
                 v.performClick()
+                return@setOnTouchListener true
             }
             false
         }

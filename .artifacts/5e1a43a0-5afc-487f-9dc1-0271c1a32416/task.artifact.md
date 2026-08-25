@@ -1,0 +1,5 @@
+- [x] Update `StrokeTextView.kt` for public properties and recursion safety
+- [x] Change `TextView` to `StrokeTextView` in `fragment_settings_lyric_color.xml`
+- [x] Configure `StrokeTextView` with white stroke in `SettingsLyricColorFragment.kt`
+- [x] Increase stroke width for better visibility
+- [ ] Verify styling
